@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\Auth\RegisterController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -27,12 +28,12 @@ Route::namespace('admin')->group(function () {
             Route::get('/delete/{id}', [MenuController::class, 'destroy'])->name("admin.menu.destroy");
         });
         Route::group(['prefix' => 'category'], function () {
-            Route::get('/', [CategoryController::class, 'index'])->name("admin.category.index");
-            Route::get('/add', [CategoryController::class, 'create'])->name("admin.category.add");
-            Route::post('/add', [CategoryController::class, 'store'])->name("admin.category.store");
-            Route::get('/edit/{id}', [CategoryController::class, 'edit'])->name("admin.category.edit");
-            Route::post('/edit/{id}', [CategoryController::class, 'update'])->name("admin.category.update");
-            Route::get('/delete/{id}', [CategoryController::class, 'destroy'])->name("admin.category.destroy");
+            Route::get('/{model_type}', [CategoryController::class, 'index'])->name("admin.category.index");
+            Route::get('/{model_type}/add', [CategoryController::class, 'create'])->name("admin.category.add");
+            Route::post('/{model_type}/add', [CategoryController::class, 'store'])->name("admin.category.store");
+            Route::get('/{model_type}/edit/{id}', [CategoryController::class, 'edit'])->name("admin.category.edit");
+            Route::post('/{model_type}/edit/{id}', [CategoryController::class, 'update'])->name("admin.category.update");
+            Route::get('/{model_type}/delete/{id}', [CategoryController::class, 'destroy'])->name("admin.category.destroy");
         });
     });
 });
