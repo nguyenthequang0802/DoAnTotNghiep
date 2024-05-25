@@ -5,7 +5,7 @@
             <a href="{{ route('admin.post.index') }}" style="color: #3b82f6">
                 <span class="font-normal">< <p class="inline underline">Quay Lại</p></span>
             </a>
-            <h2 class="my-4 text-xl font-bold text-gray-900 dark:text-white">Thêm mới bài viết mới</h2>
+            <h2 class="my-4 text-xl font-bold text-gray-900 dark:text-white">Chỉnh sửa bài viết</h2>
             <form action="{{ route('admin.post.update', $item->id) }}" method="POST">
                 @csrf
                 <div class="w-full p-4 text-left bg-white border border-gray-200 rounded-lg shadow sm:p-3 dark:bg-gray-800 dark:border-gray-700 mb-4">
@@ -73,7 +73,7 @@
                     </div>
                 </div>
                 <button type="submit" class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
-                    Thêm mới
+                    Cập nhật
                 </button>
             </form>
         </div>
