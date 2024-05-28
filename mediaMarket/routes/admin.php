@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -52,6 +53,14 @@ Route::namespace('admin')->group(function () {
             Route::get('/edit/{id}', [PostController::class, 'edit'])->name("admin.post.edit");
             Route::post('/edit/{id}', [PostController::class, 'update'])->name("admin.post.update");
             Route::get('/delete/{id}', [PostController::class, 'destroy'])->name("admin.post.destroy");
+        });
+        Route::group(['prefix' => 'product'], function () {
+            Route::get('/', [ProductController::class, 'index'])->name("admin.product.index");
+            Route::get('/add', [ProductController::class, 'create'])->name("admin.product.add");
+            Route::post('/add', [ProductController::class, 'store'])->name("admin.product.store");
+            Route::get('/edit/{id}', [ProductController::class, 'edit'])->name("admin.product.edit");
+            Route::post('/edit/{id}', [ProductController::class, 'update'])->name("admin.product.update");
+            Route::get('/delete/{id}', [ProductController::class, 'destroy'])->name("admin.product.destroy");
         });
     });
 });
