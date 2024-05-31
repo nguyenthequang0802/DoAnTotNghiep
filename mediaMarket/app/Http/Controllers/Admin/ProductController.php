@@ -23,6 +23,7 @@ class ProductController extends Controller
         return Brand::all();
     }
     private function fillData($item, $input){
+        $price = filter_var($input['price'], FILTER_SANITIZE_NUMBER_INT);
         $item['name'] = $input['name'];
         $item['slug'] = $input['slug'] ?? Str::slug($input['name']);
         $item['description'] = $input['description'];
@@ -30,7 +31,7 @@ class ProductController extends Controller
         $item['category_id'] = $input['category'];
         $item['color'] = $input['color'];
         $item['quantity'] = $input['qty'];
-        $item['price'] = $input['price'];
+        $item['price'] = $price;
         $item['promotion'] = $input['promotion'];
         $item['status'] = $input['status'];
         $item->save();
