@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -27,6 +28,7 @@ class PostController extends Controller
         $item['seo_keywords'] = $input['seo_keywords'] ?? '';
         $item['seo_description'] = $input['seo_description'] ?? '';
         $item['category_id'] = isset($input['category_id']) && is_numeric($input['category_id']) ? (int) $input['category_id'] : null;
+        $item['product_id'] = isset($input['product']) && is_numeric($input['product']) ? (int) $input['product'] : null;
         if($is_create){
             $item['views'] = 0;
             $item['rating_num'] = 0;
@@ -46,7 +48,8 @@ class PostController extends Controller
     }
     public function create(){
         $categories = $this->getPostCategories();
-        return view('admin.post.create', ['categories'=>$categories]);
+        $products = Product::all();
+        return view('admin.post.create', ['categories'=>$categories, 'products' => $products]);
     }
     public function store(Request $request){
         $input = $request->all();
@@ -57,7 +60,8 @@ class PostController extends Controller
     public function edit($id){
         $item = Post::find($id);
         $categories = $this->getPostCategories();
-        return view('admin.post.edit', ['item'=>$item, 'categories'=> $categories]);
+        $products = Product::all();
+        return view('admin.post.edit', ['item'=>$item, 'categories'=> $categories, 'products' => $products]);
     }
     public function update(Request $request, $id){
         $input = $request->all();

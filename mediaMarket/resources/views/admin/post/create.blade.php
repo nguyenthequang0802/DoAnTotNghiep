@@ -18,7 +18,17 @@
                                     @include('admin.post.category_option', ['categories'=>$categories, 'level'=>0])
                                 </select>
                             </div>
+                            <div class="mb-6">
+                                <label for="product" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Bài viết của sản phẩm:</label>
+                                <select id="product" name="product" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                    <option value="">Chọn sản phẩm</option>
+                                    @foreach($products as $item_product)
+                                        <option value="{{ $item_product->id }}">{{ $item_product->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                             <div class="flex w-full relative">
+                                <label for="image_label" class="inline-block text-sm font-medium text-gray-900 dark:text-white">Ảnh Preview:</label>
                                 <input type="text" id="image_label" class="bg-gray-50 w-full border border-gray-300 text-gray-900 text-sm focus:ring-0 focus:border-gray-300 rounded-lg block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="icon"
                                        aria-label="Image" aria-describedby="button-image">
                                 <div class="input-group-append absolute right-0">
