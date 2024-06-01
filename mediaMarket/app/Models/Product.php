@@ -32,6 +32,7 @@ class Product extends Model
         return $this->hasMany(ProductImage::class,'product_id');
     }
     public function posts(){
-        return $this->hasMany(Post::class, 'post_id');
+        return $this->hasMany(Post::class, 'product_id');
     }
 }
+

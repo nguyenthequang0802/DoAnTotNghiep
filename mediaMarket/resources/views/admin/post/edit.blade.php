@@ -18,7 +18,21 @@
                                     @include('admin.category.category_selected', ['categories'=>$categories, 'level'=>0])
                                 </select>
                             </div>
+                            <div class="mb-6">
+                                <label for="product" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Bài viết của sản phẩm:</label>
+                                <select id="product" name="product" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                    <option value="">Chọn sản phẩm</option>
+                                    @foreach($products as $item_product)
+                                        @if($item_product->id === $item->product_id)
+                                            <option value="{{ $item_product->id }}" selected>{{ $item_product->name }}</option>
+                                        @else
+                                            <option value="{{ $item_product->id }}">{{ $item_product->name }}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
+                            </div>
                             <div class="flex w-full relative">
+                                <label for="image_label" class="inline-block text-sm font-medium text-gray-900 dark:text-white">Ảnh Preview:</label>
                                 <input type="text" id="image_label" class="bg-gray-50 w-full border border-gray-300 text-gray-900 text-sm focus:ring-0 focus:border-gray-300 rounded-lg block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="icon"
                                        aria-label="Image" aria-describedby="button-image" value="{{ $item->preview_image }}">
                                 <div class="input-group-append absolute right-0">
@@ -51,11 +65,11 @@
                                 </div>
                                 <div class="">
                                     <label for="post_description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Mô tả ngắn</label>
-                                    <textarea id="post_description" name="description" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500">value="{{ $item->description }}"</textarea>
+                                    <textarea id="post_description" name="description" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500">{{ $item->description }}</textarea>
                                 </div>
                                 <div class="">
                                     <label for="seo_description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">SEO Description</label>
-                                    <textarea id="seo_description" name="seo_description" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500">value="{{ $item->seo_description }}"</textarea>
+                                    <textarea id="seo_description" name="seo_description" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500">{{ $item->seo_description }}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -66,7 +80,7 @@
                         <div class="">
                             <div class="">
                                 <label for="content" class="block mb-2 text-xl font-medium text-gray-900 dark:text-white">Nội dung bài viết</label>
-                                <textarea id="content" name="content" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500">value="{{ $item->content }}"</textarea>
+                                <textarea id="content" name="content" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500">{{ $item->content }}</textarea>
                             </div>
 
                         </div>

@@ -37,6 +37,7 @@
                                 <th scope="col" class="px-4 py-3">Tiêu đề bài viết</th>
                                 <th scope="col" class="px-4 py-3">Ảnh preview</th>
                                 <th scope="col" class="px-4 py-3">Danh mục bài viết</th>
+                                <th scope="col" class="px-4 py-3">Bài viết của sản phẩm</th>
                                 <th scope="col" class="px-4 py-3">Số lượt xem</th>
                                 <th scope="col" class="px-4 py-3">Đánh giá</th>
                                 <th scope="col" class="px-4 py-3">
@@ -55,6 +56,7 @@
                                     <img src="{{ $item->preview_image }}" class="w-16 md:w-32 max-w-full max-h-full" alt="{{ $item->title }}">
                                 </td>
                                 <td class="px-4 py-3">{{ $item->category->name }}</td>
+                                <td class="px-4 py-3">{{ $item->product->name }}</td>
                                 <td class="px-4 py-3">{{ $item->views }}</td>
                                 <td class="px-4 py-3">{{ $item->rating_value }}</td>
                                 <td class="px-4 py-3 flex items-center justify-end">
