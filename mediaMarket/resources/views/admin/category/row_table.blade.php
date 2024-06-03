@@ -1,6 +1,10 @@
 @foreach($categories as $item)
     <tr class="border-b dark:border-gray-700">
-        <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ $loop->index+1 }}</th>
+        @if($level == 0)
+            <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ $loop->index+1 }}</th>
+        @else
+            <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white"></th>
+        @endif
         <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ str_repeat('---- ', $level).$item->name }}</th>
         <td class="px-4 py-3">
             <img src="{{ $item->icon_path }}" class="w-16 md:w-32 max-w-full max-h-full" alt="{{ $item->name }}">
