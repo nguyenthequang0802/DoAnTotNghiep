@@ -34,10 +34,11 @@ class ProductController extends Controller
         $item['price'] = $price;
         $item['promotion'] = $input['promotion'];
         $item['status'] = $input['status'];
+        $item['info_product'] = isset($input['info_product']) ? $input['info_product'] : '';
         $item->save();
     }
     public function index(){
-        $products = Product::all();
+        $products = Product::orderBy('id', 'DESC')->paginate(20);
         return view('admin.product.index', ['products'=>$products]);
     }
     public function create(){

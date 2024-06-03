@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('brand_id')->constrained('brands')->onDelete('cascade');
             $table->text('name');
             $table->text('slug');
+            $table->mediumText('info_product')->nullable();
             $table->text('color')->nullable();
             $table->bigInteger('price');
             $table->integer('quantity');

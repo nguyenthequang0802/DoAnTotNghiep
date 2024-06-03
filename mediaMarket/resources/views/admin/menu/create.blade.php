@@ -1,6 +1,6 @@
 @extends('Layouts.adminPage')
 @section('content')
-    <section class="bg-white dark:bg-gray-900">
+    <section class="dark:bg-gray-900">
         <div class="py-8 px-4 mx-auto">
             <a href="{{ route('admin.menu.index') }}" style="color: #3b82f6">
                 <span class="font-normal">< <p class="inline underline">Quay Lại</p></span>
