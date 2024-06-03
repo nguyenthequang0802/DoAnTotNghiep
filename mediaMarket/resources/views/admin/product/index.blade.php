@@ -1,9 +1,9 @@
 @extends('Layouts.adminPage')
 @section('content')
-    <section class="bg-gray-50 dark:bg-gray-900 py-3 sm:py-5">
+    <section class="py-3 sm:py-5">
         <div class="px-4">
             <!-- Start coding here -->
-            <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
+            <div class="bg-white min-h-[275px] dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
                 <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
                     <div class="w-full md:w-1/2">
                         <form class="flex items-center">

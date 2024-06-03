@@ -27,7 +27,7 @@
 <body>
     @include('partials.admin.navbar')
     @include('partials.admin.sideBar')
-    <div class="p-4 sm:ml-64">
+    <div class="p-4 sm:ml-64 bg-[#eff7f8]">
         <div class="mt-20">
             @yield('content')
         </div>
