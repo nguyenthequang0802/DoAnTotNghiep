@@ -1,29 +1,29 @@
 <header class="block relative" id="section-header">
-    <div id="header-top" class="header-top py-1 bg-white hidden lg:block">
+    <div id="header-top" class="header-top py-1 bg-[#d70018] hidden lg:block">
         <div class="container mx-auto px-[15px]">
             <div class="flex header-top-container flex justify-between">
                 <ul class="header-top-left flex">
-                    <li class="ps-2 text-[#222222] flex items-center pr-[15px] relative item-top">
+                    <li class="ps-2 text-white flex items-center pr-[15px] relative item-top">
                         <span class="flex items-center me-1.5"><i class="fa-solid fa-phone"></i></span>
                         <span>1900 323 322</span>
                     </li>
-                    <li class="ps-2 text-[#222222] flex items-center pl-[15px] relative">
+                    <li class="ps-2 text-white flex items-center pl-[15px] relative">
                         <span class="flex items-center me-1.5"><i class="fa-regular fa-envelope"></i></span>
                         <span>info@gmail.com</span>
                     </li>
                 </ul>
                 <ul class="header-top-right flex">
-                    <li class="ps-2 text-[#222222] flex items-center pr-[15px] relative item-top">
+                    <li class="ps-2 text-white flex items-center pr-[15px] relative item-top">
                         <a href="">
                             <span class="flex items-center me-1.5"><i class="fa-solid fa-location-dot"></i></span>
                         </a>
                     </li>
-                    <li class="pl-[15px] pr-[15px] text-[#222222] flex items-center relative item-top">
+                    <li class="pl-[15px] pr-[15px] text-white flex items-center relative item-top">
                         <a href="">
                             <span class="flex items-center me-1.5"><i class="fa-regular fa-user"></i></span>
                         </a>
                     </li>
-                    <li class="ps-2 text-[#222222] flex items-center pl-[15px] relative">
+                    <li class="ps-2 text-white flex items-center pl-[15px] relative">
                         <a href="">
                             <span class="flex items-center me-1.5"><i class="fa-solid fa-globe"></i></span>
                         </a>
@@ -32,7 +32,7 @@
             </div>
         </div>
     </div>
-    <div id="header-bottom" class="header-bottom w-full bg-[#009981] py-[10px] md:py-[20px] lg:py-0 z-50" style="box-shadow: 0 0 8px #c9c9c9bf">
+    <div id="header-bottom" class="header-bottom w-full bg-[#be1e2d] py-[10px] md:py-[20px] lg:py-0 z-50" style="box-shadow: 0 0 8px #c9c9c9bf">
         <div class="container mx-auto px-[5px] md:px-[10px] lg:px-[15px]">
             <div class="hidden lg:block">
                 <div class="header-bottom-container min-h-20 grid grid-cols-5">
@@ -50,10 +50,10 @@
                         <div id="mega-menu-icons" class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1">
                             <ul class="flex flex-col mt-4 font-medium md:flex-row md:mt-0 md:space-x-8 rtl:space-x-reverse">
                                 <li>
-                                    <a href="#" class="block py-2 px-3 text-white border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-blue-500 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700" aria-current="page">Home</a>
+                                    <a href="#" class="block py-2 px-3 text-white border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0 dark:text-blue-500 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700" aria-current="page">Home</a>
                                 </li>
                                 <li>
-                                    <button data-popover-target="popover-bottom-1" data-popover-placement="bottom" type="button" class="flex items-center justify-between w-full py-2 px-3 font-medium text-white border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">
+                                    <button data-popover-target="popover-bottom-1" data-popover-placement="bottom" type="button" class="flex items-center justify-between w-full py-2 px-3 font-medium text-white border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">
                                         Bottom popover
                                         <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
@@ -306,8 +306,8 @@
                         </div>
                     </div>
                     <div class="header-action-list col-span-1 flex items-center pl-4">
-                        <div class="header-search-icon flex items-center text-[#333e48] cursor-pointer" style="transition: all .35s ease-in-out">
-                            <button id="dropdownNotificationButton" data-dropdown-toggle="dropdownNotification" class="flex relative inline-flex items-center text-sm font-medium text-center text-white hover:text-blue-500 focus:outline-none dark:hover:text-white dark:text-gray-400" type="button">
+                        <div class="header-search-icon flex items-center text-white cursor-pointer" style="transition: all .35s ease-in-out">
+                            <button id="dropdownNotificationButton" data-dropdown-toggle="dropdownNotification" class="flex relative inline-flex items-center text-sm font-medium text-center text-white hover:text-white focus:outline-none dark:hover:text-white dark:text-gray-400" type="button">
                                 <i class="fa-solid fa-magnifying-glass text-lg font-bold"></i>
                             </button>
 
@@ -362,12 +362,12 @@
 
                         </div>
                         <div class="header-action-item header-cart ms-14 flex items-center relative">
-                            <div class="flex items-center relative text-[#333e48]">
+                            <div class="flex items-center relative text-white">
                                 <div class="header-action-item_group flex me-[10px] relative">
-                                    <button data-popover-target="popover-click-cart" data-popover-trigger="click" data-popover-placement="bottom" type="button" class="font-medium text-white hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">
+                                    <button data-popover-target="popover-click-cart" data-popover-trigger="click" data-popover-placement="bottom" type="button" class="font-medium text-white hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">
                                         <i class="fa-solid fa-bag-shopping text-xl font-bold"></i>
                                     </button>
-                                    <div class="number absolute right-[-9px] bottom-[-10px] w-[22px] h-[22px] rounded-full flex items-center justify-center bg-[#333e48] text-white text-[12px] font-bold">0</div>
+                                    <div class="number absolute right-[-9px] bottom-[-10px] w-[22px] h-[22px] rounded-full flex items-center justify-center bg-white border border-[#d70018] text-[#d70018] text-[12px] font-bold">0</div>
                                 </div>
                                 <div class="header-action-item_group">
                                     <div class="font-bold text-white">$0.00</div>
@@ -599,7 +599,7 @@
                                             </a>
                                         </div>
                                     </div>
-                                    <button class="btn-search-view_all w-full px-[14px] py-[10px] text-center cursor-pointer rounded-b-[10px] text-[14px] font-bold text-[#333e48] hover:text-white bg-[#ffd400] hover:bg-[#333e48] border-2 border-solid border-[#ffd400] hover:border-[#333e48]">View All</button>
+                                    <button class="btn-search-view_all w-full px-[14px] py-[10px] text-center cursor-pointer rounded-b-[10px] text-[14px] font-bold text-[#333e48] hover:text-white bg-[#be1e2d] hover:bg-[#d70018] border-2 border-solid border-[#ffd400] hover:border-[#333e48]">View All</button>
                                 </div>
                                 <div class="search-result_empty p-[20px] text-center text-[#333e48] hover:text-[#ffd400]">Không có sản phầm bạn đang tìm kiếm.</div>
                             </div>
