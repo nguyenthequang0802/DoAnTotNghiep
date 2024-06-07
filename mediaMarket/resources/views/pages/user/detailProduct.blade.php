@@ -429,9 +429,9 @@
                                 </button>
                             </a>
                             <a href="">
-                                <button type="button" class="w-full flex flex-col justify-center items-center text-white bg-[#FF9119] hover:bg-[#FF9119]/80 focus:ring-4 focus:outline-none focus:ring-[#FF9119]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center shadow-lg dark:hover:bg-[#FF9119]/80 dark:focus:ring-[#FF9119]/40 me-2 mb-2">
+                                <button type="button" class="w-full flex flex-col justify-center items-center text-[#333] hover:text-white bg-white hover:bg-[#FF9119] border-2 border-[#FF9119] focus:ring-4 focus:outline-none focus:ring-[#FF9119]/50 font-medium rounded-lg text-sm px-5 py-2 text-center inline-flex items-center shadow-lg dark:hover:bg-[#FF9119]/80 dark:focus:ring-[#FF9119]/40 me-2 mb-2">
                                     <p class="text-center text-xl font-bold"><i class="fa-solid fa-cart-plus"></i></p>
-                                    <p class="text-center text-sm text-white">Thêm vào giỏ hàng</p>
+                                    <p class="text-center text-sm">Thêm vào giỏ hàng</p>
                                 </button>
                             </a>
                         </div>
@@ -594,9 +594,9 @@
             <div>
                 <div class="flex-col justify-between items-center my-2 py-4 px-3 md:bg-white rounded-lg max-md:my-1 max-md:py-3 max-md:rounded-2xl">
                     <div class="header-box px-4 mb-5">
-                        <div class="header bg-[#009981]  inline-block h-7 overflow-hidden after:border-t-[30px] after:border-t-[#00483d] after:border-l-[30px] after:border-l-[#009981] after:ml-[40px]">
-                            <h2 class="title text-white py-1 pr-14 pl-9 ml-14 bg-[#00483d] text-[14px] uppercase font-bold">
-                                <a href="">Khuyến mãi hot</a>
+                        <div class="header bg-[#d70018]  inline-block h-7 overflow-hidden after:border-t-[30px] after:border-t-[#be1e2d] after:border-l-[30px] after:border-l-[#d70018] after:ml-[40px]">
+                            <h2 class="title text-white py-1 pr-14 pl-9 ml-14 bg-[#be1e2d] text-[14px] uppercase font-bold">
+                                <a href="">Sản phẩm liên quan</a>
                             </h2>
                         </div>
                     </div>

@@ -258,39 +258,26 @@
                                             <p class="price-sale text-left text-[16px] font-bold text-[#be1e2d]">28.790.000 đ</p>
                                             <del class="price float-left text-left text-sm text-[#666666]">38.990.000 đ</del>
                                         </div>
-                                    </div>
-                                    <div class="action-item_container w-full">
-                                        <div class="action-item w-full flex justify-around items-center px-2">
-                                            <button type="button" class="btn-add_to_cart w-full hidden my-2.5 text-white bg-[#009981] hover:bg-[#00483d] focus:outline-none focus:ring-4 focus:ring-[#00483d] font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+                                        <div class="">
+                                            <button type="button" class="btn-add_to_cart h-11 w-11 flex justify-center items-center my-2.5 hover:text-white hover:bg-[#be1e2d] text-[#333] bg-white border border-[#be1e2d] focus:outline-none font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
                                                 <i class="fa-solid fa-cart-plus"></i>
-                                                <span class="text-[0.8rem] md:text-md hidden lg:inline-block">Thêm giỏ hàng</span>
                                             </button>
                                         </div>
+                                    </div>
+                                    <div class="action-item_container w-full">
+                                        {{--                                <div class="action-item w-full flex justify-around items-center px-2">--}}
+                                        {{--                                    <button type="button" class="btn-add_to_cart w-full hidden my-2.5 text-[#333] bg-[#ffd400] hover:bg-[#ffb208] focus:outline-none focus:ring-4 focus:ring-[#00483d] font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">--}}
+                                        {{--                                        <i class="fa-solid fa-cart-plus"></i>--}}
+                                        {{--                                        <span class="text-[0.8rem] md:text-md hidden lg:inline-block">Thêm giỏ hàng</span>--}}
+                                        {{--                                    </button>--}}
+                                        {{--                                </div>--}}
                                     </div>
                                 </div>
                             </div>
                         @endfor
-                        <style>
-                            .card-item{
-                                transition: all 400ms ease-in-out 0s;
-                            }
-                            .card-item:hover{
-                                transition: all 400ms ease-in-out 0s;
-                            }
-                            .card-item>.action-item_container{
-                                transition: all 400ms ease-in-out 0s;
-                            }
-                            .card-item:hover .price-item{
-                                display: none;
-                            }
-                            .card-item:hover .btn-add_to_cart{
-                                display: block;
-                                transition: all 400ms ease-in-out 0s;
-                            }
-                        </style>
                     </div>
                     <a href="" class="see-all px-4 mb-3 flex justify-center items-center">
-                        <button type="button" class="text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Xem thêm</button>
+                        <button type="button" class="hover:text-white hover:bg-[#be1e2d] bg-[white] border border-[#be1e2d] focus:outline-none font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Xem thêm</button>
                     </a>
                 </div>
             </div>

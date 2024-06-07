@@ -30,6 +30,9 @@ Route::group(['prefix' => '/'], function () {
     Route::get('/cart', function () {
         return view('pages.user.cart');
     });
+    Route::get('/check-out', function () {
+        return view('pages.user.check-out');
+    });
 });
 
 //Route::group(['prefix' => '/admin'], function () {

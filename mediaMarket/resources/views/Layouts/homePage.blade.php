@@ -17,8 +17,8 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <style>
         body {
-            padding: 0;
-            margin: 0;
+            padding: 0!important;
+            margin: 0!important;
         }
         .item-top::after {
             content: "";
@@ -42,7 +42,7 @@
         </main>
         <!-- Footer container -->
         <div class="back-top fixed right-0 bottom-3" id="back-top">
-            <button type="button" class="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-3 text-center me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">
+            <button type="button" class="text-white bg-[#be1e2d] hover:bg-[#d70018] focus:outline-none font-medium rounded-full text-sm px-5 py-3 text-center me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">
                 <i class="fa-solid fa-arrow-up"></i>
             </button>
         </div>
