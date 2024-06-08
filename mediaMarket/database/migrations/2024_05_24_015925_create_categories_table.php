@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('model_type');
             $table->text('icon_path');
             $table->text('description');
+            $table->integer('status');
             $table->timestamps();
         });
     }

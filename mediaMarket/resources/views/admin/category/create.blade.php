@@ -5,7 +5,11 @@
             <a href="{{ route('admin.category.index', $model_type) }}" style="color: #3b82f6">
                 <span class="font-normal">< <p class="inline underline">Quay Lại</p></span>
             </a>
-            <h2 class="my-4 text-xl font-bold text-gray-900 dark:text-white">Thêm mới mới Danh mục <p class="inline-block">{{ $model_type }}</p></h2>
+            @if($model_type == 'post')
+                <h2 class="m-4 text-xl font-bold text-gray-900 dark:text-white">Thêm mới danh mục bài viết</h2>
+            @elseif($model_type == 'product')
+                <h2 class="m-4 text-xl font-bold text-gray-900 dark:text-white">Thêm mới danh mục sản phẩm</h2>
+            @endif
             <form action="{{ route('admin.category.store', $model_type) }}" method="POST">
                 @csrf
                 <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
@@ -32,7 +36,6 @@
                             @include('admin.category.category_option', ['categories'=>$categories, 'level'=>0])
                         </select>
                     </div>
-
                     <div class="w-full">
                         <label for="image_label" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Chọn icon</label>
                         <div class="flex w-full relative">
@@ -40,6 +43,20 @@
                                    aria-label="Image" aria-describedby="button-image">
                             <div class="input-group-append absolute right-0">
                                 <button type="button" id="button-image" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5">Chọn tệp</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div></div>
+                    <div class="w-full">
+                        <label for="image_label" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Trạng thái:</label>
+                        <div class="w-full flex flex-wrap">
+                            <div class="flex items-center me-4">
+                                <input id="red-radio" type="radio" value="0" name="status" checked class="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                <label for="red-radio" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Ẩn </label>
+                            </div>
+                            <div class="flex items-center me-4">
+                                <input id="green-radio" type="radio" value="1" name="status" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 dark:focus:ring-green-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                <label for="green-radio" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Hiển thị</label>
                             </div>
                         </div>
                     </div>
