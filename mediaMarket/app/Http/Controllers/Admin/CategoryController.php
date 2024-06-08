@@ -23,11 +23,13 @@ class CategoryController extends Controller
         $item['icon_path'] = $input['icon'] ?? "";
         $item['model_type'] = $model_type;
         $item['description'] = $input['description'];
+        $item['status'] = $input['status'];
         $item->save();
     }
     public function index($model_type) {
+        $categories = Category::orderBy('id', 'desc')->where('model_type','=', $model_type)->where('parent_id', '=', null)->with('subCategory')->paginate(15);
         return view('admin.category.index', [
-            'categories'=>$this->getCategories($model_type),
+            'categories'=>$categories,
             'model_type'=>$model_type]);
     }
     public function create($model_type){

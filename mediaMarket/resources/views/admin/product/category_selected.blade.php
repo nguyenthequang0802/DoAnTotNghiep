@@ -6,7 +6,7 @@
 
     @endif
     @if($category->subCategory)
-        @include('admin.product.category_selected', ['categories'=>$category->subCategory, 'level'=>$level+1])
+        @include('admin.product.category_selected', ['categories'=>$category->subCategory, 'level'=>$level+1, 'item'=>$item])
     @endif
 @endforeach
 
