@@ -238,11 +238,11 @@
                         </div>
                     </div>
                     <div class="list-products grid grid-cols-2 gap-2 md:grid-cols-3 xl:grid-cols-4 lg:gap-3 mb-5 px-4">
-                        @for($i = 0; $i<10; $i++)
+                        @foreach($products as $product)
                             <div class="product-item col-span-1">
                                 <div class="card-item bg-white flex pt-2.5 px-2.5 pb-3.5 border-2 h-full flex-col items-center justify-start rounded border-[#f0f0f0] hover:border-white hover:drop-shadow-xl max-md:border-0 cursor-pointer">
                                     <div class="discourd-item pb-2 h-8 flex w-full items-center justify-start">
-                                        <p class="border-2 m-1 items-center whitespace-nowrap rounded border-[#be1e2d] bg-[#be1e2d] px-2 py-1 text-xs text-white max-md:text-[10px]">Giảm 26%</p>
+                                        <p class="border-2 m-1 items-center whitespace-nowrap rounded border-[#be1e2d] bg-[#be1e2d] px-2 py-1 text-xs text-white max-md:text-[10px]">Giảm {{ $product->promotion }}%</p>
                                         <p class="border-2 m-1 items-center whitespace-nowrap rounded border-[#be1e2d] bg-white px-2 py-1 text-xs text-[#be1e2d] max-md:text-[10px]">Trả góp 0%</p>
                                     </div>
                                     <div class="thumbnail-item relative w-full">
@@ -252,11 +252,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <h3 class="name-item w-full px-2 py-2.5 text-left text-sm max-md:text-[13px] font-bold text-black">iPhone 15 Pro Max 256GB Chính hãng (VN/A)</h3>
+                                    <h3 class="name-item w-full px-2 py-2.5 text-left text-sm max-md:text-[13px] font-bold text-black">{{ $product->name }}</h3>
                                     <div class="price-item flex w-full items-center justify-start px-2 py-2.5">
-                                        <div class="w-full flex-col items-start justify-start">
-                                            <p class="price-sale text-left text-[16px] font-bold text-[#be1e2d]">28.790.000 đ</p>
-                                            <del class="price float-left text-left text-sm text-[#666666]">38.990.000 đ</del>
+                                        <div class="w-full flex flex-col items-start justify-start">
+                                            <span class="price-sale text-left text-[16px] font-bold text-[#be1e2d]"><p class="price_format inline-block">{{ number_format($product->price - $product->price * $product->promotion / 100) }}</p> VNĐ</span>
+                                            <span class="price text-left line-through text-sm text-[#666666]"><del class="price_format inline-block">{{ number_format($product->price) }}</del> VNĐ</span>
                                         </div>
                                         <div class="">
                                             <button type="button" class="btn-add_to_cart h-11 w-11 flex justify-center items-center my-2.5 hover:text-white hover:bg-[#be1e2d] text-[#333] bg-white border border-[#be1e2d] focus:outline-none font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
@@ -274,7 +274,7 @@
                                     </div>
                                 </div>
                             </div>
-                        @endfor
+                        @endforeach
                     </div>
                     <a href="" class="see-all px-4 mb-3 flex justify-center items-center">
                         <button type="button" class="hover:text-white hover:bg-[#be1e2d] bg-[white] border border-[#be1e2d] focus:outline-none font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Xem thêm</button>

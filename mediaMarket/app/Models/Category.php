@@ -31,4 +31,19 @@ class Category extends Model
             $child->delete();
         }
     }
+    public function allChildren()
+    {
+        $children = collect();
+
+        $addChildIds = function ($category) use (&$children, &$addChildIds) {
+            foreach ($category->subCategory as $child) {
+                $children->push($child->id);
+                $addChildIds($child);
+            }
+        };
+
+        $addChildIds($this);
+
+        return $children;
+    }
 }
