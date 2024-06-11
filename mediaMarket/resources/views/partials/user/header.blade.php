@@ -52,7 +52,7 @@
                                 @foreach($global_menus as $menu)
                                     @if(count($menu->subcategory) == 0)
                                         <li>
-                                            <a href="#" class="py-2 px-3 text-white border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0 dark:text-blue-500 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700" aria-current="page">
+                                            <a href="{{ route('user.store', $menu->id) }}" class="py-2 px-3 text-white border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0 dark:text-blue-500 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700" aria-current="page">
                                                 <div class="w-full flex justify-center items-center">
                                                     <img height="30" width="30" src="{{ asset($menu->icon_path) }}">
                                                 </div>
@@ -67,10 +67,10 @@
                                                 </div>
                                                 <p class="text-xs">{{ $menu->name }}</p>
                                             </button>
-                                            <div data-popover id="popover-bottom-{{ $menu->id }}" role="tooltip" class="absolute z-10 grid inline-block invisible w-auto grid-flow-col grid-rows-3 text-sm bg-white border border-gray-100 rounded-lg shadow-md dark:border-gray-700 md:grid-rows-3 dark:bg-gray-700">
+                                            <div data-popover id="popover-bottom-{{ $menu->id }}" role="tooltip" class="absolute z-10 grid inline-block invisible w-auto grid-cols-2 text-sm bg-white border border-gray-100 rounded-lg shadow-md dark:border-gray-700 md:grid-cols-3 dark:bg-gray-700">
                                                 @foreach($menu->subCategory as $sub_menu)
                                                     <div class="p-4 pb-0 text-gray-900 md:pb-4 dark:text-white">
-                                                        <a href="#" class="flex items-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group">
+                                                        <a href="{{ route('user.store', $sub_menu->id) }}" class="flex items-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group">
                                                             <span class="sr-only">{{ $sub_menu->name }}</span>
                                                             <svg class="w-3 h-3 me-2 text-gray-400 dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
                                                                 <path d="M15.977.783A1 1 0 0 0 15 0H3a1 1 0 0 0-.977.783L.2 9h4.239a2.99 2.99 0 0 1 2.742 1.8 1.977 1.977 0 0 0 3.638 0A2.99 2.99 0 0 1 13.561 9H17.8L15.977.783ZM6 2h6a1 1 0 1 1 0 2H6a1 1 0 0 1 0-2Zm7 5H5a1 1 0 0 1 0-2h8a1 1 0 1 1 0 2Z"/>
