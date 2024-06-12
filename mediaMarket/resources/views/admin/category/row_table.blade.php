@@ -7,7 +7,7 @@
         @endif
         <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ str_repeat('---- ', $level).$item->name }}</th>
         <td class="px-4 py-3">
-            <img src="{{ $item->icon_path }}" class="w-16 md:w-32 max-w-full max-h-full" alt="{{ $item->name }}">
+            <img src="{{ asset($item->icon_path) }}" class="w-16 md:w-32 max-w-full max-h-full" alt="{{ $item->name }}">
         </td>
         <td class="px-4 py-3">{{ $item->description }}</td>
         @if($item->status == 0)
