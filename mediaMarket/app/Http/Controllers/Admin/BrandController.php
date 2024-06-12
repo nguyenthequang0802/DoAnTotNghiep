@@ -15,7 +15,7 @@ class BrandController extends Controller
     }
     private function fillData($item,$input){
         $item['name'] = $input['name'];
-        $item['slug'] = $input['slug'] ?? str::Slug($input['name']);
+        $item['slug'] = $input['slug'] ?? Str::slug($input['name']);
         $item['icon_path'] = $input['icon'];
         $item['country'] = $input['country'];
         $item->save();

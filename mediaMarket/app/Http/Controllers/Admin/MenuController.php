@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Brand;
+use App\Models\Category;
 use App\Models\Menu;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -34,7 +36,9 @@ class MenuController extends Controller
 
     public function create(){
         $menus = $this->getMenus();
-        return view('admin.menu.create', ['menus' => $menus]);
+        $categories = Category::all();
+        $brands = Brand::all();
+        return view('admin.menu.create', ['menus' => $menus, 'categories'=>$categories, 'brands' => $brands]);
     }
     public function store(Request $request){
         $input = $request->all();
@@ -45,7 +49,9 @@ class MenuController extends Controller
     public function edit($id){
         $menus = $this->getMenus();
         $item = Menu::find($id);
-        return view('admin.menu.edit', ['menus' => $menus, 'item' => $item]);
+        $categories = Category::all();
+        $brands = Brand::all();
+        return view('admin.menu.edit', ['menus' => $menus, 'item' => $item, 'categories'=>$categories, 'brands' => $brands]);
     }
     public function update(Request $request,$id){
         $input = $request->all();
