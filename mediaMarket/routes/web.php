@@ -21,10 +21,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => '/'], function () {
     Route::get('/',[ProductController::class, 'show_product_hot'])->name('user.index');
-    Route::get('/{category_id}', [ProductController::class, 'show_product_store'])->name('user.store');
-    Route::get('/detail-product', function () {
-        return view('pages.user.detailProduct');
-    });
+    Route::get('/show-product/{category_id}', [ProductController::class, 'show_product_store'])->name('user.store');
+    Route::get('/detail-product/{product_id}', [ProductController::class, 'show_product_detail'])->name('user.product_detail');
     Route::get('/cart', function () {
         return view('pages.user.cart');
     });
