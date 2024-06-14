@@ -39,7 +39,7 @@
                     <div class="col-span-1 flex items-center pr-4">
                         <div class="logo-container flex">
                             <div class="logo">
-                                <a class="theme-logo flex items-center space-x-2 rtl:space-x-reverse cursor-pointer">
+                                <a href="{{ route('user.index') }}" class="theme-logo flex items-center space-x-2 rtl:space-x-reverse cursor-pointer">
                                     <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
                                     <h1 class="lg:text-3xl text-white font-bold">Media Market</h1>
                                 </a>
@@ -239,9 +239,9 @@
                                                 </a>
                                                 <a href="" class="search-results_item grid grid-cols-4 items-center mt-0 mx-4 mb-4 text-[14px] font-normal leading-normal">
                                                     <div class="search-results_item-image col-span-1 me-2">
-                                                                        <span class="image_style relative block" style="padding-top: 92%">
-                                                                            <img src="https://electrox.arenacommerce.com/cdn/shop/products/iapdlap_eab4e830-a9be-4d49-860e-ee11100c8fa7.png?v=1649400222&width=100" class="absolute left-0 top-0 h-full w-full max-w-full">
-                                                                        </span>
+                                                        <span class="image_style relative block" style="padding-top: 92%">
+                                                            <img src="https://electrox.arenacommerce.com/cdn/shop/products/iapdlap_eab4e830-a9be-4d49-860e-ee11100c8fa7.png?v=1649400222&width=100" class="absolute left-0 top-0 h-full w-full max-w-full">
+                                                        </span>
                                                     </div>
                                                     <div class="search-results_item-info col-span-3">
                                                         <div class="search-results_item-title text-[#0062bd] text-[14px] font-bold mb-[10px] hover:text-[#ffd400]">Ipad pro</div>
@@ -258,7 +258,6 @@
                                     <div class="search-result_empty p-[20px] text-center text-[#333e48] hover:text-[#ffd400]">Không có sản phầm bạn đang tìm kiếm.</div>
                                 </div>
                             </div>
-
                         </div>
                         <div class="header-action-item header-cart ms-14 flex items-center relative">
                             <div class="flex items-center relative text-white">
@@ -484,9 +483,9 @@
                                             </a>
                                             <a href="" class="search-results_item grid grid-cols-4 items-center mt-0 mx-4 mb-4 text-[14px] font-normal leading-normal">
                                                 <div class="search-results_item-image col-span-1 me-2">
-                                                                        <span class="image_style relative block" style="padding-top: 92%">
-                                                                            <img src="https://electrox.arenacommerce.com/cdn/shop/products/iapdlap_eab4e830-a9be-4d49-860e-ee11100c8fa7.png?v=1649400222&width=100" class="absolute left-0 top-0 h-full w-full max-w-full">
-                                                                        </span>
+                                                    <span class="image_style relative block" style="padding-top: 92%">
+                                                        <img src="https://electrox.arenacommerce.com/cdn/shop/products/iapdlap_eab4e830-a9be-4d49-860e-ee11100c8fa7.png?v=1649400222&width=100" class="absolute left-0 top-0 h-full w-full max-w-full">
+                                                    </span>
                                                 </div>
                                                 <div class="search-results_item-info col-span-3">
                                                     <div class="search-results_item-title text-[#0062bd] text-[14px] font-bold mb-[10px] hover:text-[#ffd400]">Ipad pro</div>

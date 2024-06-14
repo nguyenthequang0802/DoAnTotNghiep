@@ -9,69 +9,79 @@
                         <div class="thumb-product col-span-1 min-h-[600px]">
                             <swiper-container style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="mySwiper"
                                               thumbs-swiper=".mySwiper2" loop="true" space-between="10" navigation="true">
-                                <swiper-slide>
-                                    <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-                                </swiper-slide>
-                                <swiper-slide>
-                                    <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-                                </swiper-slide>
-                                <swiper-slide>
-                                    <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-                                </swiper-slide>
-                                <swiper-slide>
-                                    <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-                                </swiper-slide>
-                                <swiper-slide>
-                                    <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-                                </swiper-slide>
-                                <swiper-slide>
-                                    <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-                                </swiper-slide>
-                                <swiper-slide>
-                                    <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
-                                </swiper-slide>
-                                <swiper-slide>
-                                    <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
-                                </swiper-slide>
-                                <swiper-slide>
-                                    <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
-                                </swiper-slide>
-                                <swiper-slide>
-                                    <img src="https://swiperjs.com/demos/images/nature-10.jpg" />
-                                </swiper-slide>
+                                @foreach($product->images as $image)
+                                    <swiper-slide>
+                                        <img src="{{ asset($image->path_image) }}" />
+                                    </swiper-slide>
+                                @endforeach
+{{--                                <swiper-slide>--}}
+{{--                                    <img src="https://swiperjs.com/demos/images/nature-1.jpg" />--}}
+{{--                                </swiper-slide>--}}
+{{--                                <swiper-slide>--}}
+{{--                                    <img src="https://swiperjs.com/demos/images/nature-2.jpg" />--}}
+{{--                                </swiper-slide>--}}
+{{--                                <swiper-slide>--}}
+{{--                                    <img src="https://swiperjs.com/demos/images/nature-3.jpg" />--}}
+{{--                                </swiper-slide>--}}
+{{--                                <swiper-slide>--}}
+{{--                                    <img src="https://swiperjs.com/demos/images/nature-4.jpg" />--}}
+{{--                                </swiper-slide>--}}
+{{--                                <swiper-slide>--}}
+{{--                                    <img src="https://swiperjs.com/demos/images/nature-5.jpg" />--}}
+{{--                                </swiper-slide>--}}
+{{--                                <swiper-slide>--}}
+{{--                                    <img src="https://swiperjs.com/demos/images/nature-6.jpg" />--}}
+{{--                                </swiper-slide>--}}
+{{--                                <swiper-slide>--}}
+{{--                                    <img src="https://swiperjs.com/demos/images/nature-7.jpg" />--}}
+{{--                                </swiper-slide>--}}
+{{--                                <swiper-slide>--}}
+{{--                                    <img src="https://swiperjs.com/demos/images/nature-8.jpg" />--}}
+{{--                                </swiper-slide>--}}
+{{--                                <swiper-slide>--}}
+{{--                                    <img src="https://swiperjs.com/demos/images/nature-9.jpg" />--}}
+{{--                                </swiper-slide>--}}
+{{--                                <swiper-slide>--}}
+{{--                                    <img src="https://swiperjs.com/demos/images/nature-10.jpg" />--}}
+{{--                                </swiper-slide>--}}
                             </swiper-container>
                             <swiper-container class="mySwiper2" loop="true" space-between="10" slides-per-view="4" free-mode="true"
                                               watch-slides-progress="true">
-                                <swiper-slide>
-                                    <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-                                </swiper-slide>
-                                <swiper-slide>
-                                    <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-                                </swiper-slide>
-                                <swiper-slide>
-                                    <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-                                </swiper-slide>
-                                <swiper-slide>
-                                    <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-                                </swiper-slide>
-                                <swiper-slide>
-                                    <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-                                </swiper-slide>
-                                <swiper-slide>
-                                    <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-                                </swiper-slide>
-                                <swiper-slide>
-                                    <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
-                                </swiper-slide>
-                                <swiper-slide>
-                                    <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
-                                </swiper-slide>
-                                <swiper-slide>
-                                    <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
-                                </swiper-slide>
-                                <swiper-slide>
-                                    <img src="https://swiperjs.com/demos/images/nature-10.jpg" />
-                                </swiper-slide>
+                                @foreach($product->images as $image)
+                                    <swiper-slide>
+                                        <img src="{{ asset($image->path_image) }}" />
+                                    </swiper-slide>
+                                @endforeach
+{{--                                <swiper-slide>--}}
+{{--                                    <img src="https://swiperjs.com/demos/images/nature-1.jpg" />--}}
+{{--                                </swiper-slide>--}}
+{{--                                <swiper-slide>--}}
+{{--                                    <img src="https://swiperjs.com/demos/images/nature-2.jpg" />--}}
+{{--                                </swiper-slide>--}}
+{{--                                <swiper-slide>--}}
+{{--                                    <img src="https://swiperjs.com/demos/images/nature-3.jpg" />--}}
+{{--                                </swiper-slide>--}}
+{{--                                <swiper-slide>--}}
+{{--                                    <img src="https://swiperjs.com/demos/images/nature-4.jpg" />--}}
+{{--                                </swiper-slide>--}}
+{{--                                <swiper-slide>--}}
+{{--                                    <img src="https://swiperjs.com/demos/images/nature-5.jpg" />--}}
+{{--                                </swiper-slide>--}}
+{{--                                <swiper-slide>--}}
+{{--                                    <img src="https://swiperjs.com/demos/images/nature-6.jpg" />--}}
+{{--                                </swiper-slide>--}}
+{{--                                <swiper-slide>--}}
+{{--                                    <img src="https://swiperjs.com/demos/images/nature-7.jpg" />--}}
+{{--                                </swiper-slide>--}}
+{{--                                <swiper-slide>--}}
+{{--                                    <img src="https://swiperjs.com/demos/images/nature-8.jpg" />--}}
+{{--                                </swiper-slide>--}}
+{{--                                <swiper-slide>--}}
+{{--                                    <img src="https://swiperjs.com/demos/images/nature-9.jpg" />--}}
+{{--                                </swiper-slide>--}}
+{{--                                <swiper-slide>--}}
+{{--                                    <img src="https://swiperjs.com/demos/images/nature-10.jpg" />--}}
+{{--                                </swiper-slide>--}}
                             </swiper-container>
                             <style>
                                 swiper-container {
@@ -215,7 +225,7 @@
                 </div>
                 <div class="block-info">
                     <div class="relative w-full flex-col justify-start">
-                        <h1 class="name-product text-xl font-bold max-md:text-base mb-2.5">iPhone 15 Pro Max 256GB Chính Hãng (VN/A)</h1>
+                        <h1 class="name-product text-xl font-bold max-md:text-base mb-2.5">{{ $product->name }}</h1>
 
                         <div class="flex items-center">
                             <svg class="w-4 h-4 text-yellow-300 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
@@ -237,8 +247,12 @@
                         </div>
 
                         <div class="price-product-mobile flex items-baseline max-md:flex-col md:hidden">
-                            <p class="price-sale text-2xl font-bold text-[#be1e2d]">28.790.000 đ</p>
-                            <span class="text-sm font-normal text-[#555555] line-through">38.990.000 đ</span>
+                            @if($product->promotion != 0)
+                                <span class="price-sale text-2xl font-bold text-[#be1e2d]"><p class="price_format inline-block">{{ number_format($product->price - $product->price * $product->promotion / 100) }}</p> VNĐ</span>
+                                <span class="text-sm font-normal text-[#555555] line-through"><del class="price_format inline-block">{{ number_format($product->price) }}</del>VNĐ</span>
+                            @else
+                                <span class="price-sale text-2xl font-bold text-[#be1e2d]"><p class="price_format inline-block">{{ number_format($product->price) }}</p> VNĐ</span>
+                            @endif
                         </div>
 
                         <div class="list-memory my-2 grid grid-cols-4 gap-4 max-md:grid-cols-3 max-md:gap-2">
@@ -266,38 +280,29 @@
                                 </div>
                             </a>
                         </div>
-                        <p class="text-[#808a94] text-sm">Chọn mày đề xem giá chi tiết:</p>
+                        <p class="text-[#808a94] text-sm">Chọn màu để xem giá chi tiết:</p>
                         <div class="list-color my-2 grid grid-cols-4 gap-4 max-md:grid-cols-3 max-md:gap-2">
-                            <a class="" title="">
-                                <div>
-                                    <div class="items-center cursor-pointer border relative flex justify-center rounded-lg border-[#be1e2d] hover:border-[#be1e2d] w-full h-9">
-                                        <p class="font-bold text-[#be1e2d] text-center text-xs">Titan tự nhiên</p>
-                                        <div class="checked-product"></div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a class="" title="">
-                                <div>
-                                    <div class="items-center cursor-pointer border relative flex justify-center rounded-lg  hover:border-[#be1e2d] w-full h-9">
-                                        <p class="text-center text-xs">Titan đen</p>
+                            @foreach($list_colors as $item_color)
+                                @if($item_color->id == $product->id)
+                                    <a href="{{ route('user.product_detail', $item_color->id) }}" class="" title="">
+                                        <div>
+                                            <div class="items-center cursor-pointer border relative flex justify-center rounded-lg border-[#be1e2d] hover:border-[#be1e2d] w-full h-9">
+                                                <p class="font-bold text-[#be1e2d] text-center text-xs">{{ $item_color->color }}</p>
+                                                <div class="checked-product"></div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                @else
+                                    <a href="{{ route('user.product_detail', $item_color->id) }}" class="" title="">
+                                        <div>
+                                            <div class="items-center cursor-pointer border relative flex justify-center rounded-lg  hover:border-[#be1e2d] w-full h-9">
+                                                <p class="text-center text-xs">{{ $item_color->color }}</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                @endif
+                            @endforeach
 
-                                    </div>
-                                </div>
-                            </a>
-                            <a class="" title="">
-                                <div>
-                                    <div class="items-center cursor-pointer border relative flex justify-center rounded-lg hover:border-[#be1e2d] w-full h-9">
-                                        <p class="text-center text-xs">Titan trắng</p>
-                                    </div>
-                                </div>
-                            </a>
-                            <a class="" title="">
-                                <div>
-                                    <div class="items-center cursor-pointer border relative flex justify-center rounded-lg hover:border-[#be1e2d] w-full h-9">
-                                        <p class="text-center text-xs">Titan xanh</p>
-                                    </div>
-                                </div>
-                            </a>
                             <style>
                                 .checked-product{
                                     background-image: url("https://didongviet.vn/_next/static/media/checked.ddacf926.png");
@@ -312,8 +317,14 @@
                         <div>
                             <p class="text-base max-md:hidden">Giá bán</p>
                             <div class="flex items-baseline max-md:flex-col max-md:hidden">
-                                <p class="price-sale text-4xl font-bold text-[#be1e2d]">28.790.000 đ</p>
-                                <span class="pl-2 text-sm font-normal text-black line-through max-md:pl-0">38.990.000 đ</span>
+                                @if($product->promotion != 0)
+                                    <span class="price-sale text-4xl font-bold text-[#be1e2d]"><p class="price_format inline-block">{{ number_format($product->price - $product->price * $product->promotion / 100) }}</p> VNĐ</span>
+                                    <span class="pl-2 text-sm font-normal text-black line-through max-md:pl-0"><del class="price_format inline-block">{{ number_format($product->price) }}</del> VNĐ</span>
+                                @else
+                                    <span class="price-sale text-4xl font-bold text-[#be1e2d]"><p class="price_format inline-block">{{ number_format($product->price) }}</p> VNĐ</span>
+
+                                @endif
+
                             </div>
                         </div>
                         <div class="border mt-3 flex w-full flex-col rounded border-[#ffdfe1]">
@@ -547,7 +558,11 @@
                         <div>
                             <div class="content-post flex-col w-full relative bg-white p-2" style="height: 800px; overflow: hidden">
                                 <div class="relative text-lg text-justify">
-                                    Block Post
+                                    @if($product->post)
+                                        {!! $product->post->content !!}
+                                    @else
+                                        <p>Không có bài viết</p>
+                                    @endif
                                 </div>
                                 <button class="more-content w-full h-16 flex items-center justify-center absolute z-50 bottom-0 left-0">
                                     <p class="text-[#be1e2d] text-center font-bold text-base">Xem thêm</p>
@@ -565,22 +580,27 @@
                                     <h2 class="text-xl font-bold mx-2">Thông số kỹ thuật</h2>
                                 </div>
                                 <div class="flex flex-col justify-start items-start p-2">
-                                    <div class="flex justify-between items-start odd:bg-gray-100 even:bg-white p-2 w-full">
-                                        <div class="w-1/2">
-                                            <p class="text-left">Kích thước màn hình</p>
-                                        </div>
-                                        <div class="w-1/2">
-                                            <p class="text-left">6.7 inches</p>
-                                        </div>
-                                    </div>
-                                    <div class="flex justify-between items-start odd:bg-gray-100 even:bg-white p-2 w-full">
-                                        <div class="w-1/2">
-                                            <p class="text-left">Công nghệ màn hình</p>
-                                        </div>
-                                        <div class="w-1/2">
-                                            <p class="text-left">Super Retina XDR OLED</p>
-                                        </div>
-                                    </div>
+                                    @if($product->info_product == null)
+                                        <p>Chưa có thông tin sản phẩm</p>
+                                    @else
+                                        {!! $product->info_product !!}
+                                    @endif
+{{--                                    <div class="flex justify-between items-start odd:bg-gray-100 even:bg-white p-2 w-full">--}}
+{{--                                        <div class="w-1/2">--}}
+{{--                                            <p class="text-left">Kích thước màn hình</p>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="w-1/2">--}}
+{{--                                            <p class="text-left">6.7 inches</p>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="flex justify-between items-start odd:bg-gray-100 even:bg-white p-2 w-full">--}}
+{{--                                        <div class="w-1/2">--}}
+{{--                                            <p class="text-left">Công nghệ màn hình</p>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="w-1/2">--}}
+{{--                                            <p class="text-left">Super Retina XDR OLED</p>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
                                 </div>
                                 <button class="more-content w-full h-16 flex items-center justify-center absolute z-50 bottom-0 left-0">
                                     <p class="text-[#be1e2d] text-center font-bold text-base">Xem thêm</p>
@@ -601,30 +621,37 @@
                         </div>
                     </div>
                     <div class="list-products xl:grid xl:grid-cols-5 xl:gap-4 xl:mt-4 max-xl:flex max-xl:overflow-x-auto max-xl:space-x-2  max-xl:overflow-y-hidden max-xl:mt-2 max-xl:hide-scroll-bar no-scrollbar max-xl:pb-2">
-                        @for($i = 0; $i<5; $i++)
-                            <div class="product-item col-span-1">
-                                <div class="card-item bg-white flex pt-2.5 px-2.5 pb-3.5 border-2 h-full flex-col items-center justify-start rounded border-[#f0f0f0] hover:border-white hover:drop-shadow-xl max-md:border-0 cursor-pointer">
-                                    <div class="discourd-item pb-2 h-8 flex w-full items-center justify-start">
-                                        <p class="border-2 m-1 items-center whitespace-nowrap rounded border-[#be1e2d] bg-[#be1e2d] px-2 py-1 text-xs text-white max-md:text-[10px]">Giảm 26%</p>
-                                        <p class="border-2 m-1 items-center whitespace-nowrap rounded border-[#be1e2d] bg-white px-2 py-1 text-xs text-[#be1e2d] max-md:text-[10px]">Trả góp 0%</p>
-                                    </div>
-                                    <div class="thumbnail-item relative w-full">
-                                        <div class="w-full h-[250px] max-md:h-auto relative flex items-center justify-center">
-                                            <div class="img-product transition duration-200 ease-in-out hover:scale-105 md:h-[200px] md:w-[200px]">
-                                                <img src="https://cdn-v2.didongviet.vn/files/products/2024/3/16/1/1713264914921_20215292_6208434_02.jpg" width="600" height="600">
+                        @foreach($related_products as $item_related)
+                            @if($item_related->id != $product->id)
+                                <div class="product-item col-span-1">
+                                    <div class="card-item bg-white flex pt-2.5 px-2.5 pb-3.5 border-2 h-full flex-col items-center justify-start rounded border-[#f0f0f0] hover:border-white hover:drop-shadow-xl max-md:border-0 cursor-pointer">
+                                        <div class="discourd-item pb-2 h-8 flex w-full items-center justify-start">
+                                            <p class="border-2 m-1 items-center whitespace-nowrap rounded border-[#be1e2d] bg-[#be1e2d] px-2 py-1 text-xs text-white max-md:text-[10px]">Giảm {{$item_related->promotion}}%</p>
+                                            <p class="border-2 m-1 items-center whitespace-nowrap rounded border-[#be1e2d] bg-white px-2 py-1 text-xs text-[#be1e2d] max-md:text-[10px]">Trả góp 0%</p>
+                                        </div>
+                                        <div class="thumbnail-item relative w-full">
+                                            <div class="w-full h-[250px] max-md:h-auto relative flex items-center justify-center">
+                                                <div class="img-product transition duration-200 ease-in-out hover:scale-105 md:h-[200px] md:w-[200px]">
+                                                    <img src="https://cdn-v2.didongviet.vn/files/products/2024/3/16/1/1713264914921_20215292_6208434_02.jpg" width="600" height="600">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h3 class="name-item w-full px-2 py-2.5 text-left text-sm max-md:text-[13px] font-bold text-black">{{ $item_related->name }}</h3>
+                                        <div class="price-item flex w-full items-center justify-start px-2 py-2.5">
+                                            <div class="w-full flex flex-col items-start justify-start">
+                                                @if($item_related->promotion != 0)
+                                                    <span class="price-sale text-left text-[16px] font-bold text-[#be1e2d]"><p class="price_format inline-block">{{ number_format($product->price - $product->price * $product->promotion / 100) }}</p> VNĐ</span>
+                                                    <span class="text-sm font-normal text-black line-through max-md:pl-0"><del class="price_format inline-block">{{ number_format($product->price) }}</del> VNĐ</span>
+                                                @else
+                                                    <span class="price-sale text-left text-[16px] font-bold text-[#be1e2d]"><p class="price_format inline-block">{{ number_format($product->price) }}</p> VNĐ</span>
+
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
-                                    <h3 class="name-item w-full px-2 py-2.5 text-left text-sm max-md:text-[13px] font-bold text-black">iPhone 15 Pro Max 256GB Chính hãng (VN/A)</h3>
-                                    <div class="price-item flex w-full items-center justify-start px-2 py-2.5">
-                                        <div class="w-full flex-col items-start justify-start">
-                                            <p class="price-sale text-left text-[16px] font-bold text-[#be1e2d]">28.790.000 đ</p>
-                                            <del class="price float-left text-left text-sm text-[#666666]">38.990.000 đ</del>
-                                        </div>
-                                    </div>
                                 </div>
-                            </div>
-                        @endfor
+                            @endif
+                        @endforeach
                     </div>
                 </div>
             </div>

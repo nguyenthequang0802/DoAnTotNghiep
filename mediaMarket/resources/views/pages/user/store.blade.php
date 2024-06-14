@@ -46,7 +46,7 @@
                     <h2 id="accordion-filter-brand-heading">
                         <button type="button"
                                 class="flex items-center justify-between w-full font-medium rtl:text-right text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3"
-                                data-accordion-target="#accordion-filter_brand" aria-expanded="false" aria-controls="accordion-filter_brand">
+                                data-accordion-target="#accordion-filter_brand" aria-expanded="true" aria-controls="accordion-filter_brand">
                             <h3 class="filter-item_title text-sm text-[#212529] font-bold mb-5">
                                     Hãng Sản Xuất
                                 </h3>
@@ -55,7 +55,7 @@
                             </svg>
                         </button>
                     </h2>
-                    <div id="accordion-filter_brand" class="hidden" aria-labelledby="accordion-filter-brand-heading">
+                    <div id="accordion-filter_brand" class="" aria-labelledby="accordion-filter-brand-heading">
                             <div class="filter-item_checkList grid grid-cols-2">
                                 <div class="flex items-center mb-4">
                                     <input checked id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
@@ -92,7 +92,7 @@
                     <h2 id="accordion-filter-price_range-heading">
                             <button type="button"
                                     class="flex items-center justify-between w-full font-medium rtl:text-right text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3"
-                                    data-accordion-target="#accordion-filter-price_range-body" aria-expanded="false" aria-controls="accordion-filter-price_range-body">
+                                    data-accordion-target="#accordion-filter-price_range-body" aria-expanded="true" aria-controls="accordion-filter-price_range-body">
                                 <h3 class="filter-item_title text-sm text-[#212529] font-bold mb-5">
                                     Mức giá
                                 </h3>
@@ -101,7 +101,7 @@
                                 </svg>
                             </button>
                         </h2>
-                    <div id="accordion-filter-price_range-body" class="hidden" aria-labelledby="accordion-filter-price_range-heading">
+                    <div id="accordion-filter-price_range-body" class="" aria-labelledby="accordion-filter-price_range-heading">
                             <div class="filter-item_checkList grid grid-cols-1">
                                 <div class="flex items-center mb-4">
                                     <input checked id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
@@ -133,7 +133,7 @@
                     <h2 id="accordion-filter-OS-heading">
                             <button type="button"
                                     class="flex items-center justify-between w-full font-medium rtl:text-right text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3"
-                                    data-accordion-target="#accordion-filter-OS-body" aria-expanded="false" aria-controls="accordion-filter-OS-body">
+                                    data-accordion-target="#accordion-filter-OS-body" aria-expanded="true" aria-controls="accordion-filter-OS-body">
                                 <h3 class="filter-item_title text-sm text-[#212529] font-bold mb-5">
                                     Hệ điều hành
                                 </h3>
@@ -142,7 +142,7 @@
                                 </svg>
                             </button>
                         </h2>
-                    <div id="accordion-filter-OS-body" class="hidden" aria-labelledby="accordion-filter-OS-heading">
+                    <div id="accordion-filter-OS-body" class="" aria-labelledby="accordion-filter-OS-heading">
                             <div class="filter-item_checkList grid grid-cols-1">
                                 <div class="flex items-center mb-4">
                                     <input checked id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
@@ -166,7 +166,7 @@
                     <h2 id="accordion-filter-memory-heading">
                             <button type="button"
                                     class="flex items-center justify-between w-full font-medium rtl:text-right text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3"
-                                    data-accordion-target="#accordion-filter-memory-body" aria-expanded="false" aria-controls="accordion-filter-memory-body">
+                                    data-accordion-target="#accordion-filter-memory-body" aria-expanded="true" aria-controls="accordion-filter-memory-body">
                                 <h3 class="filter-item_title text-sm text-[#212529] font-bold mb-5">
                                     Dung lượng bộ nhớ
                                 </h3>
@@ -175,7 +175,7 @@
                                 </svg>
                             </button>
                         </h2>
-                    <div id="accordion-filter-memory-body" class="hidden" aria-labelledby="accordion-filter-memory-heading">
+                    <div id="accordion-filter-memory-body" class="" aria-labelledby="accordion-filter-memory-heading">
                             <div class="filter-item_checkList grid grid-cols-1">
                                 <div class="flex items-center mb-4">
                                     <input checked id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
@@ -241,23 +241,25 @@
                         @foreach($products as $product)
                             <div class="product-item col-span-1">
                                 <div class="card-item bg-white flex pt-2.5 px-2.5 pb-3.5 border-2 h-full flex-col items-center justify-start rounded border-[#f0f0f0] hover:border-white hover:drop-shadow-xl max-md:border-0 cursor-pointer">
-                                    <div class="discourd-item pb-2 h-8 flex w-full items-center justify-start">
+                                    <a href="{{ route('user.product_detail', $product->id) }}" class="discourd-item pb-2 h-8 flex w-full items-center justify-start">
                                         <p class="border-2 m-1 items-center whitespace-nowrap rounded border-[#be1e2d] bg-[#be1e2d] px-2 py-1 text-xs text-white max-md:text-[10px]">Giảm {{ $product->promotion }}%</p>
                                         <p class="border-2 m-1 items-center whitespace-nowrap rounded border-[#be1e2d] bg-white px-2 py-1 text-xs text-[#be1e2d] max-md:text-[10px]">Trả góp 0%</p>
-                                    </div>
-                                    <div class="thumbnail-item relative w-full">
+                                    </a>
+                                    <a href="{{ route('user.product_detail', $product->id) }}" class="thumbnail-item relative w-full">
                                         <div class="w-full h-[250px] max-md:h-auto relative flex items-center justify-center">
                                             <div class="img-product transition duration-200 ease-in-out hover:scale-105 md:h-[200px] md:w-[200px]">
                                                 <img src="https://cdn-v2.didongviet.vn/files/products/2024/3/16/1/1713264914921_20215292_6208434_02.jpg" width="600" height="600">
                                             </div>
                                         </div>
-                                    </div>
-                                    <h3 class="name-item w-full px-2 py-2.5 text-left text-sm max-md:text-[13px] font-bold text-black">{{ $product->name }}</h3>
+                                    </a>
+                                    <a href="{{ route('user.product_detail', $product->id) }}" class="w-full">
+                                        <h3 class="name-item w-full px-2 py-2.5 text-left text-sm max-md:text-[13px] font-bold text-black">{{ $product->name }}</h3>
+                                    </a>
                                     <div class="price-item flex w-full items-center justify-start px-2 py-2.5">
-                                        <div class="w-full flex flex-col items-start justify-start">
+                                        <a href="{{ route('user.product_detail', $product->id) }}" class="w-full flex flex-col items-start justify-start">
                                             <span class="price-sale text-left text-[16px] font-bold text-[#be1e2d]"><p class="price_format inline-block">{{ number_format($product->price - $product->price * $product->promotion / 100) }}</p> VNĐ</span>
                                             <span class="price text-left line-through text-sm text-[#666666]"><del class="price_format inline-block">{{ number_format($product->price) }}</del> VNĐ</span>
-                                        </div>
+                                        </a>
                                         <div class="">
                                             <button type="button" class="btn-add_to_cart h-11 w-11 flex justify-center items-center my-2.5 hover:text-white hover:bg-[#be1e2d] text-[#333] bg-white border border-[#be1e2d] focus:outline-none font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
                                                 <i class="fa-solid fa-cart-plus"></i>

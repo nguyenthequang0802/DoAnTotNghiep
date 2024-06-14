@@ -90,23 +90,25 @@
                 @foreach($sale_products as $sale_product)
                     <div class="product-item col-span-1">
                         <div class="card-item bg-white flex pt-2.5 px-2.5 pb-3.5 border-2 h-full flex-col items-center justify-start rounded border-[#f0f0f0] hover:border-white hover:drop-shadow-xl max-md:border-0 cursor-pointer">
-                            <div class="discourd-item pb-2 h-8 flex w-full items-center justify-start">
+                            <a href="{{ route('user.product_detail', $sale_product->id) }}" class="discourd-item pb-2 h-8 flex w-full items-center justify-start">
                                 <p class="border-2 m-1 items-center whitespace-nowrap rounded border-[#be1e2d] bg-[#be1e2d] px-2 py-1 text-xs text-white max-md:text-[10px]">Giảm {{ $sale_product->promotion }}%</p>
                                 <p class="border-2 m-1 items-center whitespace-nowrap rounded border-[#be1e2d] bg-white px-2 py-1 text-xs text-[#be1e2d] max-md:text-[10px]">Trả góp 0%</p>
-                            </div>
-                            <div class="thumbnail-item relative w-full">
+                            </a>
+                            <a href="{{ route('user.product_detail', $sale_product->id) }}" class="thumbnail-item relative w-full">
                                 <div class="w-full h-[250px] max-md:h-auto relative flex items-center justify-center">
                                     <div class="img-product transition duration-200 ease-in-out hover:scale-105 md:h-[200px] md:w-[200px]">
                                         <img src="https://cdn-v2.didongviet.vn/files/products/2024/3/16/1/1713264914921_20215292_6208434_02.jpg" width="600" height="600">
                                     </div>
                                 </div>
-                            </div>
-                            <h3 class="name-item w-full px-2 py-2.5 text-left text-sm max-md:text-[13px] font-bold text-black">{{ $sale_product->name }}</h3>
+                            </a>
+                            <a href="{{ route('user.product_detail', $sale_product->id) }}" class="w-full">
+                                <h3 class="name-item w-full px-2 py-2.5 text-left text-sm max-md:text-[13px] font-bold text-black">{{ $sale_product->name }}</h3>
+                            </a>
                             <div class="price-item flex w-full items-center justify-start px-2 py-2.5">
-                                <div class="w-full flex flex-col items-start justify-start">
+                                <a href="{{ route('user.product_detail', $sale_product->id) }}" class="w-full flex flex-col items-start justify-start">
                                     <span class="price-sale text-left text-[16px] font-bold text-[#be1e2d]"><p class="price_format inline-block">{{ number_format($sale_product->price - $sale_product->price * $sale_product->promotion / 100) }}</p> VNĐ</span>
                                     <span class="price text-left line-through text-sm text-[#666666]"><del class="price_format inline-block">{{ number_format($sale_product->price) }}</del> VNĐ</span>
-                                </div>
+                                </a>
                                 <div class="">
                                     <button type="button" class="btn-add_to_cart h-11 w-11 flex justify-center items-center my-2.5 hover:text-white hover:bg-[#be1e2d] text-[#333] bg-white border border-[#be1e2d] focus:outline-none font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
                                         <i class="fa-solid fa-cart-plus"></i>
