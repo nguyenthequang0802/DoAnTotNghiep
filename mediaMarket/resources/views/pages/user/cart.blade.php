@@ -16,7 +16,7 @@
                         </div>
                         @if(Session::get('cart') == true)
                         <div class="flex justify-center items-center">
-                            <a href="{{ route('user.delete_cart_all') }}" class="underline text-blue-500 text-md">
+                            <a href="{{ route('user.delete_cart_all') }}" onclick="return confirm('Bạn có chắc chắn muốn giỏ hàng xóa?')" class="underline text-blue-500 text-md">
                                 Xóa tất cả
                             </a>
                         </div>
