@@ -15,6 +15,7 @@
         referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.11.1/dist/sweetalert2.min.css" rel="stylesheet">
     <style>
         body {
             padding: 0!important;
@@ -74,6 +75,56 @@
     <script src="{{ asset('/backend/js/simple.money.format.js') }}"></script>
     <script>
         $('.price_format').simpleMoneyFormat();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.11.1/dist/sweetalert2.all.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.btn-add_to_cart').click(function (e){
+                e.preventDefault();
+                let id = $(this).data('id_product');
+                let cart_product_id = $('.cart_product_id_' + id).val();
+                let cart_product_name = $('.cart_product_name_' + id).val();
+                let cart_product_quantity = $('.cart_product_quantity_' + id).val();
+                let cart_product_color = $('.cart_product_color_' + id).val();
+                let cart_product_price = $('.cart_product_price_' + id).val();
+                let cart_product_promotion = $('.cart_product_promotion_' + id).val();
+                let cart_product_image = $('.cart_product_image_' + id).val();
+                let _token = $('input[name="_token"]').val();
+                $.ajax({
+                    url: '{{ route("user.add_to_cart") }}',
+                    method: 'POST',
+                    data: {
+                        _token: _token,
+                        cart_product_id: cart_product_id,
+                        cart_product_name: cart_product_name,
+                        cart_product_quantity: cart_product_quantity,
+                        cart_product_color: cart_product_color,
+                        cart_product_price: cart_product_price,
+                        cart_product_promotion: cart_product_promotion,
+                        cart_product_image: cart_product_image,
+                    },
+                    success:function (data){
+                        Swal.fire({
+                            title: "Đã thêm vào giỏ hàng",
+                            text: "Bạn có muốn xem giỏ hàng?",
+                            icon: "success",
+                            showCancelButton: true,
+                            confirmButtonColor: "#3085d6",
+                            cancelButtonColor: "#d33",
+                            cancelButtonText: "Tiếp tục mua hàng",
+                            confirmButtonText: "Xem giỏ hàng!"
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                window.location.href = "{{ route('user.showCart') }}";
+                            } else {
+                                window.location.href = "{{ route('user.index') }}";
+
+                            }
+                        });
+                    }
+                })
+            })
+        })
     </script>
 </body>
 </html>

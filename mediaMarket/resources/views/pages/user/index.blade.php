@@ -109,42 +109,23 @@
                                     <span class="price-sale text-left text-[16px] font-bold text-[#be1e2d]"><p class="price_format inline-block">{{ number_format($sale_product->price - $sale_product->price * $sale_product->promotion / 100) }}</p> VNĐ</span>
                                     <span class="price text-left line-through text-sm text-[#666666]"><del class="price_format inline-block">{{ number_format($sale_product->price) }}</del> VNĐ</span>
                                 </a>
-                                <div class="">
-                                    <button type="button" class="btn-add_to_cart h-11 w-11 flex justify-center items-center my-2.5 hover:text-white hover:bg-[#be1e2d] text-[#333] bg-white border border-[#be1e2d] focus:outline-none font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+                                <form>
+                                    @csrf
+                                    <input type="hidden" class="cart_product_id_{{ $sale_product->id }}" value="{{ $sale_product->id }}">
+                                    <input type="hidden" class="cart_product_name_{{ $sale_product->id }}" value="{{ $sale_product->name }}">
+                                    <input type="hidden" class="cart_product_quantity_{{ $sale_product->id }}" value="1">
+                                    <input type="hidden" class="cart_product_color_{{ $sale_product->id }}" value="{{ $sale_product->color }}">
+                                    <input type="hidden" class="cart_product_image_{{ $sale_product->id }}" value="{{ $sale_product->images->first()}}">
+                                    <input type="hidden" class="cart_product_price_{{ $sale_product->id }}" value="{{ $sale_product->price }}">
+                                    <input type="hidden" class="cart_product_promotion_{{ $sale_product->id }}" value="{{ $sale_product->promotion }}">
+                                    <button type="submit" data-id_product="{{ $sale_product->id }}" class="btn-add_to_cart h-11 w-11 flex justify-center items-center my-2.5 hover:text-white hover:bg-[#be1e2d] text-[#333] bg-white border border-[#be1e2d] focus:outline-none font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
                                         <i class="fa-solid fa-cart-plus"></i>
                                     </button>
-                                </div>
-                            </div>
-                            <div class="action-item_container w-full">
-                                {{--                                <div class="action-item w-full flex justify-around items-center px-2">--}}
-                                {{--                                    <button type="button" class="btn-add_to_cart w-full hidden my-2.5 text-[#333] bg-[#ffd400] hover:bg-[#ffb208] focus:outline-none focus:ring-4 focus:ring-[#00483d] font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">--}}
-                                {{--                                        <i class="fa-solid fa-cart-plus"></i>--}}
-                                {{--                                        <span class="text-[0.8rem] md:text-md hidden lg:inline-block">Thêm giỏ hàng</span>--}}
-                                {{--                                    </button>--}}
-                                {{--                                </div>--}}
+                                </form>
                             </div>
                         </div>
                     </div>
                 @endforeach
-
-                <style>
-                    /*.card-item{*/
-                    /*    transition: all 400ms ease-in-out 0s;*/
-                    /*}*/
-                    /*.card-item:hover{*/
-                    /*    transition: all 400ms ease-in-out 0s;*/
-                    /*}*/
-                    /*.card-item>.action-item_container{*/
-                    /*    transition: all 400ms ease-in-out 0s;*/
-                    /*}*/
-                    /*.card-item:hover .price-item{*/
-                    /*    display: none;*/
-                    /*}*/
-                    /*.card-item:hover .btn-add_to_cart{*/
-                    /*    display: block;*/
-                    /*    transition: all 400ms ease-in-out 0s;*/
-                    /*}*/
-                </style>
             </div>
             <a href="" class="see-all px-4 mb-3 flex justify-center items-center">
                 <button type="button" class="hover:text-white hover:bg-[#be1e2d] bg-[white] border border-[#be1e2d] focus:outline-none font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Xem thêm</button>
