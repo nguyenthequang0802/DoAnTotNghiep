@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\Auth\RegisterController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\CouponController;
 use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\PostController;
@@ -69,6 +70,13 @@ Route::namespace('admin')->group(function () {
                 Route::get('/{image_id}/delete', [ProductImageController::class, 'destroy'])->name("admin.product.upload.destroy");
             });
         });
-
+        Route::group(['prefix' => 'coupon'], function () {
+            Route::get('/', [CouponController::class, 'index'])->name("admin.coupon.index");
+            Route::get('/add', [CouponController::class, 'create'])->name("admin.coupon.add");
+            Route::post('/add', [CouponController::class, 'store'])->name("admin.coupon.store");
+            Route::get('/edit/{id}', [CouponController::class, 'edit'])->name("admin.coupon.edit");
+            Route::post('/edit/{id}', [CouponController::class, 'update'])->name("admin.coupon.update");
+            Route::get('/delete/{id}', [CouponController::class, 'destroy'])->name("admin.coupon.destroy");
+        });
     });
 });
