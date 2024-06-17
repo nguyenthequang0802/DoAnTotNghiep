@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -12,16 +13,27 @@ class ProductController extends Controller
         $sale_products = Product::where('promotion', '<>', 0)->where('quantity', '>', '0')->take(5)->get();
         return view('pages.user.index', ['sale_products' => $sale_products]);
     }
-    public function show_product_store($category_id){
-//        $products = Product::where('category_id', $category_id)->where('quantity', '>', '0')->get();
-        $category = Category::where('id', $category_id)->first();
-//        echo $category;
+    public function show_product_store($category_slug, Request $request){
+        $category = Category::where('slug', '=', $category_slug)->first();
+
         if ($category){
             $descedantCategoryIds = $category->allChildren();
             $descedantCategoryIds->push($category->id);
-            $products = Product::whereIn('category_id', $descedantCategoryIds)->get();
+            $products = Product::query()->whereIn('category_id', $descedantCategoryIds);
         }
-        return view('pages.user.store', ['products' => $products]);
+        $brands = $products->with('brand')->get()->pluck('brand')->unique('id');
+
+        if($request->has('name')) $products->orderBy('name', $request->name);
+        if ($request->has('price')) $products->orderBy('price', $request->price);
+        $brand = Brand::where('slug', '=', $request->brand)->first();
+        if ($request->has('brand')) $products->where('brand_id', $brand->id);
+
+        return view('pages.user.store', [
+            'category' => $category,
+            'products' => $products->paginate(12),
+            'brands' => $brands,
+            'query' => $request->query(),
+        ]);
     }
     public function show_product_detail($product_id){
         $product = Product::find($product_id);
@@ -32,7 +44,7 @@ class ProductController extends Controller
         $pro_category = $category_product->parentCategory;
         $descedantCategoryIds = $pro_category->allChildren();
         $descedantCategoryIds->push($pro_category->id);
-        $related_products = Product::whereIn('category_id', $descedantCategoryIds)->get();
+        $related_products = Product::whereIn('category_id', $descedantCategoryIds)->where('id', '!=', $product->id)->get();
 
         return view('pages.user.detailProduct', ['product' => $product, 'list_colors' => $list_colors, 'related_products'=>$related_products]);
     }

@@ -216,26 +216,58 @@
                     <h2 class="p-4 text-black text-lg font-bold rounded-ss-lg hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-blue-500">Hãng Sản Xuất</h2>
                 </div>
                 <div id="defaultTabContent">
-                    <div class="p-4 bg-white rounded-lg md:p-5 dark:bg-gray-800">
-                        <h1>Danh sách hãng điện thoại</h1>
+                    <div class="p-4 flex bg-white rounded-lg md:p-5 dark:bg-gray-800">
+                        @foreach($brands as $brand)
+                            <a href="{{ route('user.store', ['category_slug' => $category->slug, ...$query, 'brand' => $brand->slug]) }}">
+                                <button type="button" class="h-[40px] w-[125px] flex justify-center items-center text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                                    <img class="h-[32px]" src="{{ asset($brand->icon_path) }}">
+                                </button>
+                            </a>
+                        @endforeach
                     </div>
                 </div>
             </div>
 
             <div class="card-listProducts w-full p-4 text-center bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                 <div class="card-body-listProduct">
-                    <div class="header-card px-4 mb-6 flex justify-end">
-                        <div class="flex justify-center items-center mr-2">
-                            <h4 class="text-sm font-bold">Sắp xếp:</h4>
+                    <div class="header-card px-4 mb-6 flex justify-between">
+                        <div class="flex">
+                            <a href="{{ route('user.store', ['category_slug' => $category->slug, ...$query, 'price' => 'ASC']) }}">
+                                <button type="button" class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Giá tăng dần</button>
+                            </a>
+                            <a href="{{ route('user.store', ['category_slug' => $category->slug, ...$query, 'price' => 'DESC']) }}">
+                                <button type="button" class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Giá giảm dần</button>
+                            </a>
                         </div>
-                        <div>
-                            <select id="small" class="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:ring-0 focus:border-gray-300">
-                                <option selected>Sản phẩm nổi bật</option>
-                                <option value="US">Sản phẩm mới nhất</option>
-                                <option value="CA">Giá tăng dân</option>
-                                <option value="FR">Giá giảm dần</option>
-                            </select>
+
+                        <div class="flex">
+                            <a href="{{ route('user.store', ['category_slug' => $category->slug, ...$query, 'name' => 'ASC']) }}">
+                                <button type="button" class="py-2.5 px-2.5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                                    <span class="text-[20px]">
+                                        <i class="fa-solid fa-arrow-up-a-z"></i>
+                                    </span>
+                                </button>
+                            </a>
+                            <a href="{{ route('user.store', ['category_slug' => $category->slug, ...$query, 'name' => 'DESC']) }}">
+                                <button type="button" class="py-2.5 px-2.5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                                    <span class="text-[20px]">
+                                        <i class="fa-solid fa-arrow-down-z-a"></i>
+                                    </span>
+                                </button>
+                            </a>
                         </div>
+
+{{--                        <div class="flex justify-center items-center mr-2">--}}
+{{--                            <h4 class="text-sm font-bold">Sắp xếp:</h4>--}}
+{{--                        </div>--}}
+{{--                        <div>--}}
+{{--                            <select id="small" class="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:ring-0 focus:border-gray-300">--}}
+{{--                                <option value="">Sản phẩm nổi bật</option>--}}
+{{--                                <option value="US">Sản phẩm mới nhất</option>--}}
+{{--                                <option value="CA">Giá tăng dân</option>--}}
+{{--                                <option value="FR">Giá giảm dần</option>--}}
+{{--                            </select>--}}
+{{--                        </div>--}}
                     </div>
                     <div class="list-products grid grid-cols-2 gap-2 md:grid-cols-3 xl:grid-cols-4 lg:gap-3 mb-5 px-4">
                         @foreach($products as $product)
@@ -257,8 +289,8 @@
                                     </a>
                                     <div class="price-item flex w-full items-center justify-start px-2 py-2.5">
                                         <a href="{{ route('user.product_detail', $product->id) }}" class="w-full flex flex-col items-start justify-start">
-                                            <span class="price-sale text-left text-[16px] font-bold text-[#be1e2d]"><p class="price_format inline-block">{{ number_format($product->price - $product->price * $product->promotion / 100) }}</p> VNĐ</span>
-                                            <span class="price text-left line-through text-sm text-[#666666]"><del class="price_format inline-block">{{ number_format($product->price) }}</del> VNĐ</span>
+                                            <span class="price-sale text-left text-[16px] font-bold text-[#be1e2d]"><p class="inline-block">{{ number_format($product->price - $product->price * $product->promotion / 100, 0, ',', '.') }}</p> VNĐ</span>
+                                            <span class="price text-left line-through text-sm text-[#666666]"><del class="inline-block">{{ number_format($product->price, 0, ',', '.') }}</del> VNĐ</span>
                                         </a>
                                         <form>
                                             @csrf
@@ -278,9 +310,11 @@
                             </div>
                         @endforeach
                     </div>
-                    <a href="" class="see-all px-4 mb-3 flex justify-center items-center">
-                        <button type="button" class="hover:text-white hover:bg-[#be1e2d] bg-[white] border border-[#be1e2d] focus:outline-none font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Xem thêm</button>
-                    </a>
+                    @if($products->total() != 0)
+                        <div class="d-flex justify-content-center">{{$products->links('vendor.pagination.tailwind')}}</div>
+                    @else
+                        <p>Không có sản phẩm</p>
+                    @endif
                 </div>
             </div>
 
