@@ -622,35 +622,33 @@
                     </div>
                     <div class="list-products xl:grid xl:grid-cols-5 xl:gap-4 xl:mt-4 max-xl:flex max-xl:overflow-x-auto max-xl:space-x-2  max-xl:overflow-y-hidden max-xl:mt-2 max-xl:hide-scroll-bar no-scrollbar max-xl:pb-2">
                         @foreach($related_products as $item_related)
-                            @if($item_related->id != $product->id)
-                                <div class="product-item col-span-1">
-                                    <div class="card-item bg-white flex pt-2.5 px-2.5 pb-3.5 border-2 h-full flex-col items-center justify-start rounded border-[#f0f0f0] hover:border-white hover:drop-shadow-xl max-md:border-0 cursor-pointer">
-                                        <div class="discourd-item pb-2 h-8 flex w-full items-center justify-start">
-                                            <p class="border-2 m-1 items-center whitespace-nowrap rounded border-[#be1e2d] bg-[#be1e2d] px-2 py-1 text-xs text-white max-md:text-[10px]">Giảm {{$item_related->promotion}}%</p>
-                                            <p class="border-2 m-1 items-center whitespace-nowrap rounded border-[#be1e2d] bg-white px-2 py-1 text-xs text-[#be1e2d] max-md:text-[10px]">Trả góp 0%</p>
-                                        </div>
-                                        <div class="thumbnail-item relative w-full">
-                                            <div class="w-full h-[250px] max-md:h-auto relative flex items-center justify-center">
-                                                <div class="img-product transition duration-200 ease-in-out hover:scale-105 md:h-[200px] md:w-[200px]">
-                                                    <img src="https://cdn-v2.didongviet.vn/files/products/2024/3/16/1/1713264914921_20215292_6208434_02.jpg" width="600" height="600">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <h3 class="name-item w-full px-2 py-2.5 text-left text-sm max-md:text-[13px] font-bold text-black">{{ $item_related->name }}</h3>
-                                        <div class="price-item flex w-full items-center justify-start px-2 py-2.5">
-                                            <div class="w-full flex flex-col items-start justify-start">
-                                                @if($item_related->promotion != 0)
-                                                    <span class="price-sale text-left text-[16px] font-bold text-[#be1e2d]"><p class="price_format inline-block">{{ number_format($product->price - $product->price * $product->promotion / 100) }}</p> VNĐ</span>
-                                                    <span class="text-sm font-normal text-black line-through max-md:pl-0"><del class="price_format inline-block">{{ number_format($product->price) }}</del> VNĐ</span>
-                                                @else
-                                                    <span class="price-sale text-left text-[16px] font-bold text-[#be1e2d]"><p class="price_format inline-block">{{ number_format($product->price) }}</p> VNĐ</span>
-
-                                                @endif
+                            <div class="product-item col-span-1">
+                                <div class="card-item bg-white flex pt-2.5 px-2.5 pb-3.5 border-2 h-full flex-col items-center justify-start rounded border-[#f0f0f0] hover:border-white hover:drop-shadow-xl max-md:border-0 cursor-pointer">
+                                    <div class="discourd-item pb-2 h-8 flex w-full items-center justify-start">
+                                        <p class="border-2 m-1 items-center whitespace-nowrap rounded border-[#be1e2d] bg-[#be1e2d] px-2 py-1 text-xs text-white max-md:text-[10px]">Giảm {{$item_related->promotion}}%</p>
+                                        <p class="border-2 m-1 items-center whitespace-nowrap rounded border-[#be1e2d] bg-white px-2 py-1 text-xs text-[#be1e2d] max-md:text-[10px]">Trả góp 0%</p>
+                                    </div>
+                                    <div class="thumbnail-item relative w-full">
+                                        <div class="w-full h-[250px] max-md:h-auto relative flex items-center justify-center">
+                                            <div class="img-product transition duration-200 ease-in-out hover:scale-105 md:h-[200px] md:w-[200px]">
+                                                <img src="https://cdn-v2.didongviet.vn/files/products/2024/3/16/1/1713264914921_20215292_6208434_02.jpg" width="600" height="600">
                                             </div>
                                         </div>
                                     </div>
+                                    <h3 class="name-item w-full px-2 py-2.5 text-left text-sm max-md:text-[13px] font-bold text-black">{{ $item_related->name }}</h3>
+                                    <div class="price-item flex w-full items-center justify-start px-2 py-2.5">
+                                        <div class="w-full flex flex-col items-start justify-start">
+                                            @if($item_related->promotion != 0)
+                                                <span class="price-sale text-left text-[16px] font-bold text-[#be1e2d]"><p class="price_format inline-block">{{ number_format($item_related->price - $item_related->price * $item_related->promotion / 100) }}</p> VNĐ</span>
+                                                <span class="text-sm font-normal text-black line-through max-md:pl-0"><del class="price_format inline-block">{{ number_format($item_related->price) }}</del> VNĐ</span>
+                                            @else
+                                                <span class="price-sale text-left text-[16px] font-bold text-[#be1e2d]"><p class="price_format inline-block">{{ number_format($item_related->price) }}</p> VNĐ</span>
+
+                                            @endif
+                                        </div>
+                                    </div>
                                 </div>
-                            @endif
+                            </div>
                         @endforeach
                     </div>
                 </div>

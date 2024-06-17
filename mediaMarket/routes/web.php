@@ -22,10 +22,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => '/'], function () {
     Route::get('/',[ProductController::class, 'show_product_hot'])->name('user.index');
-    Route::get('/show-product/{category_id}', [ProductController::class, 'show_product_store'])->name('user.store');
-    Route::get('/detail-product/{product_id}', [ProductController::class, 'show_product_detail'])->name('user.product_detail');
+    Route::get('/san-pham/{category_slug}', [ProductController::class, 'show_product_store'])->name('user.store');
+    Route::get('/chi-tiet/{product_id}', [ProductController::class, 'show_product_detail'])->name('user.product_detail');
     Route::post('/them-gio-hang', [CartController::class, 'add_to_cart'])->name('user.add_to_cart');
-    Route::get('/cart', [CartController::class, 'show_cart'])->name('user.showCart');
+    Route::get('/gio-hang', [CartController::class, 'show_cart'])->name('user.showCart');
     Route::get('/delete_cart_product/{session_id}', [CartController::class, 'delete_cart_product'])->name('user.delete_cart_product');
     Route::get('/delete_all_cart', [CartController::class, 'delete_cart_all'])->name('user.delete_cart_all');
     Route::post('/update-cart', [CartController::class, 'update_cart'])->name('user.update-cart');
