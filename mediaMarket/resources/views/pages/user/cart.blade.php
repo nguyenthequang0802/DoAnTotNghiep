@@ -15,11 +15,11 @@
                             <p class="px-3 text-2xl font-bold">Giỏ hàng (1 sản phẩm)</p>
                         </div>
                         @if(Session::get('cart') == true)
-                        <div class="flex justify-center items-center">
-                            <a href="{{ route('user.delete_cart_all') }}" onclick="return confirm('Bạn có chắc chắn muốn giỏ hàng xóa?')" class="underline text-blue-500 text-md">
-                                Xóa tất cả
-                            </a>
-                        </div>
+                            <div class="flex justify-center items-center">
+                                <a href="{{ route('user.delete_cart_all') }}" onclick="return confirm('Bạn có chắc chắn muốn giỏ hàng xóa?')" class="underline text-blue-500 text-md">
+                                    Xóa tất cả
+                                </a>
+                            </div>
                         @endif
                     </div>
                     <form action="{{ route('user.update-cart') }}" method="POST">
@@ -34,7 +34,9 @@
                                     <div class="col-span-1 px-2 py-2 text-right text-sm font-medium text-gray-900">Thao tác</div>
                                 </div>
                                 @php
-                                    $sub_total = 0;
+                                    $total_goods = 0;
+                                    $coupon_value = 0;
+                                    $coupon_code = '';
                                 @endphp
                                 @if(Session::get('cart') == false)
                                     <div class="flex flex-col">
@@ -51,7 +53,7 @@
                                             $discountedPrice = $item_cart['product_price'] - ($item_cart['product_price'] * $item_cart['product_promotion'] / 100);
                                             // Tính toán thành giá tiền của sản phẩm
                                             $into_money = $item_cart['product_quantity'] * $discountedPrice;
-                                            $sub_total += $into_money;
+                                            $total_goods += $into_money;
                                         @endphp
                                         <div class="h-px w-full bg-[#bfc4c9]"></div>
                                         <div class="grid w-full grid-cols-7 items-center max-xl:hidden">
@@ -157,7 +159,7 @@
                         </div>
                         <div class="flex items-center justify-between py-2">
                             <p class="text-sm">Tiền hàng:</p>
-                            <p class="text-sm font-bold">{{ number_format($sub_total, 0, ',', '.') }} VNĐ</p>
+                            <p class="text-sm font-bold">{{ number_format($total_goods, 0, ',', '.') }} VNĐ</p>
                         </div>
                         <div class="flex items-center justify-between py-2">
                             <p class="text-sm">Thuế VAT:</p>
@@ -167,26 +169,52 @@
                             <p class="text-sm">Phí vận chuyển:</p>
                             <p class="text-sm font-bold">0 đ</p>
                         </div>
-                        <div class="flex items-center justify-between py-2">
-                            <p class="text-sm">Khuyến mãi:</p>
-                            <p class="text-sm font-bold">-0 đ</p>
-                        </div>
-                        <div class="flex w-full items-center justify-between py-2">
-                            <div class="mantine-Input-wrapper  w-full pr-2 relative">
-                                <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" placeholder="Nhập mã khuyến mãi" value="">
+                        @if(Session::get('cart') == true)
+                            <div class="flex items-center justify-between py-2">
+                                <p class="text-sm">Khuyến mãi:</p>
+                                @if(Session::get('coupon'))
+                                    @foreach(Session::get('coupon') as $key => $cou)
+                                        @php
+                                            $coupon_value = $cou['coupon_value'];
+                                            $coupon_code = $cou['coupon_code'];
+                                        @endphp
+                                        <p class="text-sm font-bold">-{{ number_format($coupon_value, 0, ',', '.') }} VNĐ</p>
+                                    @endforeach
+                                @else
+                                    <p class="text-sm font-bold">-0 VNĐ</p>
+                                @endif
                             </div>
-                            <button class="btn-promo flex items-center justify-center rounded border-0 bg-[#be1e2d]">
-                                <p class="text-sm font-medium text-white">Áp dụng</p>
-                            </button>
-                        </div>
+                            <form action="{{ route('user.check_coupon') }}" method="POST" class="flex w-full items-center justify-between py-2">
+                                @csrf
+                                <div class="w-full pr-2 relative">
+                                    @if(Session::get('coupon'))
+                                        <input name="coupon_code" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" placeholder="Nhập mã khuyến mãi" value="{{ $coupon_code }}">
+                                    @else
+                                        <input name="coupon_code" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" placeholder="Nhập mã khuyến mãi">
+                                    @endif
+                                </div>
+                                <button class="btn-promo flex items-center justify-center rounded border-0 bg-[#be1e2d]">
+                                    <p class="text-sm font-medium text-white">Áp dụng</p>
+                                </button>
+                            </form>
+                            @if(Session::get('coupon') == true)
+                                <div class="flex justify-start items-center">
+                                    <a href="{{ route('user.unset_coupon') }}" onclick="return confirm('Bạn có chắc chắn muốn xóa mã giảm giá?')" class="underline text-blue-500 text-sm">
+                                        Xóa mã giảm giá
+                                    </a>
+                                </div>
+                            @endif
+                        @endif
                         <div class="h-px w-full bg-[#bfc4c9] my-3"></div>
                         <div class="flex items-center justify-between py-2">
                             <p class="text-lg font-bold">Tổng cộng:</p>
-                            <p class="text-sm font-bold text-[#be1e2d]">57.580.000 đ</p>
+                            <p class="text-sm font-bold text-[#be1e2d]">{{ number_format($total_goods - $coupon_value, 0, ',', '.') }} VNĐ</p>
                         </div>
-                        <div class="w-full">
-                            <button type="button" class="focus:outline-none w-full text-white bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Đặt hàng</button>
-                        </div>
+                        @if(Session::get('cart') == true)
+                            <div class="w-full">
+                                <button type="button" class="focus:outline-none w-full text-white bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Đặt hàng</button>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -200,7 +228,7 @@
                     </div>
                     <div class="flex items-center justify-between py-2">
                         <p class="text-sm">Tiền hàng:</p>
-                        <p class="text-sm font-bold">{{ number_format($sub_total, 0, ',', '.') }} VNĐ</p>
+                        <p class="text-sm font-bold">{{ number_format($total_goods, 0, ',', '.') }} VNĐ</p>
                     </div>
                     <div class="flex items-center justify-between py-2">
                         <p class="text-sm">Thuế VAT:</p>
@@ -210,24 +238,44 @@
                         <p class="text-sm">Phí vận chuyển:</p>
                         <p class="text-sm font-bold">0 đ</p>
                     </div>
-                    <div class="flex items-center justify-between py-2">
-                        <p class="text-sm">Khuyến mãi:</p>
-                        <p class="text-sm font-bold">-0 đ</p>
-                    </div>
-                    <div class="flex w-full items-center justify-between py-2">
-                        <div class="mantine-Input-wrapper w-[70%] pr-2 relative">
-                            <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" placeholder="Nhập mã khuyến mãi" value="">
+                    @if(Session::get('cart') == true)
+                        <div class="flex items-center justify-between py-2">
+                            <p class="text-sm">Khuyến mãi:</p>
+                            @if(Session::get('coupon'))
+                                <p class="text-sm font-bold">-{{ number_format($coupon_value, 0, ',', '.') }} VNĐ</p>
+                            @else
+                                <p class="text-sm font-bold">-0 VNĐ</p>
+                            @endif
                         </div>
-                        <button type="button" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Áp dụng</button>
-                    </div>
+                        <form action="{{ route('user.check_coupon') }}" method="POST" class="flex w-full items-center justify-between py-2">
+                            @csrf
+                            <div class="w-[70%] pr-2 relative">
+                                @if(Session::get('coupon'))
+                                    <input name="coupon_code" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" placeholder="Nhập mã khuyến mãi" value="{{ $coupon_code }}">
+                                @else
+                                    <input name="coupon_code" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" placeholder="Nhập mã khuyến mãi">
+                                @endif
+                            </div>
+                            <button type="submit" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Áp dụng</button>
+                        </form>
+                        @if(Session::get('coupon') == true)
+                            <div class="flex justify-start items-center">
+                                <a href="{{ route('user.unset_coupon') }}" onclick="return confirm('Bạn có chắc chắn muốn xóa mã giảm giá?')" class="underline text-blue-500 text-sm">
+                                    Xóa mã giảm giá
+                                </a>
+                            </div>
+                        @endif
+                    @endif
                     <div class="h-px w-full bg-[#bfc4c9] my-3"></div>
                     <div class="flex items-center justify-between py-2">
                         <p class="text-lg font-bold">Tổng cộng:</p>
-                        <p class="text-sm font-bold text-[#be1e2d]">57.580.000 đ</p>
+                        <p class="text-sm font-bold text-[#be1e2d]">{{ number_format($total_goods - $coupon_value, 0, ',', '.') }} VNĐ</p>
                     </div>
-                    <div class="w-full">
-                        <button type="button" class="focus:outline-none w-full text-white bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Đặt hàng</button>
-                    </div>
+                    @if(Session::get('cart') == true)
+                        <div class="w-full">
+                            <button type="button" class="focus:outline-none w-full text-white bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Đặt hàng</button>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>

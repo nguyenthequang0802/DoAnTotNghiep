@@ -29,7 +29,8 @@ Route::group(['prefix' => '/'], function () {
     Route::get('/delete_cart_product/{session_id}', [CartController::class, 'delete_cart_product'])->name('user.delete_cart_product');
     Route::get('/delete_all_cart', [CartController::class, 'delete_cart_all'])->name('user.delete_cart_all');
     Route::post('/update-cart', [CartController::class, 'update_cart'])->name('user.update-cart');
-
+    Route::post('/gio-hang/ma-giam-gia', [CartController::class, 'check_coupon'])->name('user.check_coupon');
+    Route::get('/gio-hang/xoa-ma-giam-gia', [CartController::class, 'unset_coupon'])->name('user.unset_coupon');
     Route::get('/check-out', function () {
         return view('pages.user.check-out');
     });
