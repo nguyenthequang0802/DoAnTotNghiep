@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Coupon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 session_start();
@@ -86,9 +87,50 @@ class CartController extends Controller
         $cart = Session::get('cart');
         if($cart == true){
             Session::forget('cart');
+            Session::forget('coupon');
             return redirect()->back()->with('ok', 'Xóa giỏ hàng thành công!');
         } else{
             return redirect()->back()->with('error', 'Xóa giỏ hàng thất bại!');
+        }
+    }
+
+    public function check_coupon(Request $request){
+        $data = $request->all();
+        $coupon = Coupon::where('code', '=', $data['coupon_code'])->first();
+        if ($coupon){
+            $count_coupon = $coupon->count();
+            if ($count_coupon > 0){
+                $coupon_session = Session::get('coupon');
+                if ($coupon_session == true){
+                    $is_avaiable = 0;
+                    if ($is_avaiable == 0){
+                        $cou[] = array(
+                          'coupon_code' => $coupon->code,
+                          'coupon_value' => $coupon->value,
+                        );
+                        Session::put('coupon', $cou);
+                    }
+                } else{
+                    $cou[] = array(
+                        'coupon_code' => $coupon->code,
+                        'coupon_value' => $coupon->value,
+                    );
+                    Session::put('coupon', $cou);
+                }
+                Session::save();
+                return redirect()->back()->with('ok', 'Thêm mã giảm giá thành công!');
+            }
+        } else{
+            return redirect()->back()->with('error', 'Mã giảm giá không đúng, vui lòng kiểm tra lại!');
+        }
+    }
+    public function unset_coupon(){
+        $coupon = Session::get('coupon');
+        if($coupon == true){
+            Session::forget('coupon');
+            return redirect()->back()->with('ok', 'Xóa mã giảm giá thành công!');
+        } else{
+            return redirect()->back()->with('error', 'Xóa mã giảm giá thất bại!');
         }
     }
 }
