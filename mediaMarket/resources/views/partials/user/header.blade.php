@@ -262,7 +262,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="header-action-item header-cart ms-14 flex items-center relative">
+                        <div class="header-action-item header-cart ms-8 flex items-center relative">
                             <div class="flex items-center relative text-white">
                                 <div class="header-action-item_group flex me-[10px] relative">
                                     <button data-popover-target="popover-click-cart" data-popover-trigger="click" data-popover-placement="bottom" type="button" class="font-medium text-white hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">
@@ -284,9 +284,9 @@
                                         <div class="cart-line-item grid grid-cols-3 border-b-[1px] border-b-solid border-b-[#dddddd] px-1.5 py-4">
                                             <div class="cart-line-item_info col-span-1 flex justify-between items-center pe-[15px]">
                                                 <a href="" class="cart-line-item_img h-full w-full">
-                                                                <span class="image_style relative" style="padding-top: 92%">
-                                                                    <img src="https://electrox.arenacommerce.com/cdn/shop/products/iapdlap_eab4e830-a9be-4d49-860e-ee11100c8fa7.png?v=1649400222&width=100" class="absolute left-0 top-0 h-full w-full max-w-full">
-                                                                </span>
+                                                    <span class="image_style relative" style="padding-top: 92%">
+                                                        <img src="https://electrox.arenacommerce.com/cdn/shop/products/iapdlap_eab4e830-a9be-4d49-860e-ee11100c8fa7.png?v=1649400222&width=100" class="absolute left-0 top-0 h-full w-full max-w-full">
+                                                    </span>
                                                 </a>
                                             </div>
                                             <div class="cart-line-item_info_content col-span-2">
@@ -316,6 +316,69 @@
                                     </footer>
                                 </div>
                             </div>
+                        </div>
+                        <div class="header-info_customer ms-8">
+                            <div class="flex">
+                                <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="text-white focus:ring-0 focus:outline-none font-medium rounded-lg text-md text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+                                    @guest()
+                                        <i class="fa-regular fa-user"></i>
+                                        <div class="text-left ml-1.5">
+                                            <p class="text-sm text-white" role="none">
+                                                Đăng nhập/
+                                            </p>
+                                            <p class="text-sm font-medium text-white truncate" role="none">
+                                                Đăng ký
+                                            </p>
+                                        </div>
+                                    @else
+                                        <i class="fa-solid fa-user"></i>
+                                        <div class="text-left ml-1.5">
+                                            <p class="text-sm text-white" role="none">
+                                                {{ Auth::user()->name }}
+                                            </p>
+                                            <p class="text-sm font-medium text-white truncate" role="none">
+                                                {{ Auth::user()->email }}
+                                            </p>
+                                        </div>
+                                    @endguest
+                                </button>
+                            </div>
+
+                            <!-- Dropdown menu -->
+                            <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                                    @guest()
+                                        @if (Route::has('user.login'))
+                                            <li>
+                                                <a href="{{ route('user.form_login') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Đăng nhập</a>
+                                            </li>
+                                        @endif
+                                        @if(Route::has('user.register'))
+                                                <li>
+                                                    <a href="{{ route('user.form_login') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Đăng ký</a>
+                                                </li>
+                                        @endif
+
+                                    @else
+                                        <li>
+                                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Lịch sử mua hàng</a>
+                                        </li>
+                                        <li>
+                                            <a class="block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem" href="{{ route('user.logout') }}"
+                                               onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                                <i class="fa-solid fa-right-from-bracket mr-1.5"></i>
+                                                {{ __('Logout') }}
+                                            </a>
+
+                                            <form id="logout-form" action="{{ route('user.auth.logout') }}" method="POST" class="d-none">
+                                                @csrf
+                                            </form>
+                                        </li>
+                                    @endguest
+                                </ul>
+                            </div>
+
                         </div>
                     </div>
                 </div>

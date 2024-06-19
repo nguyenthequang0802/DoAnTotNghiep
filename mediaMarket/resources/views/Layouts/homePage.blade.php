@@ -126,5 +126,70 @@
             })
         })
     </script>
+    <script>
+        $(document).ready(function(){
+            $('.send_order').click(function (e){
+                e.preventDefault();
+                Swal.fire({
+                    title: "Bạn muốn xác nhận đơn hàng?",
+                    text: "Bạn vui lòng kiểm tra lại chính xác thông tin người nhận hàng!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Xác nhận!",
+                    cancelButtonText: "Đóng!"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        let shipping_name = $('.shipping_name').val();
+                        let shipping_phone = $('.shipping_phone').val();
+                        let province = $('.shipping_province option:selected').text();;
+                        let district = $('.shipping_district option:selected').text();;
+                        let ward = $('.shipping_ward option:selected').text();
+                        let address = $('.shipping_address').val();
+                        const shipping_address = `${address}, ${ward}, ${district}, ${province}`;
+
+                        // if (province === "Chọn tỉnh thành" || district === "Chọn quận/huyện" || ward === "Chọn phường/xã"){
+                        //     alert('Vui lòng điền đầy đủ địa chỉ!');
+                        // } else {
+                        // }
+                        let paymentMethod = $('input[name="method_payment"]:checked').val();
+                        let order_coupon = $('.order_coupon').val();
+                        let shipping_note = $('.shipping_note').val();
+                        let order_coupon_value = $('.order_coupon_value').val();
+                        let order_total_price = $('.order_total_price').val();
+
+                        let _token = $('input[name="_token"]').val();
+                        $.ajax({
+                            url: '{{ route("user.confirm_checkout") }}',
+                            method: 'POST',
+                            data: {
+                                _token: _token,
+                                shipping_name: shipping_name,
+                                shipping_phone: shipping_phone,
+                                shipping_address: shipping_address,
+                                paymentMethod: paymentMethod,
+                                order_coupon: order_coupon,
+                                shipping_note: shipping_note,
+                                order_coupon_value: order_coupon_value,
+                                order_total_price: order_total_price
+                            },
+                            success:function (){
+                                Swal.fire({
+                                    title: "Thành công!",
+                                    text: "Đơn hàng của bạn đã được gửi đi, Cảm ơn bạn đã mua hàng!",
+                                    icon: "success"
+                                });
+                            },
+                        });
+                        window.setTimeout(function(){
+                            location.reload();
+                        }, 3000);
+                    }
+                });
+
+            })
+        })
+    </script>
 </body>
 </html>

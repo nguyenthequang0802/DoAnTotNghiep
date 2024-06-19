@@ -16,10 +16,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::get('/', function () {
-//    return view('pages.user.listProduct');
-//});
-
 Route::group(['prefix' => '/'], function () {
     Route::get('/',[ProductController::class, 'show_product_hot'])->name('user.index');
     Route::get('/san-pham/{category_slug}', [ProductController::class, 'show_product_store'])->name('user.store');
@@ -31,18 +27,18 @@ Route::group(['prefix' => '/'], function () {
     Route::post('/update-cart', [CartController::class, 'update_cart'])->name('user.update-cart');
     Route::post('/gio-hang/ma-giam-gia', [CartController::class, 'check_coupon'])->name('user.check_coupon');
     Route::get('/gio-hang/xoa-ma-giam-gia', [CartController::class, 'unset_coupon'])->name('user.unset_coupon');
-    Route::get('/check-out', function () {
-        return view('pages.user.check-out');
-    });
-});
+    Route::get('login-checkout', [\App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])->name('user.form_login');
+    Route::post('/login-checkout', [\App\Http\Controllers\Auth\LoginController::class, 'login'])->name('user.login');
+    Route::post('/register-checkout', [\App\Http\Controllers\Auth\RegisterController::class, 'register'])->name('user.register');
 
-//Route::group(['prefix' => '/admin'], function () {
-//    Route::get('/', function () {
-//        return view('auth.login');
-//    });
-//
-//});
+    Route::group(['middleware' => 'auth:web'], function () {
+        Route::get('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('user.logout');
+        Route::post('/logout-form', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('user.auth.logout');
+        Route::get('/check-out', [\App\Http\Controllers\CheckoutController::class,'show_checkout'])->name('user.check-out');
+        Route::post('/confirm-checkout', [\App\Http\Controllers\CheckoutController::class,'confirm_checkout'])->name('user.confirm_checkout');
+    });
+
+});
 
 Auth::routes();
 
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
