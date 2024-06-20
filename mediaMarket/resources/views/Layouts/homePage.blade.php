@@ -85,6 +85,7 @@
                 let cart_product_id = $('.cart_product_id_' + id).val();
                 let cart_product_name = $('.cart_product_name_' + id).val();
                 let cart_product_quantity = $('.cart_product_quantity_' + id).val();
+                let storage_product_qty = $('.storage_product_qty_' + id).val();
                 let cart_product_color = $('.cart_product_color_' + id).val();
                 let cart_product_price = $('.cart_product_price_' + id).val();
                 let cart_product_promotion = $('.cart_product_promotion_' + id).val();
@@ -98,6 +99,7 @@
                         cart_product_id: cart_product_id,
                         cart_product_name: cart_product_name,
                         cart_product_quantity: cart_product_quantity,
+                        storage_product_qty: storage_product_qty,
                         cart_product_color: cart_product_color,
                         cart_product_price: cart_product_price,
                         cart_product_promotion: cart_product_promotion,
