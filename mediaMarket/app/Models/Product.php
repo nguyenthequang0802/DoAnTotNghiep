@@ -35,5 +35,8 @@ class Product extends Model
     public function posts(){
         return $this->hasMany(Post::class, 'product_id');
     }
+    public function order_detail(){
+        return $this->hasOne(OrderDetail::class, 'product_id');
+    }
 }
 

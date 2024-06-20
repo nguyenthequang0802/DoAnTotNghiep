@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CouponController;
 use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\Admin\MenuController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProductImageController;
@@ -77,6 +78,14 @@ Route::namespace('admin')->group(function () {
             Route::get('/edit/{id}', [CouponController::class, 'edit'])->name("admin.coupon.edit");
             Route::post('/edit/{id}', [CouponController::class, 'update'])->name("admin.coupon.update");
             Route::get('/delete/{id}', [CouponController::class, 'destroy'])->name("admin.coupon.destroy");
+        });
+        Route::group(['prefix' => 'order'], function () {
+            Route::get('/', [OrderController::class, 'index'])->name("admin.order.index");
+//            Route::get('/add', [OrderController::class, 'create'])->name("admin.order.add");
+//            Route::post('/add', [OrderController::class, 'store'])->name("admin.order.store");
+            Route::get('/show/{order_code}', [OrderController::class, 'show'])->name("admin.order.show");
+            Route::post('/update-order-status', [OrderController::class, 'update_order_status'])->name("admin.order.update_status");
+            Route::post('/update-orderitem-qty', [OrderController::class, 'update_order_qty'])->name("admin.order.update_qty");
         });
     });
 });
