@@ -115,6 +115,7 @@
                                     <input type="hidden" class="cart_product_name_{{ $sale_product->id }}" value="{{ $sale_product->name }}">
                                     <input type="hidden" class="cart_product_quantity_{{ $sale_product->id }}" value="1">
                                     <input type="hidden" class="cart_product_color_{{ $sale_product->id }}" value="{{ $sale_product->color }}">
+                                    <input type="hidden" class="storage_product_qty_{{ $sale_product->id }}" value="{{ $sale_product->quantity }}">
                                     <input type="hidden" class="cart_product_image_{{ $sale_product->id }}" value="{{ $sale_product->images->first()}}">
                                     <input type="hidden" class="cart_product_price_{{ $sale_product->id }}" value="{{ $sale_product->price }}">
                                     <input type="hidden" class="cart_product_promotion_{{ $sale_product->id }}" value="{{ $sale_product->promotion }}">

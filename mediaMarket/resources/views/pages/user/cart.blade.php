@@ -56,8 +56,8 @@
                                             $total_goods += $into_money;
                                         @endphp
                                         <div class="h-px w-full bg-[#bfc4c9]"></div>
-                                        <div class="grid w-full grid-cols-7 items-center max-xl:hidden">
-                                            <div class="col-span-3 flex w-full flex-col items-center justify-start  overflow-hidden  px-2 py-2 text-sm text-gray-900">
+                                        <div class="grid w-full grid-cols-7 max-lg:grid-cols-3 items-center">
+                                            <div class="col-span-3 max-lg:col-span-2 flex w-full flex-col items-center justify-start  overflow-hidden  px-2 py-2 text-sm text-gray-900">
                                                 <div class="flex w-full items-center justify-start">
                                                     @if(isset($product_image['path_image']))
                                                         <div style="width: 20%;">
@@ -74,17 +74,15 @@
                                             <div class="whitespace-nowrap px-0 xl:px-2 py-4 text-right text-sm font-bold text-gray-900">{{ number_format($discountedPrice, 0, ',', '.') }} VNĐ</div>
                                             <div class="whitespace-nowrap pl-2 py-4 text-right text-sm font-light text-gray-900">
                                                 <div class="flex items-end justify-center">
-                                                    <form class="max-w-xs mx-auto">
                                                         <div class="relative flex items-center max-w-[8rem]">
-                                                            <button type="button" id="decrement-button-{{ $item_cart['product_id'] }}" data-input-counter-decrement="quantity-input-{{ $item_cart['product_id'] }}" class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-s-lg xl:p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
+                                                            <button type="button" id="decrement-button-{{ $item_cart['product_id'] }}" data-input-counter-decrement="quantity-input-{{ $item_cart['product_id'] }}" class="bg-gray-100 max-lg:px-2.5 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-s-lg xl:p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
                                                                 <i class="fa-solid fa-minus"></i>
                                                             </button>
-                                                            <input type="text" name="cart_qty[{{ $item_cart['session_id'] }}]" id="quantity-input-{{ $item_cart['product_id'] }}" data-input-counter aria-describedby="helper-text-explanation" class="bg-gray-50 border-x-0 border-gray-300 h-11 text-center text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full xl:py-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ $item_cart['product_quantity'] }}" required />
-                                                            <button type="button" id="increment-button-{{ $item_cart['product_id'] }}" data-input-counter-increment="quantity-input-{{ $item_cart['product_id'] }}" class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-e-lg xl:p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
+                                                            <input type="text" name="cart_qty[{{ $item_cart['session_id'] }}]" id="quantity-input-{{ $item_cart['product_id'] }}" data-input-counter aria-describedby="helper-text-explanation" class="bg-gray-50 max-lg:w-[45px] border-x-0 border-gray-300 h-11 text-center text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full xl:py-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ $item_cart['product_quantity'] }}" required />
+                                                            <button type="button" id="increment-button-{{ $item_cart['product_id'] }}" data-input-counter-increment="quantity-input-{{ $item_cart['product_id'] }}" class="bg-gray-100 max-lg:px-2.5 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-e-lg xl:p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
                                                                 <i class="fa-solid fa-plus"></i>
                                                             </button>
                                                         </div>
-                                                    </form>
                                                 </div>
                                             </div>
 
@@ -100,43 +98,40 @@
                                             </div>
                                         </div>
                                         <div class="cart-mobile xl:hidden">
-                                            <div class="grid grid-cols-4 items-center gap-4 py-2 ">
-                                                <div class="col-span-1 flex w-full items-start justify-center">
-                                                    @if(isset($product_image['path_image']))
-                                                        <div style="width: 20%;">
-                                                            <img src="{{ asset($product_image['path_image']) }}" width="61" height="64" alt="{{ $item_cart['product_name'] }}" style="height: 64px; object-fit: contain;">
-                                                        </div>
-                                                    @else
-                                                        <p>Chưa cập nhật ảnh</p>
-                                                    @endif
-                                                </div>
-                                                <div class="col-span-3 w-full flex-col items-start justify-start">
-                                                    <p class="text-sm ">{{ $item_cart['product_name'] }}</p>
-                                                    <p class="text-left text-sm font-medium text-[#be1e2d]">{{ number_format($discountedPrice, 0, ',', '.') }} VNĐ</p>
-                                                    <div class="flex items-center justify-between">
-                                                        <div class="flex items-end justify-center">
-                                                            <form class="max-w-xs mx-auto">
-                                                                <div class="relative flex items-center max-w-[8rem]">
-                                                                    <button type="button" id="decrement-button-{{ $item_cart['product_id'] }}" data-input-counter-decrement="quantity-input-moblie-{{ $item_cart['product_id'] }}" class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-s-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
-                                                                        <i class="fa-solid fa-minus"></i>
-                                                                    </button>
-                                                                    <input type="text" id="quantity-input-moblie-{{ $item_cart['product_id'] }}" data-input-counter aria-describedby="helper-text-explanation" class="bg-gray-50 border-x-0 border-gray-300 h-11 text-center text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" min="1" value="{{ $item_cart['product_quantity'] }}" required />
-                                                                    <button type="button" id="increment-button-{{ $item_cart['product_id'] }}" data-input-counter-increment="quantity-input-moblie-{{ $item_cart['product_id'] }}" class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-e-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
-                                                                        <i class="fa-solid fa-plus"></i>
-                                                                    </button>
-                                                                </div>
-                                                            </form>
-                                                        </div>
-                                                        <button type="button" class="text-[#be1e2d] border border-[#be1e2d] hover:bg-[#be1e2d] hover:text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center m-0 sm:me-2 sm:mb-2">
-                                                            <i class="fa-regular fa-trash-can"></i>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
+{{--                                            <div class="grid grid-cols-4 items-center gap-4 py-2 ">--}}
+{{--                                                <div class="col-span-1 flex w-full items-start justify-center">--}}
+{{--                                                    @if(isset($product_image['path_image']))--}}
+{{--                                                        <div style="width: 20%;">--}}
+{{--                                                            <img src="{{ asset($product_image['path_image']) }}" width="61" height="64" alt="{{ $item_cart['product_name'] }}" style="height: 64px; object-fit: contain;">--}}
+{{--                                                        </div>--}}
+{{--                                                    @else--}}
+{{--                                                        <p>Chưa cập nhật ảnh</p>--}}
+{{--                                                    @endif--}}
+{{--                                                </div>--}}
+{{--                                                <div class="col-span-3 w-full flex-col items-start justify-start">--}}
+{{--                                                    <p class="text-sm ">{{ $item_cart['product_name'] }}</p>--}}
+{{--                                                    <p class="text-left text-sm font-medium text-[#be1e2d]">{{ number_format($discountedPrice, 0, ',', '.') }} VNĐ</p>--}}
+{{--                                                    <div class="flex items-center justify-between">--}}
+{{--                                                        <div class="flex items-end justify-center">--}}
+{{--                                                                <div class="relative flex items-center max-w-[8rem]">--}}
+{{--                                                                    <button type="button" id="decrement-button-{{ $item_cart['product_id'] }}" data-input-counter-decrement="quantity-input-moblie-{{ $item_cart['product_id'] }}" class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-s-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">--}}
+{{--                                                                        <i class="fa-solid fa-minus"></i>--}}
+{{--                                                                    </button>--}}
+{{--                                                                    <input type="text" name="mobi_cart_qty[{{ $item_cart['session_id'] }}]" id="quantity-input-moblie-{{ $item_cart['product_id'] }}" data-input-counter aria-describedby="helper-text-explanation" class="bg-gray-50 border-x-0 border-gray-300 h-11 text-center text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" min="1" value="{{ $item_cart['product_quantity'] }}" required />--}}
+{{--                                                                    <button type="button" id="increment-button-{{ $item_cart['product_id'] }}" data-input-counter-increment="quantity-input-moblie-{{ $item_cart['product_id'] }}" class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-e-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">--}}
+{{--                                                                        <i class="fa-solid fa-plus"></i>--}}
+{{--                                                                    </button>--}}
+{{--                                                                </div>--}}
+{{--                                                        </div>--}}
+{{--                                                        <button type="button" class="text-[#be1e2d] border border-[#be1e2d] hover:bg-[#be1e2d] hover:text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center m-0 sm:me-2 sm:mb-2">--}}
+{{--                                                            <i class="fa-regular fa-trash-can"></i>--}}
+{{--                                                        </button>--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
                                         </div>
                                     @endforeach
                                 @endif
-
                             </div>
                             @if(Session::get('cart') == true)
                                 <div class="flex justify-end">
@@ -147,6 +142,21 @@
                             @endif
                         </div>
                     </form>
+                </div>
+                <div>
+                    @if(session()->has('message'))
+                        <div class="flex items-center p-4 mb-4 text-sm text-yellow-800 border border-yellow-300 rounded-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300 dark:border-yellow-800">
+                            <div class="flex mb-2">
+                                <div class="flex justify-start items-center text-xl">
+                                    <i class="fa-solid fa-circle-exclamation"></i>
+                                </div>
+                                <p class="px-3 text-xl font-bold">Thông báo</p>
+                            </div>
+                            <div class="ml-2 text-md">
+                                {!! session()->get('message') !!}
+                            </div>
+                        </div>
+                    @endif
                 </div>
                 <div class="xl:hidden">
                     <div class="my-3 flex-col rounded-lg bg-white py-3 px-4">

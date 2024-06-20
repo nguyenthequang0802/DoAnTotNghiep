@@ -15,10 +15,8 @@ class CartController extends Controller
         $data = $request->all();
         $session_id = substr(md5(microtime()), rand(0, 26), 5);
         $cart = Session::get('cart', []);
-
         // Flag to check if product is available in cart
         $is_avaiable = false;
-
         // Check if cart is not empty
         if ($cart) {
             foreach ($cart as $key => $value) {
@@ -30,7 +28,6 @@ class CartController extends Controller
                 }
             }
         }
-
         // If product does not exist in cart, add new product
         if (!$is_avaiable) {
             $cart[] = array(
@@ -40,34 +37,36 @@ class CartController extends Controller
                 'product_color' => $data['cart_product_color'],
                 'product_image' => $data['cart_product_image'],
                 'product_quantity' => $data['cart_product_quantity'],
+                'storage_product_qty'=> $data['storage_product_qty'],
                 'product_price' => $data['cart_product_price'],
                 'product_promotion' => $data['cart_product_promotion'],
             );
         }
-
         // Update the cart session
         Session::put('cart', $cart);
         Session::save();
     }
-
     public function update_cart(Request $request){
-        $data = $request->all();
-        $cart = Session::get('cart');
-        if ($cart == true){
-            foreach ($data['cart_qty'] as $key => $qty){
-                foreach ($cart as $session => $val){
-                    if ($val['session_id'] == $key){
-                        $cart[$session]['product_quantity'] = $qty;
-                    }
-                }
-            }
-            Session::put('cart', $cart);
-            return redirect()->back()->with('ok', 'Cập nhật số lượng giỏ hàng thành công!');
-        } else {
-            return redirect()->back()->with('error', 'Cập nhật số lượng giỏ hàng thất bại!');
-        }
+       $data = $request->all();
+       $cart = Session::get('cart');
+       if ($cart == true){
+           $message = '';
+           foreach ($data['cart_qty'] as $key => $qty){
+               foreach ($cart as $session => $val){
+                   if ($val['session_id'] == $key && $qty < $cart[$session]['storage_product_qty']){
+                       $cart[$session]['product_quantity'] = $qty;
+                       $message .= '<p>Sản phẩm '.$cart[$session]['product_name'].' đã được cập nhật số lượng!</p>';
+                   } elseif ($qty > $cart[$session]['storage_product_qty']){
+                       $message .= '<p class="text-red-800">Vui lòng kiểm tra lại số lượng sản phẩm '.$cart[$session]['product_name'].'!</p>';
+                   }
+               }
+           }
+           Session::put('cart', $cart);
+           return redirect()->back()->with('ok', 'Cập nhật số lượng giỏ hàng thành công!')->with('message', $message);
+       } else{
+           return redirect()->back()->with('error', 'Cập nhật số lượng giỏ hàng thất bại!');
+       }
     }
-
     public function delete_cart_product($session_id){
         $cart = Session::get('cart');
         if ($cart == true){
@@ -82,7 +81,6 @@ class CartController extends Controller
             return redirect()->back()->with('error', 'Xóa sản phẩm thất!');
         }
     }
-
     public function delete_cart_all(){
         $cart = Session::get('cart');
         if($cart == true){
@@ -105,8 +103,8 @@ class CartController extends Controller
                     $is_avaiable = 0;
                     if ($is_avaiable == 0){
                         $cou[] = array(
-                          'coupon_code' => $coupon->code,
-                          'coupon_value' => $coupon->value,
+                            'coupon_code' => $coupon->code,
+                            'coupon_value' => $coupon->value,
                         );
                         Session::put('coupon', $cou);
                     }
