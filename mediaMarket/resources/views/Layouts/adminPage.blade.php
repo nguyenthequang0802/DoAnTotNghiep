@@ -54,5 +54,80 @@
             document.getElementById('image_label').value = $url;
         }
     </script>
+    <script>
+        $(document).ready(function() {
+            $('.btn-sell_quantity').click(function (e) {
+                e.preventDefault();
+                let order_product_id = $(this).data('product_id');
+                let product_sell_quantity = $('.sell_quantity_'+order_product_id).val();
+                let order_code = $('.order_code').val();
+                let _token = $('input[name="_token"]').val();
+
+                $.ajax({
+                    url: '{{ route("admin.order.update_qty") }}',
+                    method: 'POST',
+                    data: {
+                        order_product_id: order_product_id,
+                        product_sell_quantity: product_sell_quantity,
+                        order_code: order_code,
+                        _token: _token
+                    },
+                    success: function (response) {
+                        turnOnNotifications(response.message, "success");
+                        location.reload();
+                    }
+                })
+            })
+        })
+    </script>
+    <script>
+        $(document).ready(function(){
+            $('.order_status').change(function (e){
+                e.preventDefault();
+                let order_status = $(this).val();
+                let order_id = $(this).children(":selected").data('id');
+                let _token = $('input[name="_token"]').val();
+
+                quantity = [];
+                $('input[name="product_sell_quantity"]').each(function (){
+                   quantity.push($(this).val());
+                });
+
+                order_product_id = [];
+                $('input[name="order_product_id"]').each(function(){
+                   order_product_id.push($(this).val());
+                });
+                let temp = 0;
+                for(let i = 0; i < order_product_id.length; i++){
+                    var order_qty = $('.sell_quantity_'+order_product_id[i]).val();
+                    var quantity_storage = $('.quantity_storage_'+order_product_id[i]).val();
+                    if(parseInt(order_qty) > parseInt(quantity_storage)){
+                        temp += 1;
+                        if(temp === 1){
+                            turnOnNotifications('Kiểm tra lại số lượng đặt hàng!', "error")
+                        }
+                        $('.color_qty_'+order_product_id[i]).css('background', 'rgb(251 113 133)');
+                    }
+                }
+                if(temp === 0){
+                    $.ajax({
+                        url: '{{ route("admin.order.update_status") }}',
+                        method: 'POST',
+                        data: {
+                            order_status: order_status,
+                            order_id: order_id,
+                            quantity: quantity,
+                            order_product_id: order_product_id,
+                            _token: _token,
+                        },
+                        success:function (response) {
+                            turnOnNotifications(response.message, "success");
+                            location.reload();
+                        },
+                    });
+                }
+            })
+        })
+    </script>
 </body>
 </html>

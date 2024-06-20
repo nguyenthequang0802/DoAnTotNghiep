@@ -21,6 +21,7 @@ return new class extends Migration
             $table->text('color')->nullable();
             $table->bigInteger('price');
             $table->integer('quantity');
+            $table->integer('quantity_sold');
             $table->text('status');
             $table->text('description');
             $table->integer('promotion');

@@ -22,7 +22,7 @@ class ProductController extends Controller
     private function getBrand(){
         return Brand::all();
     }
-    private function fillData($item, $input){
+    private function fillData($item, $input, $is_create){
         $price = filter_var($input['price'], FILTER_SANITIZE_NUMBER_INT);
         $item['name'] = $input['name'];
         $item['slug'] = $input['slug'] ?? Str::slug($input['name']);
@@ -35,6 +35,9 @@ class ProductController extends Controller
         $item['promotion'] = $input['promotion'];
         $item['status'] = $input['status'];
         $item['info_product'] = isset($input['info_product']) ? $input['info_product'] : '';
+        if($is_create){
+            $item['quantity_sold'] = 0;
+        }
         $item->save();
     }
     public function index(){
@@ -50,7 +53,7 @@ class ProductController extends Controller
     public function store(Request $request){
         $input = $request->all();
         $item = new Product();
-        $this->fillData($item, $input);
+        $this->fillData($item, $input, true);
         return redirect()->route('admin.product.index')->with('ok', 'Thêm mới sản phẩm thành công!');
     }
     public function edit($id){
@@ -64,7 +67,7 @@ class ProductController extends Controller
     public function update(Request $request,$id){
         $input = $request->all();
         $item = Product::find($id);
-        $this->fillData($item, $input);
+        $this->fillData($item, $input, false);
         return redirect()->route('admin.product.index')->with('ok', 'Cập nhật sản phẩm thành công!');
     }
     public function destroy($id){

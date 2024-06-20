@@ -26,4 +26,7 @@ class Order extends Model
     public function oderDetails(){
         return $this->hasMany(OrderDetail::class, 'order_code');
     }
+    public function user(){
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }
