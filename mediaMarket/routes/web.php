@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -30,6 +31,11 @@ Route::group(['prefix' => '/'], function () {
     Route::get('login-checkout', [\App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])->name('user.form_login');
     Route::post('/login-checkout', [\App\Http\Controllers\Auth\LoginController::class, 'login'])->name('user.login');
     Route::post('/register-checkout', [\App\Http\Controllers\Auth\RegisterController::class, 'register'])->name('user.register');
+    Route::controller(GoogleController::class)->group(function(){
+        Route::get('auth/google', 'redirectToGoogle')->name('auth.google');
+        Route::get('auth/google/callback', 'handleGoogleCallback');
+    });
+
 
     Route::group(['middleware' => 'auth:web'], function () {
         Route::get('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('user.logout');
