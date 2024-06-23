@@ -440,10 +440,22 @@
                                 </button>
                             </a>
                             <a href="">
-                                <button type="button" class="w-full flex flex-col justify-center items-center text-[#333] hover:text-white bg-white hover:bg-[#FF9119] border-2 border-[#FF9119] focus:ring-4 focus:outline-none focus:ring-[#FF9119]/50 font-medium rounded-lg text-sm px-5 py-2 text-center inline-flex items-center shadow-lg dark:hover:bg-[#FF9119]/80 dark:focus:ring-[#FF9119]/40 me-2 mb-2">
-                                    <p class="text-center text-xl font-bold"><i class="fa-solid fa-cart-plus"></i></p>
-                                    <p class="text-center text-sm">Thêm vào giỏ hàng</p>
-                                </button>
+                                <form>
+                                    @csrf
+                                    <input type="hidden" class="cart_product_id_{{ $product->id }}" value="{{ $product->id }}">
+                                    <input type="hidden" class="cart_product_name_{{ $product->id }}" value="{{ $product->name }}">
+                                    <input type="hidden" class="cart_product_quantity_{{ $product->id }}" value="1">
+                                    <input type="hidden" class="storage_product_qty_{{ $product->id }}" value="{{ $product->quantity }}">
+                                    <input type="hidden" class="cart_product_color_{{ $product->id }}" value="{{ $product->color }}">
+                                    <input type="hidden" class="cart_product_image_{{ $product->id }}" value="{{ $product->images->first()}}">
+                                    <input type="hidden" class="cart_product_price_{{ $product->id }}" value="{{ $product->price }}">
+                                    <input type="hidden" class="cart_product_promotion_{{ $product->id }}" value="{{ $product->promotion }}">
+                                    <button type="submit" data-id_product="{{ $product->id }}" class="btn-add_to_cart w-full flex flex-col justify-center items-center text-[#333] hover:text-white bg-white hover:bg-[#FF9119] border-2 border-[#FF9119] focus:ring-4 focus:outline-none focus:ring-[#FF9119]/50 font-medium rounded-lg text-sm px-5 py-2 text-center inline-flex items-center shadow-lg dark:hover:bg-[#FF9119]/80 dark:focus:ring-[#FF9119]/40 me-2 mb-2">
+                                        <p class="text-center text-xl font-bold"><i class="fa-solid fa-cart-plus"></i></p>
+                                        <p class="text-center text-sm">Thêm vào giỏ hàng</p>
+                                    </button>
+                                </form>
+
                             </a>
                         </div>
                         <p class="text-center text-sm text-black">Gọi đặt mua <span class="font-bold text-[#be1e2d]"><a href="">1900 323 322</a> </span>(7:30 - 22:00)</p>
@@ -557,14 +569,16 @@
                     <div class="my-2 rounded-lg bg-white p-3">
                         <div>
                             <div class="content-post flex-col w-full relative bg-white p-2" style="height: 800px; overflow: hidden">
-                                <div class="relative text-lg text-justify">
-                                    @if($product->post)
-                                        {!! $product->post->content !!}
+                                <div class="relative text-lg text-justify mb-20">
+                                    @if($product->posts)
+                                        @foreach($product->posts as  $index => $post)
+                                            {!! $post->content !!}
+                                        @endforeach
                                     @else
                                         <p>Không có bài viết</p>
                                     @endif
                                 </div>
-                                <button class="more-content w-full h-16 flex items-center justify-center absolute z-50 bottom-0 left-0">
+                                <button type="button" class="more-content w-full h-16 flex items-center justify-center absolute z-50 bottom-0 left-0" style="background: linear-gradient(180deg, hsla(0, 0%, 100%, 0) -121.09%, #fff 44.45%);">
                                     <p class="text-[#be1e2d] text-center font-bold text-base">Xem thêm</p>
                                 </button>
                             </div>
@@ -585,24 +599,8 @@
                                     @else
                                         {!! $product->info_product !!}
                                     @endif
-{{--                                    <div class="flex justify-between items-start odd:bg-gray-100 even:bg-white p-2 w-full">--}}
-{{--                                        <div class="w-1/2">--}}
-{{--                                            <p class="text-left">Kích thước màn hình</p>--}}
-{{--                                        </div>--}}
-{{--                                        <div class="w-1/2">--}}
-{{--                                            <p class="text-left">6.7 inches</p>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="flex justify-between items-start odd:bg-gray-100 even:bg-white p-2 w-full">--}}
-{{--                                        <div class="w-1/2">--}}
-{{--                                            <p class="text-left">Công nghệ màn hình</p>--}}
-{{--                                        </div>--}}
-{{--                                        <div class="w-1/2">--}}
-{{--                                            <p class="text-left">Super Retina XDR OLED</p>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
                                 </div>
-                                <button class="more-content w-full h-16 flex items-center justify-center absolute z-50 bottom-0 left-0">
+                                <button class="more-content w-full h-16 flex items-center justify-center absolute z-50 bottom-0 left-0" style="background: linear-gradient(180deg, hsla(0, 0%, 100%, 0) -121.09%, #fff 44.45%);">
                                     <p class="text-[#be1e2d] text-center font-bold text-base">Xem thêm</p>
                                 </button>
                             </div>
@@ -655,5 +653,26 @@
             </div>
         </div>
      </div>
-
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".more-content").click(function(){
+                var contentPost = $(".content-post");
+                var buttonText = $(this).find("p");
+                if (contentPost.css("height") === "800px") {
+                    contentPost.css({
+                        "height": "auto",
+                        "overflow": "visible"
+                    });
+                    buttonText.text("Thu gọn");
+                } else {
+                    contentPost.css({
+                        "height": "800px",
+                        "overflow": "hidden"
+                    });
+                    buttonText.text("Xem thêm");
+                }
+            });
+        });
+    </script>
 @endsection

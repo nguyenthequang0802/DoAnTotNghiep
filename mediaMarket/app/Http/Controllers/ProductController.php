@@ -40,11 +40,17 @@ class ProductController extends Controller
         //Sản phẩm cùng danh mục khác màu
         $list_colors = Product::where('category_id', $product->category_id)->get();
         //Sản phẩm có cùng danh mục
-        $category_product = Category::find($product->category_id);
-        $pro_category = $category_product->parentCategory;
-        $descedantCategoryIds = $pro_category->allChildren();
-        $descedantCategoryIds->push($pro_category->id);
-        $related_products = Product::whereIn('category_id', $descedantCategoryIds)->where('id', '!=', $product->id)->get();
+        $category = Category::find($product->category_id);
+        $parentCategory = $category->parentCategory;
+
+        if ($parentCategory){
+            $relatedCategoryIds = Category::where('parent_id', $parentCategory->id)->pluck('id');
+            $relatedCategoryIds->push($parentCategory->id);
+        } else{
+            $relatedCategoryIds = [];
+        }
+
+        $related_products = Product::whereIn('category_id', $relatedCategoryIds)->where('id', '!=', $product->id)->get();
 
         return view('pages.user.detailProduct', ['product' => $product, 'list_colors' => $list_colors, 'related_products'=>$related_products]);
     }
