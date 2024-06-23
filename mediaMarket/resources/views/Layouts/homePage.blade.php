@@ -38,7 +38,7 @@
         <div class="" id="shopify-header relative z-50">
             @include('partials.user.header')
         </div>
-        <main id="main-container" class="container mx-auto lg:px-20 relative z-0">
+        <main id="main-container" class="container mx-auto xl:px-20 relative z-0">
             @yield('content')
         </main>
         <!-- Footer container -->

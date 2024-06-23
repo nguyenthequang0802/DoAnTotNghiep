@@ -38,7 +38,7 @@ class PostController extends Controller
     }
     public function index(){
         $group = 'post';
-        $posts = Post::orderBy('category_id', 'ASC')->whereHas('category', function ($query) use ($group) {
+        $posts = Post::orderBy('id', 'desc')->whereHas('category', function ($query) use ($group) {
             $query->where('model_type', $group);
         })->get();
         return view('admin.post.index',[
