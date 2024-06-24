@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('order_code_coupon');
             $table->unsignedInteger('order_code_value');
             $table->integer('order_status');
-            $table->integer('order_payment_method');
+            $table->string('order_payment_method');
             $table->timestamps();
         });
     }

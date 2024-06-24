@@ -119,8 +119,7 @@
                             if (result.isConfirmed) {
                                 window.location.href = "{{ route('user.showCart') }}";
                             } else {
-                                window.location.href = "{{ route('user.index') }}";
-
+                                window.location.reload();
                             }
                         });
                     }
@@ -176,17 +175,21 @@
                                 order_coupon_value: order_coupon_value,
                                 order_total_price: order_total_price
                             },
-                            success:function (){
-                                Swal.fire({
-                                    title: "Thành công!",
-                                    text: "Đơn hàng của bạn đã được gửi đi, Cảm ơn bạn đã mua hàng!",
-                                    icon: "success"
-                                });
+                            success:function (response) {
+                                if(response.redirect){
+                                    window.location.href = response.redirect
+                                } else {
+                                    Swal.fire({
+                                        title: "Thành công!",
+                                        text: "Đơn hàng của bạn đã được gửi đi, Cảm ơn bạn đã mua hàng!",
+                                        icon: "success"
+                                    });
+                                    window.setTimeout(function(){
+                                        location.reload();
+                                    }, 3000);
+                                }
                             },
                         });
-                        window.setTimeout(function(){
-                            location.reload();
-                        }, 3000);
                     }
                 });
 

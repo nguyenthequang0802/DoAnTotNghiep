@@ -56,18 +56,20 @@
                                 <td class="px-4 py-3">{{ $item->shipping->shipping_name }}</td>
                                 <td class="px-4 py-3">
                                     @if($item->order_status == 0)
-                                        Chưa xử lý
+                                        <p class="text-red-500 font-bold">Đơn hàng mới</p>
                                     @elseif($item->order_status == 1)
-                                        Đã xử lý-giao hàng
+                                        <p class="text-green-500 font-bold">Đã xử lý-giao hàng</p>
                                     @elseif($item->order_status == 2)
-                                        Đơn hàng đã hủy
+                                        <p class="font-bold">Đơn hàng đã hủy</p>
                                     @endif
                                 </td>
                                 <td class="px-4 py-3">
-                                    @if($item->order_payment_method == 1)
-                                        Thanh toán qua VNpay
-                                    @elseif($item->order_payment_method == 0)
-                                        Thanh toán tiền mặt
+                                    @if($item->order_payment_method == 'payUrl')
+                                        Thanh toán ví điện tử Momo
+                                    @elseif($item->order_payment_method == 'cod')
+                                        Thanh toán khi nhận hàng
+                                    @elseif($item->order_payment_method == 'redirect')
+                                        Thanh toán VNpay
                                     @endif
                                 </td>
                                 <td class="px-4 py-3 font-semibold text-black">{{ number_format($item->order_code_value, 0, ',', '.') }} VNĐ</td>
