@@ -45,6 +45,7 @@
                             <th scope="col" class="px-4 py-3">Tên người nhận</th>
                             <th scope="col" class="px-4 py-3">Số điện thoại</th>
                             <th scope="col" class="px-4 py-3">Địa chỉ</th>
+                            <th scope="col" class="px-4 py-3">Phương thức thanh toán</th>
                             <th scope="col" class="px-4 py-3">Ghi chú</th>
                         </tr>
                         </thead>
@@ -53,6 +54,15 @@
                             <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ $shipping->shipping_name }}</th>
                             <td class="px-4 py-3">{{ $shipping->shipping_phone }}</td>
                             <td class="px-4 py-3">{{ $shipping->shipping_address }}</td>
+                            <td class="px-4 py-3">
+                                @if($shipping->order->order_payment_method === 'payUrl')
+                                    Thanh toán Momo
+                                @elseif($shipping->order->order_payment_method === 'cod')
+                                    Thanh toán khi nhận hàng
+                                @elseif($shipping->order->order_payment_method === 'redirect')
+                                    Thanh toán Vnpay
+                                @endif
+                            </td>
                             <td class="px-4 py-3">{{ $shipping->shipping_note }}</td>
                         </tr>
                         </tbody>
@@ -69,6 +79,10 @@
                     <div class="text-center ">
                         <h3 class="text-lg uppercase font-bold">Chi tiết đơn hàng</h3>
                     </div>
+                </div>
+                <div class="p-2.5">
+                    <span class="inline-block font-semibold">Mã đơn hàng:</span>
+                    <p class="inline-block">{{ $shipping->order->order_code }}</p>
                 </div>
                 <div class="overflow-x-auto p-2.5">
                     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 ">
