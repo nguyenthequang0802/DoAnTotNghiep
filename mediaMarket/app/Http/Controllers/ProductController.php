@@ -61,4 +61,23 @@ class ProductController extends Controller
 
         return view('pages.user.detailProduct', ['product' => $product, 'list_colors' => $list_colors, 'related_products'=>$related_products]);
     }
+    public function search_product(Request $request){
+        $input_search = $request->input('search-header');
+
+        if ($input_search != ""){
+            $query = "";
+            for ($i=0; $i<strlen($input_search); $i++){
+                $query = $query.'%'.$input_search[$i];
+            }
+            $results = Product::where('name', 'like', $query.'%')->with('images')->get();
+            $results->transform(function($product) {
+                $firstImage = $product->images->first(); // Get the first image
+                $product->first_image_path = $firstImage ? $firstImage->path_image : null; // Add only the path_image
+                unset($product->images); // Optionally remove the images collection if you don't need it
+                return $product;
+            });
+        }
+
+        return response()->json($results, 200);
+    }
 }
