@@ -284,7 +284,7 @@
                         <div class="list-color my-2 grid grid-cols-4 gap-4 max-md:grid-cols-3 max-md:gap-2">
                             @foreach($list_colors as $item_color)
                                 @if($item_color->id == $product->id)
-                                    <a href="{{ route('user.product_detail', $item_color->id) }}" class="" title="">
+                                    <a href="{{ route('user.product_detail', $item_color->slug) }}" class="" title="">
                                         <div>
                                             <div class="items-center cursor-pointer border relative flex justify-center rounded-lg border-[#be1e2d] hover:border-[#be1e2d] w-full h-9">
                                                 <p class="font-bold text-[#be1e2d] text-center text-xs">{{ $item_color->color }}</p>
@@ -293,7 +293,7 @@
                                         </div>
                                     </a>
                                 @else
-                                    <a href="{{ route('user.product_detail', $item_color->id) }}" class="" title="">
+                                    <a href="{{ route('user.product_detail', $item_color->slug) }}" class="" title="">
                                         <div>
                                             <div class="items-center cursor-pointer border relative flex justify-center rounded-lg  hover:border-[#be1e2d] w-full h-9">
                                                 <p class="text-center text-xs">{{ $item_color->color }}</p>
