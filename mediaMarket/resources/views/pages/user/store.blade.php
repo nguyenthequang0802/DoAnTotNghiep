@@ -273,22 +273,22 @@
                         @foreach($products as $product)
                             <div class="product-item col-span-1">
                                 <div class="card-item bg-white flex pt-2.5 px-2.5 pb-3.5 border-2 h-full flex-col items-center justify-start rounded border-[#f0f0f0] hover:border-white hover:drop-shadow-xl max-md:border-0 cursor-pointer">
-                                    <a href="{{ route('user.product_detail', $product->id) }}" class="discourd-item pb-2 h-8 flex w-full items-center justify-start">
+                                    <a href="{{ route('user.product_detail', $product->slug) }}" class="discourd-item pb-2 h-8 flex w-full items-center justify-start">
                                         <p class="border-2 m-1 items-center whitespace-nowrap rounded border-[#be1e2d] bg-[#be1e2d] px-2 py-1 text-xs text-white max-md:text-[10px]">Giảm {{ $product->promotion }}%</p>
                                         <p class="border-2 m-1 items-center whitespace-nowrap rounded border-[#be1e2d] bg-white px-2 py-1 text-xs text-[#be1e2d] max-md:text-[10px]">Trả góp 0%</p>
                                     </a>
-                                    <a href="{{ route('user.product_detail', $product->id) }}" class="thumbnail-item relative w-full">
+                                    <a href="{{ route('user.product_detail', $product->slug) }}" class="thumbnail-item relative w-full">
                                         <div class="w-full h-[250px] max-md:h-auto relative flex items-center justify-center">
                                             <div class="img-product transition duration-200 ease-in-out hover:scale-105 md:h-[200px] md:w-[200px]">
                                                 <img src="https://cdn-v2.didongviet.vn/files/products/2024/3/16/1/1713264914921_20215292_6208434_02.jpg" width="600" height="600">
                                             </div>
                                         </div>
                                     </a>
-                                    <a href="{{ route('user.product_detail', $product->id) }}" class="w-full">
+                                    <a href="{{ route('user.product_detail', $product->slug) }}" class="w-full">
                                         <h3 class="name-item w-full px-2 py-2.5 text-left text-sm max-md:text-[13px] font-bold text-black">{{ $product->name }}</h3>
                                     </a>
                                     <div class="price-item flex w-full items-center justify-start px-2 py-2.5">
-                                        <a href="{{ route('user.product_detail', $product->id) }}" class="w-full flex flex-col items-start justify-start">
+                                        <a href="{{ route('user.product_detail', $product->slug) }}" class="w-full flex flex-col items-start justify-start">
                                             <span class="price-sale text-left text-[16px] font-bold text-[#be1e2d]"><p class="inline-block">{{ number_format($product->price - $product->price * $product->promotion / 100, 0, ',', '.') }}</p> VNĐ</span>
                                             <span class="price text-left line-through text-sm text-[#666666]"><del class="inline-block">{{ number_format($product->price, 0, ',', '.') }}</del> VNĐ</span>
                                         </a>

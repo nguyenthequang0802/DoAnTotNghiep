@@ -9,10 +9,10 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function show_product_hot(){
-        $sale_products = Product::where('promotion', '<>', 0)->where('quantity', '>', '0')->take(5)->get();
-        return view('pages.user.index', ['sale_products' => $sale_products]);
-    }
+//    public function show_product_hot(){
+//        $sale_products = Product::where('promotion', '<>', 0)->where('quantity', '>', '0')->take(5)->get();
+//        return view('pages.user.index', ['sale_products' => $sale_products]);
+//    }
     public function show_product_store($category_slug, Request $request){
         $category = Category::where('slug', '=', $category_slug)->first();
 
@@ -35,8 +35,8 @@ class ProductController extends Controller
             'query' => $request->query(),
         ]);
     }
-    public function show_product_detail($product_id){
-        $product = Product::find($product_id);
+    public function show_product_detail($product_slug){
+        $product = Product::where('slug', $product_slug)->first();
         //Sản phẩm cùng danh mục khác màu
         $list_colors = Product::where('category_id', $product->category_id)->get();
         //Sản phẩm có cùng danh mục

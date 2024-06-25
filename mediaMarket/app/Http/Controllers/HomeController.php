@@ -2,27 +2,37 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Post;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public function showIndex()
     {
-        $this->middleware('auth:admin');
-    }
+        $sale_products = Product::where('promotion', '<>', 0)->where('quantity', '>', '0')->take(5)->get();
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function index()
-    {
-        return view('Layouts.adminPage');
+        $category_phone = Category::where('slug', 'dien-thoai')->first();
+        if ($category_phone){
+            $descedantCategoryIds = $category_phone->allChildren();
+            $descedantCategoryIds->push($category_phone->id);
+            $phones = Product::orderBy('id', 'desc')->whereIn('category_id', $descedantCategoryIds)->take(5)->get();
+        }
+        $category_laptop = Category::where('slug', 'laptop')->first();
+        if ($category_laptop){
+            $descedantCategoryIds = $category_laptop->allChildren();
+            $descedantCategoryIds->push($category_laptop->id);
+            $laptops = Product::orderBy('id', 'desc')->whereIn('category_id', $descedantCategoryIds)->take(5)->get();
+        }
+
+        $posts = Post::orderBy('id', 'desc')->take(4)->get();
+
+        return view('pages.user.index', [
+            'sale_products'=> $sale_products,
+            'phones' => $phones,
+            'laptops' => $laptops,
+            'posts' => $posts
+        ]);
     }
 }
