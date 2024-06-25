@@ -101,7 +101,8 @@
                             <!-- Dropdown menu -->
                             <div id="dropdownNotification" class="z-20 hidden w-full max-w-sm bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-800 dark:divide-gray-700" aria-labelledby="dropdownNotificationButton">
                                 <div class="block px-4 py-2 font-medium text-center text-gray-700 rounded-t-lg bg-gray-50 dark:bg-gray-800 dark:text-white">
-                                    <form action="" method="" class="flex min-w-[355px] border-[2px] border-solid border-[#ffd400] rounded-[25px] relative">
+                                    <form action="" method="POST" class="form_search flex min-w-[355px] border-[2px] border-solid border-[#ffd400] rounded-[25px] relative">
+                                        @csrf
                                         <input type="text" name="search-header" class="border-none w-full h-[38px] rounded-[25px] pe-[65px] focus:ring-[#ffd400]" placeholder="Tìm kiếm..." autocomplete="off">
                                         <button type="submit" class="btn-search absolute top-[-2px] right-[-3px] bottom-[-2px] flex items-center justify-center w-[60px] p-0 rounded-r-[25px] bg-[#ffd400] border-[2px] border-solid border-[#ffd400]">
                                             <i class="fa-solid fa-magnifying-glass text-lg font-bold" style="height: 20px; width: 20px;"></i>
@@ -109,41 +110,14 @@
                                     </form>
                                 </div>
                                 <div class="divide-y divide-gray-100 dark:divide-gray-700">
-                                    <div class="search-result-list max-h-[362px] overflow-y-auto overflow-x-hidden">
+                                    <div class="search-result-list overflow-y-auto overflow-x-hidden">
                                         <div class="search-results_list-inner h-[calc(100%-58px)] pt-5 overflow-x-hidden overflow-y-auto p-t-[20px]">
                                             <div class="search-results_group mb-1.5">
-                                                <a href="" class="search-results_item grid grid-cols-4 items-center mt-0 mx-4 mb-4 text-[14px] font-normal leading-normal">
-                                                    <div class="search-results_item-image col-span-1 me-2">
-                                                        <span class="image_style relative block" style="padding-top: 92%">
-                                                            <img src="https://electrox.arenacommerce.com/cdn/shop/products/iapdlap_eab4e830-a9be-4d49-860e-ee11100c8fa7.png?v=1649400222&width=100" class="absolute left-0 top-0 h-full w-full max-w-full">
-                                                        </span>
-                                                    </div>
-                                                    <div class="search-results_item-info col-span-3">
-                                                        <div class="search-results_item-title text-[#0062bd] text-[14px] font-bold mb-[10px] hover:text-[#ffd400]">Ipad pro</div>
-                                                        <div class="search-results_item-price flex items-center justify-start flex-wrap font-normal text-[#343f49] text-[20px]">
-                                                            <div class="price">$70.00</div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                                <a href="" class="search-results_item grid grid-cols-4 items-center mt-0 mx-4 mb-4 text-[14px] font-normal leading-normal">
-                                                    <div class="search-results_item-image col-span-1 me-2">
-                                                        <span class="image_style relative block" style="padding-top: 92%">
-                                                            <img src="https://electrox.arenacommerce.com/cdn/shop/products/iapdlap_eab4e830-a9be-4d49-860e-ee11100c8fa7.png?v=1649400222&width=100" class="absolute left-0 top-0 h-full w-full max-w-full">
-                                                        </span>
-                                                    </div>
-                                                    <div class="search-results_item-info col-span-3">
-                                                        <div class="search-results_item-title text-[#0062bd] text-[14px] font-bold mb-[10px] hover:text-[#ffd400]">Ipad pro</div>
-                                                        <div class="search-results_item-price flex items-center justify-start flex-wrap font-normal text-[#343f49] text-[20px]">
-                                                            <div class="price-sale text-[20px] text-[#dc3545] me-[12px]">$225.00</div>
-                                                            <del class="price-compare text-[12px] text-[#848484]">$250.00</del>
-                                                        </div>
-                                                    </div>
-                                                </a>
+                                                <div class="search-result_empty p-[20px] text-center text-[#333e48] hover:text-[#ffd400]">Không có sản phầm bạn đang tìm kiếm.</div>
                                             </div>
                                         </div>
                                         <button class="btn-search-view_all w-full px-[14px] py-[10px] text-center cursor-pointer rounded-b-[10px] text-[14px] font-bold text-[#333e48] hover:text-white bg-[#ffd400] hover:bg-[#333e48] border-2 border-solid border-[#ffd400] hover:border-[#333e48]">View All</button>
                                     </div>
-                                    <div class="search-result_empty p-[20px] text-center text-[#333e48] hover:text-[#ffd400]">Không có sản phầm bạn đang tìm kiếm.</div>
                                 </div>
                             </div>
                         </div>
@@ -418,48 +392,21 @@
                     </div>
                     <div class="header-mobile_bottom">
                         <div class="header-mobile-search absolute left-0 top-16 right-0 mt-0 py-2.5 px-0 bg-white z-50 hidden" style="box-shadow: 0 0 8px #c9c9c9bf;">
-                            <form action="" method="" class="flex min-w-[355px] border-[2px] border-solid border-[#ffd400] rounded-[25px] relative">
+                            <form action="" method="POST" class="flex min-w-[355px] border-[2px] border-solid border-[#ffd400] rounded-[25px] relative">
                                 <input type="text" name="search-header" class="border-none w-full h-[38px] rounded-[25px] pe-[65px] focus:ring-[#ffd400]" placeholder="Tìm kiếm..." autocomplete="off">
                                 <button type="submit" class="btn-search absolute top-[-2px] right-[-3px] bottom-[-2px] flex items-center justify-center w-[60px] p-0 rounded-r-[25px] bg-[#ffd400] border-[2px] border-solid border-[#ffd400]">
                                     <i class="fa-solid fa-magnifying-glass text-lg font-bold" style="height: 20px; width: 20px;"></i>
                                 </button>
                             </form>
                             <div class="search-result absolute w-full left-0 top-[100%] z-10 rounded-b-[10px] shadow-xl border-t-2 border-solid border-t-[#ffd400]">
-                                <div class="search-result-list max-h-[362px] overflow-y-auto overflow-x-hidden">
+                                <div class="search-result-list overflow-y-auto overflow-x-hidden">
                                     <div class="search-results_list-inner bg-white h-[calc(100%-58px)] pt-5 overflow-x-hidden overflow-y-auto p-t-[20px]">
                                         <div class="search-results_group mb-1.5">
-                                            <a href="" class="search-results_item grid grid-cols-4 items-center mt-0 mx-4 mb-4 text-[14px] font-normal leading-normal">
-                                                <div class="search-results_item-image col-span-1 me-2">
-                                                    <span class="image_style relative block" style="padding-top: 92%">
-                                                        <img src="https://electrox.arenacommerce.com/cdn/shop/products/iapdlap_eab4e830-a9be-4d49-860e-ee11100c8fa7.png?v=1649400222&width=100" class="absolute left-0 top-0 h-full w-full max-w-full">
-                                                    </span>
-                                                </div>
-                                                <div class="search-results_item-info col-span-3">
-                                                    <div class="search-results_item-title text-[#0062bd] text-[14px] font-bold mb-[10px] hover:text-[#ffd400]">Ipad pro</div>
-                                                    <div class="search-results_item-price flex items-center justify-start flex-wrap font-normal text-[#343f49] text-[20px]">
-                                                        <div class="price">$70.00</div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a href="" class="search-results_item grid grid-cols-4 items-center mt-0 mx-4 mb-4 text-[14px] font-normal leading-normal">
-                                                <div class="search-results_item-image col-span-1 me-2">
-                                                    <span class="image_style relative block" style="padding-top: 92%">
-                                                        <img src="https://electrox.arenacommerce.com/cdn/shop/products/iapdlap_eab4e830-a9be-4d49-860e-ee11100c8fa7.png?v=1649400222&width=100" class="absolute left-0 top-0 h-full w-full max-w-full">
-                                                    </span>
-                                                </div>
-                                                <div class="search-results_item-info col-span-3">
-                                                    <div class="search-results_item-title text-[#0062bd] text-[14px] font-bold mb-[10px] hover:text-[#ffd400]">Ipad pro</div>
-                                                    <div class="search-results_item-price flex items-center justify-start flex-wrap font-normal text-[#343f49] text-[20px]">
-                                                        <div class="price-sale text-[20px] text-[#dc3545] me-[12px]">$225.00</div>
-                                                        <del class="price-compare text-[12px] text-[#848484]">$250.00</del>
-                                                    </div>
-                                                </div>
-                                            </a>
+                                            <div class="search-result_empty p-[20px] text-center text-[#333e48] hover:text-[#ffd400]">Không có sản phầm bạn đang tìm kiếm.</div>
                                         </div>
                                     </div>
                                     <button class="btn-search-view_all w-full px-[14px] py-[10px] text-center cursor-pointer rounded-b-[10px] text-[14px] font-bold text-[#333e48] hover:text-white bg-[#ffd400] hover:bg-[#d70018] border-2 border-solid border-[#ffd400] hover:border-[#333e48]">View All</button>
                                 </div>
-                                <div class="search-result_empty p-[20px] text-center text-[#333e48] hover:text-[#ffd400]">Không có sản phầm bạn đang tìm kiếm.</div>
                             </div>
                         </div>
                         <script>

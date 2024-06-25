@@ -196,5 +196,62 @@
             })
         })
     </script>
+    <script>
+        $('.form_search').on('input', function (e){
+            e.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: '{{ route('user.search_product') }}',
+                data: $('.form_search').serialize(),
+                success: function(response){
+                    console.log(response)
+                    let products = response;
+                    let html = '';
+                    let urlTemplate = `{{ route('user.product_detail', ':slug') }}`;
+                    for (let i = 0; i < products.length; i++){
+                        let formattedPrice = parseFloat(products[i].price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
+                        let productDetailUrl = urlTemplate.replace(':slug', products[i].slug);
+                        if (products[i].promotion == 0){
+                            html += `
+                            <a href="${productDetailUrl}" class="search-results_item grid grid-cols-4 items-center mt-0 mx-4 mb-4 text-[14px] font-normal leading-normal">
+                                <div class="search-results_item-image col-span-1 me-2">
+                                    <span class="image_style relative block" style="padding-top: 92%">
+                                        <img src="${products[i].first_image_path}" class="absolute left-0 top-0 h-full w-full max-w-full">
+                                    </span>
+                                </div>
+                                <div class="search-results_item-info col-span-3">
+                                    <div class="search-results_item-title text-[#0062bd] text-[14px] font-bold mb-[10px] hover:text-[#ffd400]">${products[i].name}</div>
+                                        <div class="search-results_item-price flex items-center justify-start flex-wrap font-normal text-[#343f49] text-[20px]">
+                                            <div class="text-[20px] text-[#dc3545] me-[12px]">${formattedPrice}</div>
+                                        </div>
+                                    </div>
+                            </a>`
+                        } else {
+                            let price_discount = parseFloat(products[i].price - (products[i].price * products[i].promotion /100)).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
+                            html += `
+                                <a href="${productDetailUrl}" class="search-results_item grid grid-cols-4 items-center mt-0 mx-4 mb-4 text-[14px] font-normal leading-normal">
+                                    <div class="search-results_item-image col-span-1 me-2">
+                                        <span class="image_style relative block" style="padding-top: 92%">
+                                            <img src="${products[i].first_image_path}" class="absolute left-0 top-0 h-full w-full max-w-full">
+                                        </span>
+                                    </div>
+                                    <div class="search-results_item-info col-span-3">
+                                        <div class="search-results_item-title text-[#0062bd] text-[14px] font-bold mb-[10px] hover:text-[#ffd400]">${products[i].name}</div>
+                                        <div class="search-results_item-price flex items-center justify-start flex-wrap font-normal text-[#343f49] text-[20px]">
+                                            <div class="price-sale text-[20px] text-[#dc3545] me-[12px]">${price_discount}</div>
+                                            <del class="price-compare text-[12px] text-[#848484]">${formattedPrice}</del>
+                                        </div>
+                                    </div>
+                                </a>`
+                        }
+                    }
+                    if(products.length == 0){
+                        html = `<div class="search-result_empty p-[20px] text-center text-[#333e48] hover:text-[#ffd400]">Không có sản phầm bạn đang tìm kiếm.</div>`
+                    }
+                    $('.search-results_group').html(html);
+                }
+            })
+        })
+    </script>
 </body>
 </html>
