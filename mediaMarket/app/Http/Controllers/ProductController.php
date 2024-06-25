@@ -22,7 +22,12 @@ class ProductController extends Controller
             $products = Product::query()->whereIn('category_id', $descedantCategoryIds);
         }
         $brands = $products->with('brand')->get()->pluck('brand')->unique('id');
+        $maxPrice = ceil($products->max('price') /1000000) * 1000000;
+        $minPrice = floor($products->min('price') /1000000) * 1000000;
 
+        if ($request->has('min_price') && $request->has('max_price')){
+            $products->whereBetween('price', [(int)$request->min_price, (int)$request->max_price]);
+        }
         if($request->has('name')) $products->orderBy('name', $request->name);
         if ($request->has('price')) $products->orderBy('price', $request->price);
         $brand = Brand::where('slug', '=', $request->brand)->first();
@@ -32,6 +37,8 @@ class ProductController extends Controller
             'category' => $category,
             'products' => $products->paginate(12),
             'brands' => $brands,
+            'maxPrice' => $maxPrice,
+            'minPrice' => $minPrice,
             'query' => $request->query(),
         ]);
     }

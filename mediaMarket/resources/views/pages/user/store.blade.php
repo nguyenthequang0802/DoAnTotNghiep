@@ -42,172 +42,23 @@
         <div class="box-filter col-span-1 mx-2 lg:mx-0 p-5 lg:p-0 lg:pr-8 border border-gray-200 lg:border-0 rounded-lg mb-4 max-md:shadow-md max-md:bg-white">
             <div class="list-filters ">
                 <h3 class="text-md font-bold block lg:hidden mb-2">Bộ lọc:</h3>
-                <div id="accordion-arrow-icon" data-accordion="open">
-                    <h2 id="accordion-filter-brand-heading">
-                        <button type="button"
-                                class="flex items-center justify-between w-full font-medium rtl:text-right text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3"
-                                data-accordion-target="#accordion-filter_brand" aria-expanded="true" aria-controls="accordion-filter_brand">
-                            <h3 class="filter-item_title text-sm text-[#212529] font-bold mb-5">
-                                    Hãng Sản Xuất
-                                </h3>
-                            <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
-                            </svg>
-                        </button>
-                    </h2>
-                    <div id="accordion-filter_brand" class="" aria-labelledby="accordion-filter-brand-heading">
-                            <div class="filter-item_checkList grid grid-cols-2">
-                                <div class="flex items-center mb-4">
-                                    <input checked id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                    <label for="checked-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Tất cả</label>
-                                </div>
-                                <div class="flex items-center mb-4">
-                                    <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                    <label for="default-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Apple</label>
-                                </div>
-                                <div class="flex items-center mb-4">
-                                    <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                    <label for="default-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">SamSung</label>
-                                </div>
-                                <div class="flex items-center mb-4">
-                                    <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                    <label for="default-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Oppo</label>
-                                </div>
-                                <div class="flex items-center mb-4">
-                                    <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                    <label for="default-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Xiaomi</label>
-                                </div>
-                                <div class="flex items-center mb-4">
-                                    <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                    <label for="default-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nokia</label>
-                                </div>
-                                <div class="flex items-center mb-4">
-                                    <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                    <label for="default-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Huawei</label>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    <h2 id="accordion-filter-price_range-heading">
-                            <button type="button"
-                                    class="flex items-center justify-between w-full font-medium rtl:text-right text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3"
-                                    data-accordion-target="#accordion-filter-price_range-body" aria-expanded="true" aria-controls="accordion-filter-price_range-body">
-                                <h3 class="filter-item_title text-sm text-[#212529] font-bold mb-5">
-                                    Mức giá
-                                </h3>
-                                <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
-                                </svg>
-                            </button>
-                        </h2>
-                    <div id="accordion-filter-price_range-body" class="" aria-labelledby="accordion-filter-price_range-heading">
-                            <div class="filter-item_checkList grid grid-cols-1">
-                                <div class="flex items-center mb-4">
-                                    <input checked id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                    <label for="checked-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Tất cả</label>
-                                </div>
-                                <div class="flex items-center mb-4">
-                                    <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                    <label for="default-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Dưới 2 triệu</label>
-                                </div>
-                                <div class="flex items-center mb-4">
-                                    <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                    <label for="default-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Từ 2 - 4 triệu</label>
-                                </div>
-                                <div class="flex items-center mb-4">
-                                    <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                    <label for="default-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Từ 4 - 7 triệu</label>
-                                </div>
-                                <div class="flex items-center mb-4">
-                                    <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                    <label for="default-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Từ 7 - 13 triệu</label>
-                                </div>
-                                <div class="flex items-center mb-4">
-                                    <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                    <label for="default-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Trên 13 triệu</label>
-                                </div>
-                            </div>
-                        </div>
-
-                    <h2 id="accordion-filter-OS-heading">
-                            <button type="button"
-                                    class="flex items-center justify-between w-full font-medium rtl:text-right text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3"
-                                    data-accordion-target="#accordion-filter-OS-body" aria-expanded="true" aria-controls="accordion-filter-OS-body">
-                                <h3 class="filter-item_title text-sm text-[#212529] font-bold mb-5">
-                                    Hệ điều hành
-                                </h3>
-                                <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
-                                </svg>
-                            </button>
-                        </h2>
-                    <div id="accordion-filter-OS-body" class="" aria-labelledby="accordion-filter-OS-heading">
-                            <div class="filter-item_checkList grid grid-cols-1">
-                                <div class="flex items-center mb-4">
-                                    <input checked id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                    <label for="checked-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Tất cả</label>
-                                </div>
-                                <div class="flex items-center mb-4">
-                                    <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                    <label for="default-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Android</label>
-                                </div>
-                                <div class="flex items-center mb-4">
-                                    <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                    <label for="default-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">iOS</label>
-                                </div>
-                                <div class="flex items-center mb-4">
-                                    <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                    <label for="default-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Thông thường</label>
-                                </div>
-                            </div>
-                        </div>
-
-                    <h2 id="accordion-filter-memory-heading">
-                            <button type="button"
-                                    class="flex items-center justify-between w-full font-medium rtl:text-right text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3"
-                                    data-accordion-target="#accordion-filter-memory-body" aria-expanded="true" aria-controls="accordion-filter-memory-body">
-                                <h3 class="filter-item_title text-sm text-[#212529] font-bold mb-5">
-                                    Dung lượng bộ nhớ
-                                </h3>
-                                <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
-                                </svg>
-                            </button>
-                        </h2>
-                    <div id="accordion-filter-memory-body" class="" aria-labelledby="accordion-filter-memory-heading">
-                            <div class="filter-item_checkList grid grid-cols-1">
-                                <div class="flex items-center mb-4">
-                                    <input checked id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                    <label for="checked-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Tất cả</label>
-                                </div>
-                                <div class="flex items-center mb-4">
-                                    <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                    <label for="default-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">32GB</label>
-                                </div>
-                                <div class="flex items-center mb-4">
-                                    <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                    <label for="default-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">64GB</label>
-                                </div>
-                                <div class="flex items-center mb-4">
-                                    <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                    <label for="default-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">128GB</label>
-                                </div>
-                                <div class="flex items-center mb-4">
-                                    <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                    <label for="default-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">256GB</label>
-                                </div>
-                                <div class="flex items-center mb-4">
-                                    <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                    <label for="default-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">512GB</label>
-                                </div>
-                                <div class="flex items-center mb-4">
-                                    <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                    <label for="default-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">1TB</label>
-                                </div>
-                            </div>
-                        </div>
+                <div class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                    <div class="flex gap-2.5 justify-between items-center border-b border-gray-300 pb-1 mt-2">
+                        <h3 class="text-black font-bold text-lg">Khoảng giá</h3>
+                        <p class="text-gray-500 font-normal text-sm">
+                            <span id="min_price_value">{{ number_format(request()->has('min_price') ? request('min_price') : $minPrice, 0, ',', '.')}}</span>
+                            -
+                            <span id="max_price_value">{{ number_format(request()->has('max_price') ? request('max_price') : $maxPrice, 0, ',', '.')}}</span>
+                        </p>
+                    </div>
+                    <div class="relative mb-6">
+                        <label for="labels-range-input" class="sr-only">Labels range</label>
+                        <input id="labels-range-input" type="range" value="{{ request()->has('min_price') ? request('min_price') : 0}}" min="{{$minPrice}}" max="{{ $maxPrice }}" step="1000000" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700" oninput="change_price_range(this.value)" onchange="apply_price_filter(this.value)">
+                        <span class="text-sm text-gray-500 dark:text-gray-400 absolute start-0 -bottom-6">{{ number_format($minPrice, 0, ',', '.') }} VNĐ</span>
+                        <span class="text-sm text-gray-500 dark:text-gray-400 absolute end-0 -bottom-6">{{ number_format($maxPrice, 0, ',', '.') }}VNĐ</span>
+                    </div>
                 </div>
+
             </div>
         </div>
         <div class="box-products col-span-3">
@@ -215,7 +66,7 @@
                 <div class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 rounded-t-lg bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:bg-gray-800" id="defaultTab">
                     <h2 class="p-4 text-black text-lg font-bold rounded-ss-lg hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-blue-500">Hãng Sản Xuất</h2>
                 </div>
-                <div id="defaultTabContent">
+                <div id="defaultTabContent" class="flex flex-col gap-2">
                     <div class="p-4 flex bg-white rounded-lg md:p-5 dark:bg-gray-800">
                         @foreach($brands as $brand)
                             <a href="{{ route('user.store', ['category_slug' => $category->slug, ...$query, 'brand' => $brand->slug]) }}">
@@ -233,10 +84,10 @@
                     <div class="header-card px-4 mb-6 flex justify-between">
                         <div class="flex">
                             <a href="{{ route('user.store', ['category_slug' => $category->slug, ...$query, 'price' => 'ASC']) }}">
-                                <button type="button" class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Giá tăng dần</button>
+                                <button type="button" class="py-2.5 px-2 lg:px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Giá tăng dần</button>
                             </a>
                             <a href="{{ route('user.store', ['category_slug' => $category->slug, ...$query, 'price' => 'DESC']) }}">
-                                <button type="button" class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Giá giảm dần</button>
+                                <button type="button" class="py-2.5 px-2 lg:px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Giá giảm dần</button>
                             </a>
                         </div>
 
@@ -257,17 +108,6 @@
                             </a>
                         </div>
 
-{{--                        <div class="flex justify-center items-center mr-2">--}}
-{{--                            <h4 class="text-sm font-bold">Sắp xếp:</h4>--}}
-{{--                        </div>--}}
-{{--                        <div>--}}
-{{--                            <select id="small" class="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:ring-0 focus:border-gray-300">--}}
-{{--                                <option value="">Sản phẩm nổi bật</option>--}}
-{{--                                <option value="US">Sản phẩm mới nhất</option>--}}
-{{--                                <option value="CA">Giá tăng dân</option>--}}
-{{--                                <option value="FR">Giá giảm dần</option>--}}
-{{--                            </select>--}}
-{{--                        </div>--}}
                     </div>
                     <div class="list-products grid grid-cols-2 gap-2 md:grid-cols-3 xl:grid-cols-4 lg:gap-3 mb-5 px-4">
                         @foreach($products as $product)
@@ -318,7 +158,33 @@
                     @endif
                 </div>
             </div>
-
         </div>
     </div>
+    <script type="text/javascript">
+        const min_price = {{ $minPrice }};
+        const max_price = {{ $maxPrice }};
+        const delta = 1000000;
+
+        function change_price_range(value) {
+            value = parseInt(value);
+            document.getElementById("min_price_value").innerText = Math.max(min_price, value - delta).toLocaleString('vi-VN');
+            document.getElementById("max_price_value").innerText = Math.min(max_price, value + delta).toLocaleString('vi-VN');
+        }
+
+        function apply_price_filter(value){
+            value = parseInt(value);
+            const min_filter_price = Math.max(min_price, value - delta).toString();
+            const max_filter_price = Math.min(max_price, value + delta).toString();
+
+            const url = new URL(window.location.href);
+            console.log(url);
+            // url.searchParams.set('min_price', min_filter_price);
+            url.searchParams.set('min_price', min_filter_price);
+            url.searchParams.set('max_price', max_filter_price);
+            console.log(url);
+
+            // redirect to new url
+            window.location.href = url;
+        }
+    </script>
 @endsection
