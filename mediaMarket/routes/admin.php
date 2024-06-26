@@ -62,6 +62,7 @@ Route::namespace('admin')->group(function () {
             Route::get('/edit/{id}', [PostController::class, 'edit'])->name("admin.post.edit");
             Route::post('/edit/{id}', [PostController::class, 'update'])->name("admin.post.update");
             Route::get('/delete/{id}', [PostController::class, 'destroy'])->name("admin.post.destroy");
+            Route::post('/search-post', [PostController::class, 'search'])->name("admin.post.search");
         });
         Route::group(['prefix' => 'product'], function () {
             Route::get('/', [ProductController::class, 'index'])->name("admin.product.index");

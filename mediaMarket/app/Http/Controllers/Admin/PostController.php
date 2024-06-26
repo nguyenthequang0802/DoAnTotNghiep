@@ -40,10 +40,9 @@ class PostController extends Controller
         $group = 'post';
         $posts = Post::orderBy('id', 'desc')->whereHas('category', function ($query) use ($group) {
             $query->where('model_type', $group);
-        })->get();
+        })->paginate(6);
         return view('admin.post.index',[
             "posts" => $posts
-
         ]);
     }
     public function create(){
@@ -77,5 +76,46 @@ class PostController extends Controller
         } catch (\Exception $e){
             return  redirect()->route('admin.post.index')->with('error', 'Xóa thất bại!');
         }
+    }
+    public function search(Request $request){
+        $input = $request->input('simple-search');
+        if ($input != ""){
+            $query = "";
+//            for ($i=0; $i<strlen($input); $i++){
+//                $query = $query.'%'.$input[$i];
+//            }
+            $query = '%' . str_replace(' ', '%', $input) . '%';
+
+            $post = Post::where('title', 'like', $query . '%')
+                ->with(['product', 'category'])
+                ->get();
+            $results = $post->map(function($post) {
+                return [
+                    'id' => $post->id,
+                    'title' => $post->title,
+                    'preview_image' => $post->preview_image,
+                    'product_name' => $post->product,
+                    'category_name' => $post->category,
+                    'views' => $post->views,
+                    'rating_value' => $post->rating_value,
+                ];
+            });
+        } else {
+            $posts = Post::orderBy('id', 'DESC')
+                ->with(['product', 'category'])
+                ->get();
+            $results = $posts->map(function($post) {
+                return [
+                    'id' => $post->id,
+                    'title' => $post->title,
+                    'preview_image' => $post->preview_image,
+                    'product_name' => $post->product,
+                    'category_name' => $post->category,
+                    'views' => $post->views,
+                    'rating_value' => $post->rating_value,
+                ];
+            });
+        }
+        return response()->json($results, 200);
     }
 }
