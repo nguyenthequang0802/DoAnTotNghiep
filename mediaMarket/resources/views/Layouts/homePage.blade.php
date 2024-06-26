@@ -211,12 +211,13 @@
                     for (let i = 0; i < products.length; i++){
                         let formattedPrice = parseFloat(products[i].price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
                         let productDetailUrl = urlTemplate.replace(':slug', products[i].slug);
+                        let previewImage = products[i].first_image_path ? '{{ asset(':path') }}'.replace(':path', products[i].first_image_path) : '';
                         if (products[i].promotion == 0){
                             html += `
                             <a href="${productDetailUrl}" class="search-results_item grid grid-cols-4 items-center mt-0 mx-4 mb-4 text-[14px] font-normal leading-normal">
                                 <div class="search-results_item-image col-span-1 me-2">
                                     <span class="image_style relative block" style="padding-top: 92%">
-                                        <img src="${products[i].first_image_path}" class="absolute left-0 top-0 h-full w-full max-w-full">
+                                        <img src="${previewImage}" class="absolute left-0 top-0 h-full w-full max-w-full">
                                     </span>
                                 </div>
                                 <div class="search-results_item-info col-span-3">
