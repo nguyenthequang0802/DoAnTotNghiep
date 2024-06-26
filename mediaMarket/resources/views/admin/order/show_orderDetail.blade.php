@@ -72,7 +72,7 @@
         </div>
     </section>
 
-    <section class="py-3 sm:py-5">
+    <section class="mb-8 py-3 sm:py-5">
         <div class="px-4">
             <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
                 <div class="flex flex-col md:flex-row items-center justify-center space-y-3 md:space-y-0 md:space-x-4 p-4">
@@ -80,9 +80,19 @@
                         <h3 class="text-lg uppercase font-bold">Chi tiết đơn hàng</h3>
                     </div>
                 </div>
-                <div class="p-2.5">
-                    <span class="inline-block font-semibold">Mã đơn hàng:</span>
-                    <p class="inline-block">{{ $shipping->order->order_code }}</p>
+                <div class="p-2.5 flex justify-between">
+                    <div class="flex items-center gap-2">
+                        <span class="inline-block font-semibold">Mã đơn hàng:</span>
+                        <p class="inline-block">{{ $shipping->order->order_code }}</p>
+                    </div>
+                    <div class="">
+                        <a href="{{ route('admin.order.print_order', $shipping->order->order_code) }}" class="float-right" target="_blank">
+                            <button type="button" class="flex gap-2 text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="20" width="20"><path d="M64 464l48 0 0 48-48 0c-35.3 0-64-28.7-64-64L0 64C0 28.7 28.7 0 64 0L229.5 0c17 0 33.3 6.7 45.3 18.7l90.5 90.5c12 12 18.7 28.3 18.7 45.3L384 304l-48 0 0-144-80 0c-17.7 0-32-14.3-32-32l0-80L64 48c-8.8 0-16 7.2-16 16l0 384c0 8.8 7.2 16 16 16zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg>
+                                Xuất file pdf
+                            </button>
+                        </a>
+                    </div>
                 </div>
                 <div class="overflow-x-auto p-2.5">
                     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 ">
@@ -162,6 +172,7 @@
                             </select>
                         </form>
                     </div>
+
                 </div>
             </div>
         </div>

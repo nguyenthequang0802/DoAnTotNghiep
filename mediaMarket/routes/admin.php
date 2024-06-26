@@ -86,6 +86,8 @@ Route::namespace('admin')->group(function () {
             Route::get('/show/{order_code}', [OrderController::class, 'show'])->name("admin.order.show");
             Route::post('/update-order-status', [OrderController::class, 'update_order_status'])->name("admin.order.update_status");
             Route::post('/update-orderitem-qty', [OrderController::class, 'update_order_qty'])->name("admin.order.update_qty");
+            Route::get('/print-order/{checkout_code}', [OrderController::class, 'print_order'])->name("admin.order.print_order");
+            Route::post('/search', [OrderController::class, 'search'])->name("admin.order.search");
         });
     });
 });
