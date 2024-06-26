@@ -22,7 +22,7 @@ class BrandController extends Controller
     }
 
     public function index(){
-        $brands = Brand::all();
+        $brands = Brand::orderBy('id', 'desc')->paginate(10);
         return view('admin.brand.index', ['brands' => $brands]);
     }
     public function create(){
@@ -53,5 +53,20 @@ class BrandController extends Controller
         } catch (\Exception $e) {
             return redirect()->route('admin.brand.index')->with('error', 'Xóa thất bại!');
         }
+    }
+
+    public function search(Request $request){
+        $input = $request->input('simple-search');
+        if ($input != ""){
+            $query = "";
+//            for ($i=0; $i<strlen($input); $i++){
+//                $query = $query.'%'.$input[$i];
+//            }
+            $query = '%' . str_replace(' ', '%', $input) . '%';
+            $results = Brand::where('name', 'like', $query. '%')->get();
+        } else {
+            $results = Brand::orderBy('id', 'desc')->get();
+        }
+        return response()->json($results, 200);
     }
 }
