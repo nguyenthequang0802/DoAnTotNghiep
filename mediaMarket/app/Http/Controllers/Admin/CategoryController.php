@@ -79,4 +79,16 @@ class CategoryController extends Controller
             return redirect()->route("admin.category.index", $model_type)->with('error', 'Xóa thất bại!');
         }
     }
+
+    public function search(Request $request, $model_type){
+        $input = $request->input('simple-search');
+        if ($input != ""){
+            $query = "";
+            $query = '%' . str_replace(' ', '%', $input) . '%';
+            $results = Category::where('name', 'like', $query. '%')->where('model_type','=', $model_type)->get();
+        } else {
+            $results = [];
+        }
+        return response()->json($results, 200);
+    }
 }

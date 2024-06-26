@@ -135,6 +135,9 @@
                                 </td>
                             </tr>`
                     }
+                    if( response.length === 0){
+                        html = `<tr class="text-red-400 font-bold text-2xl text-center"><td>Không có kêt quả tìm kiếm!</td></tr>`;
+                    }
                     $('.results-search').html(html);
                 },
             })

@@ -41,6 +41,8 @@ Route::namespace('admin')->group(function () {
             Route::get('/{model_type}/edit/{id}', [CategoryController::class, 'edit'])->name("admin.category.edit");
             Route::post('/{model_type}/edit/{id}', [CategoryController::class, 'update'])->name("admin.category.update");
             Route::get('/{model_type}/delete/{id}', [CategoryController::class, 'destroy'])->name("admin.category.destroy");
+            Route::post('/{model_type}/search', [CategoryController::class, 'search'])->name("admin.category.search");
+
         });
         Route::group(['prefix' => 'brand'], function () {
             Route::get('/', [BrandController::class, 'index'])->name("admin.brand.index");
