@@ -24,8 +24,10 @@ class CouponController extends Controller
         $coupon['code'] = $input['code'];
         $coupon['value'] = filter_var($input['value'], FILTER_SANITIZE_NUMBER_INT);
         $coupon['limit_quantity'] = $input['limit_quantity'];
-        $coupon['start_date'] = Carbon::createFromFormat('d/m/Y', $input['start'])->format('Y-m-d');;
-        $coupon['end_date'] = Carbon::createFromFormat('d/m/Y', $input['end'])->format('Y-m-d');
+//        $coupon['start_date'] = Carbon::createFromFormat('d/m/Y', $input['start'])->format('Y-m-d');
+        $coupon['start_date'] = $input['start'];
+//        $coupon['end_date'] = Carbon::createFromFormat('d/m/Y', $input['end'])->format('Y-m-d');
+        $coupon['end_date'] = $input['end'];
         $coupon->save();
         return redirect()->route('admin.coupon.index')->with('ok', 'Thêm thành công phiếu mua hàng!');
     }
@@ -41,8 +43,10 @@ class CouponController extends Controller
         $coupon['code'] = $input['code'];
         $coupon['value'] = filter_var($input['value'], FILTER_SANITIZE_NUMBER_INT);
         $coupon['limit_quantity'] = $input['limit_quantity'];
-        $coupon['start_date'] = Carbon::createFromFormat('d/m/Y', $input['start'])->format('Y-m-d');;
-        $coupon['end_date'] = Carbon::createFromFormat('d/m/Y', $input['end'])->format('Y-m-d');
+//        $coupon['start_date'] = Carbon::createFromFormat('d/m/Y', $input['start'])->format('Y-m-d');
+        $coupon['start_date'] = $input['start'];
+//        $coupon['end_date'] = Carbon::createFromFormat('d/m/Y', $input['end'])->format('Y-m-d');
+        $coupon['end_date'] = $input['end'];
         $coupon->save();
         return redirect()->route('admin.coupon.index')->with('ok', 'Cập nhật thành công phiếu mua hàng!');
     }
