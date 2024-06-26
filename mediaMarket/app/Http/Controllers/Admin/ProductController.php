@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\ProductExport;
 use App\Http\Controllers\Controller;
 use App\Models\Brand;
 use App\Models\Category;
@@ -9,6 +10,7 @@ use App\Models\Post;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ProductController extends Controller
 {
@@ -41,7 +43,7 @@ class ProductController extends Controller
         $item->save();
     }
     public function index(){
-        $products = Product::orderBy('id', 'DESC')->paginate(20);
+        $products = Product::orderBy('id', 'DESC')->paginate(10);
         return view('admin.product.index', ['products'=>$products]);
     }
     public function create(){
@@ -78,5 +80,53 @@ class ProductController extends Controller
         } catch (\Exception $e){
             return redirect()->route('admin.product.index')->with('error', 'Xóa thất bại!');
         }
+    }
+    public function search(Request $request){
+        $input = $request->input('simple-search');
+        if ($input != ""){
+            $query = "";
+//            for ($i=0; $i<strlen($input); $i++){
+//                $query = $query.'%'.$input[$i];
+//            }
+            $query = '%' . str_replace(' ', '%', $input) . '%';
+
+            $products = Product::where('name', 'like', $query . '%')
+                ->with(['images', 'brand'])
+                ->get();
+            $results = $products->map(function($product) {
+                return [
+                    'id' => $product->id,
+                    'name' => $product->name,
+                    'preview_image' => $product->images->isNotEmpty() ? $product->images->first()->path_image : null,
+                    'brand_name' => $product->brand->name,
+                    'color' => $product->color,
+                    'quantity' => $product->quantity,
+                    'status' => $product->status,
+                    'promotion' => $product->promotion,
+                    'price' => $product->price
+                ];
+            });
+        } else {
+            $products = Product::orderBy('id', 'DESC')
+                ->with(['images', 'brand'])
+                ->get();
+            $results = $products->map(function($product) {
+                return [
+                    'id' => $product->id,
+                    'name' => $product->name,
+                    'preview_image' => $product->images->isNotEmpty() ? $product->images->first()->path_image : null,
+                    'brand_name' => $product->brand->name,
+                    'color' => $product->color,
+                    'quantity' => $product->quantity,
+                    'status' => $product->status,
+                    'promotion' => $product->promotion,
+                    'price' => $product->price
+                ];
+            });
+        }
+        return response()->json($results, 200);
+    }
+    public function export_csv(Request $request){
+        return Excel::download(new ProductExport, 'product.xlsx');
     }
 }

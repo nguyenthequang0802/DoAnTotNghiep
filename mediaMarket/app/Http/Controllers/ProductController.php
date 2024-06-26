@@ -66,9 +66,11 @@ class ProductController extends Controller
 
         if ($input_search != ""){
             $query = "";
-            for ($i=0; $i<strlen($input_search); $i++){
-                $query = $query.'%'.$input_search[$i];
-            }
+//            for ($i=0; $i<strlen($input_search); $i++){
+//                $query = $query.'%'.$input_search[$i];
+//            }
+            $query = '%' . str_replace(' ', '%', $input_search) . '%';
+
             $results = Product::where('name', 'like', $query.'%')->with('images')->get();
             $results->transform(function($product) {
                 $firstImage = $product->images->first(); // Get the first image

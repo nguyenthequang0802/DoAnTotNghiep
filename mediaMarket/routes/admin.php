@@ -70,6 +70,8 @@ Route::namespace('admin')->group(function () {
                 Route::post('/{product_id}', [ProductImageController::class, 'store'])->name("admin.product.upload.store");
                 Route::get('/{image_id}/delete', [ProductImageController::class, 'destroy'])->name("admin.product.upload.destroy");
             });
+            Route::post('/search-product', [ProductController::class, 'search'])->name("admin.product.search");
+            Route::post('/export-csv', [ProductController::class, 'export_csv'])->name("admin.product.export_csv");
         });
         Route::group(['prefix' => 'coupon'], function () {
             Route::get('/', [CouponController::class, 'index'])->name("admin.coupon.index");
