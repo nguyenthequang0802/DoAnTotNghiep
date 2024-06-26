@@ -85,6 +85,7 @@ Route::namespace('admin')->group(function () {
             Route::get('/edit/{id}', [CouponController::class, 'edit'])->name("admin.coupon.edit");
             Route::post('/edit/{id}', [CouponController::class, 'update'])->name("admin.coupon.update");
             Route::get('/delete/{id}', [CouponController::class, 'destroy'])->name("admin.coupon.destroy");
+            Route::post('/search-coupon', [CouponController::class, 'search'])->name("admin.coupon.search");
         });
         Route::group(['prefix' => 'order'], function () {
             Route::get('/', [OrderController::class, 'index'])->name("admin.order.index");

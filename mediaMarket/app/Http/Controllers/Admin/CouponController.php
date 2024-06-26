@@ -55,4 +55,19 @@ class CouponController extends Controller
             return redirect()->route('admin.coupon.index')->with('error', 'Xóa thất bại!');
         }
     }
+
+    public function search(Request $request){
+        $input = $request->input('simple-search');
+        if ($input != ""){
+            $query = "";
+//            for ($i=0; $i<strlen($input); $i++){
+//                $query = $query.'%'.$input[$i];
+//            }
+            $query = '%' . str_replace(' ', '%', $input) . '%';
+            $results = Coupon::where('name', 'like', $query. '%')->get();
+        } else {
+            $results = Coupon::orderBy('id', 'desc')->get();
+        }
+        return response()->json($results, 200);
+    }
 }
