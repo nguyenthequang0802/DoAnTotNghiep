@@ -30,6 +30,7 @@
                         </a>
                     </div>
                 </div>
+                <h2 class="m-4 text-xl font-bold text-gray-900 dark:text-white text-center">Bảng sản phẩm</h2>
                 <div class="flex justify-end p-2.5">
                     <div>
                         <form action="{{ route('admin.product.export_csv') }}" method="POST">
