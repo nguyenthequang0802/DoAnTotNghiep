@@ -7,6 +7,7 @@ use App\Models\Order;
 use App\Models\OrderDetail;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use PDF;
 
 class OrderController extends Controller
 {
@@ -67,5 +68,63 @@ class OrderController extends Controller
         $order_detail->save();
         return response()->json(['message' => 'Cập nhật số lượng sản phẩm đơn hàng thành công!'], 200);
 
+    }
+    public function print_order($checkout_code){
+        $order_details = OrderDetail::where('order_code', '=', $checkout_code)->get();
+        $order = Order::where('order_code', '=', $checkout_code)->first();
+        $customer = $order->user;
+        $shipping = $order->shipping;
+
+        $data = [
+            'order_details' => $order_details,
+            'order' => $order,
+            'customer' => $customer,
+            'shipping' => $shipping
+        ];
+        $pdf = PDF::loadView('admin.order.orderPDF', $data);
+        return $pdf->stream();
+    }
+
+    public function search(Request $request){
+        $input = $request->input('simple-search');
+        if ($input != ""){
+            $query = "";
+            for ($i=0; $i<strlen($input); $i++){
+                $query = $query.'%'.$input[$i];
+            }
+
+            $orders = Order::where('order_code', 'like', $query . '%')
+                ->with(['user', 'shipping'])
+                ->get();
+            $results = $orders->map(function($order) {
+                return [
+                    'order_id' => $order->id,
+                    'order_code' => $order->order_code,
+                    'user_name' => $order->user->name,
+                    'shipping_name' => $order->shipping->shipping_name,
+                    'order_status' => $order->order_status,
+                    'order_payment_method' => $order->order_payment_method,
+                    'coupon_value' => $order->order_code_value,
+                    'total_price' => $order->order_total
+                ];
+            });
+        } else {
+            $orders = Order::orderBy('id', 'desc')
+                ->with(['user', 'shipping'])
+                ->paginate(10);
+            $results = $orders->map(function($order) {
+                return [
+                    'order_id' => $order->id,
+                    'order_code' => $order->order_code,
+                    'user_name' => $order->user->name,
+                    'shipping_name' => $order->shipping->shipping_name,
+                    'order_status' => $order->order_status,
+                    'order_payment_method' => $order->order_payment_method,
+                    'coupon_value' => $order->order_code_value,
+                    'total_price' => $order->order_total
+                ];
+            });
+        }
+        return response()->json($results, 200);
     }
 }
