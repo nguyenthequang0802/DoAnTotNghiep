@@ -9,10 +9,20 @@
                 <div class="my-3 flex-col rounded-lg bg-white py-3 px-4">
                     <div class="flex items-center justify-between">
                         <div class="flex">
+                            @php
+                                $total_quantity_cart = 0;
+                                $cart = Session::get('cart');
+
+                                if ($cart) {
+                                    foreach ($cart as $item) {
+                                        $total_quantity_cart += $item['product_quantity'];
+                                    }
+                                }
+                            @endphp
                             <div class="flex justify-start items-center text-xl text-[#be1e2d]">
                                 <i class="fa-solid fa-cart-shopping"></i>
                             </div>
-                            <p class="px-3 text-2xl font-bold">Giỏ hàng (1 sản phẩm)</p>
+                            <p class="px-3 text-2xl font-bold">Giỏ hàng ({{ $total_quantity_cart }} sản phẩm)</p>
                         </div>
                         @if(Session::get('cart') == true)
                         <a href="{{ route('user.showCart') }}">
