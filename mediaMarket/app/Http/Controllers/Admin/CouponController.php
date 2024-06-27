@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Coupon;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class CouponController extends Controller
 {
@@ -73,5 +75,31 @@ class CouponController extends Controller
             $results = Coupon::orderBy('id', 'desc')->get();
         }
         return response()->json($results, 200);
+    }
+
+    public function send_coupon($id){
+        $customers = User::all();
+        $today = Carbon::now('Asia/Ho_Chi_Minh')->format('Y-m-d');
+
+        $title_mail = "Mã khuyến mãi ngày".' '.$today;
+        $coupon = Coupon::find($id);
+        $data = [];
+        foreach ($customers as $customer){
+            $data['email'][] = $customer->email;
+        }
+        $coupon = array(
+            'code' => $coupon['code'],
+            'name' => $coupon['name'],
+            'description' => $coupon['description'],
+            'value' => $coupon['value'],
+            'start_date' => $coupon['start_date'],
+            'end_date' => $coupon['end_date'],
+            'quantity' => $coupon['limit_quantity'],
+        );
+        Mail::send('admin.coupon.send_mail', ['coupon' => $coupon], function($message) use ($title_mail, $data){
+           $message->to($data['email'])->subject($title_mail);
+           $message->from($data['email'],$title_mail);
+        });
+        return redirect()->back()->with('ok', 'Gửi mail thành công');
     }
 }

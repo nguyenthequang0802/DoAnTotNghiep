@@ -41,6 +41,7 @@
                                 <th scope="col" class="px-4 py-3">Số lượng phiếu</th>
                                 <th scope="col" class="px-4 py-3">Ngày bắt đầu</th>
                                 <th scope="col" class="px-4 py-3">Ngày kết thúc</th>
+                                <th scope="col" class="px-4 py-3">Gửi mã</th>
                                 <th scope="col" class="px-4 py-3">
                                     <span class="sr-only">Actions</span>
                                 </th>
@@ -55,6 +56,13 @@
                                 <td class="px-4 py-3">{{ $item->limit_quantity }}</td>
                                 <td class="px-4 py-3">{{ $item->start_date }}</td>
                                 <td class="px-4 py-3">{{ $item->end_date }}</td>
+                                <td class="px-4 py-3">
+                                    <a href="{{ route('admin.coupon.send_coupon', $item->id) }}" class="flex text-md py-2 px-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                        <button>
+                                            <p class="text-blue-600"><i class="fa-solid fa-paper-plane"></i></p>
+                                        </button>
+                                    </a>
+                                </td>
                                 <td class="px-4 py-3 flex items-center justify-end">
                                     <a href="{{ route('admin.coupon.edit', $item->id) }}" class="flex text-md py-2 px-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                                         <button>
