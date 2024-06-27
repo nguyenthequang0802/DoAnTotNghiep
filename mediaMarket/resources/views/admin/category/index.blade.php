@@ -83,8 +83,8 @@
                     let urlEdit = `{{ route('admin.category.edit', [ $model_type,':id']) }}`;
                     let urlDel = `{{ route('admin.category.destroy', [ $model_type,':id']) }}`;
                     for (let i = 0; i < response.length; i++){
-                        urlEdit = urlEdit.replace(':id', response[i].id);
-                        urlDel = urlDel.replace(':id', response[i].id);
+                         let routeEdit = urlEdit.replace(':id', response[i].id);
+                        let routeDel = urlDel.replace(':id', response[i].id);
                         if(response[i].status == 0){
                             cate_status = '<td class="px-4 py-3 font-bold text-sm text-red-700">Ẩn</td>'
                         } else if(response[i].status == 1){
@@ -101,12 +101,12 @@
                             ${ cate_status }
                             <td class="px-4 py-3">${ response[i].model_type }</td>
                             <td class="px-4 py-3 flex items-center justify-end">
-                            <a href="${ urlEdit }" class="flex text-md py-2 px-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                            <a href="${ routeEdit }" class="flex text-md py-2 px-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                                 <button>
                                     <p class="text-[#F7BE38]"><i class="fa-solid fa-pen-to-square"></i></p>
                                 </button>
                             </a>
-                            <a href="${ urlDel }" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="action-delete text-md flex py-2 px-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+                            <a href="${ routeDel }" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="action-delete text-md flex py-2 px-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
                                 <button>
                                     <p class="text-red-700"><i class="fa-regular fa-trash-can"></i></p>
                                 </button>
