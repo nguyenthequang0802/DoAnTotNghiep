@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\Auth\RegisterController;
 use App\Http\Controllers\Admin\BrandController;
@@ -25,7 +26,7 @@ Route::namespace('admin')->group(function () {
     Route::group(['middleware' => 'auth:admin'], function () {
         Route::get('/logout', [LoginController::class, 'logout'])->name('admin.logout');
         Route::post('/logout', [LoginController::class, 'logout'])->name('admin.auth.logout');
-        Route::get('/', [HomeController::class, 'index'])->name('admin.homepage');
+        Route::get('/', [AdminController::class, 'dashboard'])->name('admin.dashboard');
         Route::group(['prefix' => 'menu'], function () {
             Route::get('/', [MenuController::class, 'index'])->name("admin.menu.index");
             Route::get('/add', [MenuController::class, 'create'])->name("admin.menu.add");
