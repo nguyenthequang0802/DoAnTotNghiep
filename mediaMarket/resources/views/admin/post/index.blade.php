@@ -113,8 +113,8 @@
                         } else {
                             product_name = null
                         }
-                        urlEdit = urlEdit.replace(':id', response[i].id);
-                        urlDel = urlDel.replace(':id', response[i].id);
+                        let routeEdit = urlEdit.replace(':id', response[i].id);
+                        let routeDel = urlDel.replace(':id', response[i].id);
                         html += `
                             <tr class="border-b dark:border-gray-700">
                                 <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">${ i+1 }</th>
@@ -131,12 +131,12 @@
                                 <td class="px-4 py-3">${ response[i].views }</td>
                                 <td class="px-4 py-3">${ response[i].rating_value }</td>
                                 <td class="px-4 py-3 flex items-center justify-end">
-                                    <a href="${ urlEdit }" class="flex text-md py-2 px-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                    <a href="${ routeEdit }" class="flex text-md py-2 px-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                                         <button>
                                             <p class="text-[#F7BE38]"><i class="fa-solid fa-pen-to-square"></i></p>
                                         </button>
                                     </a>
-                                    <a href="${ urlDel }" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="action-delete text-md flex py-2 px-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+                                    <a href="${ routeDel }" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="action-delete text-md flex py-2 px-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
                                         <button>
                                             <p class="text-red-700"><i class="fa-regular fa-trash-can"></i></p>
                                         </button>

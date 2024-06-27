@@ -101,10 +101,12 @@
                     let html = '';
                     let urlEdit = `{{ route('admin.coupon.edit', ':id') }}`;
                     let urlDel = `{{ route('admin.coupon.destroy', ':id') }}`;
+                    let urlSendMail = `{{ route('admin.coupon.send_coupon', ':id') }}`;
                     for (let i = 0; i < response.length; i++){
                         let couponValue = parseFloat(response[i].value).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
-                        urlEdit = urlEdit.replace(':id', response[i].id);
-                        urlDel = urlDel.replace(':id', response[i].id);
+                        let routeEdit = urlEdit.replace(':id', response[i].id);
+                        let routeDel = urlDel.replace(':id', response[i].id);
+                        let routeSendMail = urlSendMail.replace(':id', response[i].id);
                         html += `
                             <tr class="border-b dark:border-gray-700">
                                 <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">${ response[i].name }</th>
@@ -113,13 +115,20 @@
                                 <td class="px-4 py-3">${ response[i].limit_quantity }</td>
                                 <td class="px-4 py-3">${ response[i].start_date }</td>
                                 <td class="px-4 py-3">${ response[i].end_date }</td>
+                                <td class="px-4 py-3">
+                                    <a href="${ routeSendMail }" class="flex text-md py-2 px-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                        <button>
+                                            <p class="text-blue-600"><i class="fa-solid fa-paper-plane"></i></p>
+                                        </button>
+                                    </a>
+                                </td>
                                 <td class="px-4 py-3 flex items-center justify-end">
-                                    <a href="${ urlEdit }" class="flex text-md py-2 px-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                    <a href="${ routeEdit }" class="flex text-md py-2 px-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                                         <button>
                                             <p class="text-[#F7BE38]"><i class="fa-solid fa-pen-to-square"></i></p>
                                         </button>
                                     </a>
-                                    <a href="${ urlDel }" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="action-delete text-md flex py-2 px-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+                                    <a href="${ routeDel }" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="action-delete text-md flex py-2 px-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
                                         <button>
                                             <p class="text-red-7002"><i class="fa-regular fa-trash-can"></i></p>
                                         </button>
