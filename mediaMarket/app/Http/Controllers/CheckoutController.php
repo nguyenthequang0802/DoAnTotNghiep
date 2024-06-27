@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Coupon;
 use App\Models\Order;
 use App\Models\OrderDetail;
 use App\Models\Shipping;
@@ -42,6 +43,10 @@ class CheckoutController extends Controller
        $shipping['shipping_note'] = $data['shipping_note'];
        $shipping->save();
        $shipping_id = $shipping['id'];
+
+       $coupon = Coupon::where('code', '=', $data['order_coupon'])->first();
+       $coupon->limit_quantity = $coupon->limit_quantity - 1;
+       $coupon->save();
 
        $checkout_code = substr(md5(microtime()),rand(0,26),6);
        if ($data['paymentMethod'] == 'cod'){
