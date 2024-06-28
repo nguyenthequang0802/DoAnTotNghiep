@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductController;
@@ -55,6 +56,8 @@ Route::group(['prefix' => '/'], function () {
         Route::get('/check-out', [\App\Http\Controllers\CheckoutController::class,'show_checkout'])->name('user.check-out');
         Route::post('/confirm-checkout', [\App\Http\Controllers\CheckoutController::class,'confirm_checkout'])->name('user.confirm_checkout');
         Route::get('/cam-on', [ThanksController::class,'index'])->name('user.cam_on');
+        Route::get('/lich-su-don-hang', [OrderController::Class, 'getAllBill'])->name('user.history_bill');
+        Route::get('/chi-tiet-don-hang/{order_code}', [OrderController::Class, 'getDetailBill'])->name('user.history_bill.detail');
     });
 
 });
