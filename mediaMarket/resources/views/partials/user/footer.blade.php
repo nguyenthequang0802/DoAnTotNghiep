@@ -36,19 +36,19 @@
                 class="mb-4 flex justify-center font-semibold uppercase md:justify-start">
                 Thông tin
             </h6>
-            <p class="mb-4 hover:text-[#fed700]">
+            <p class="mb-4 hover:text-gray-900 text-gray-500">
                 <a href="#!">Tin tức</a>
             </p>
-            <p class="mb-4 hover:text-[#fed700]">
+            <p class="mb-4 hover:text-gray-900 text-gray-500">
                 <a href="#!">Giới thiệu</a>
             </p>
-            <p class="mb-4 hover:text-[#fed700]">
+            <p class="mb-4 hover:text-gray-900 text-gray-500">
                 <a href="#!">Đánh giá chất lượng, khiếu nại</a>
             </p>
-            <p class="mb-4 hover:text-[#fed700]">
+            <p class="mb-4 hover:text-gray-900 text-gray-500">
                 <a href="#!">Hỏi đáp</a>
             </p>
-            <p class="hover:text-[#fed700]">
+            <p class="hover:text-gray-900 text-gray-500">
                 <a href="#!">Tuyển dụng</a>
             </p>
         </div>
@@ -58,25 +58,25 @@
                 class="mb-4 flex justify-center font-semibold uppercase md:justify-start">
                 Chính sách
             </h6>
-            <p class="mb-4 hover:text-[#fed700]">
+            <p class="mb-4 hover:text-gray-900 text-gray-500">
                 <a href="#!">Chính sách giao hàng</a>
             </p>
-            <p class="mb-4 hover:text-[#fed700]">
+            <p class="mb-4 hover:text-gray-900 text-gray-500">
                 <a href="#!">Thu cũ đổi mới</a>
             </p>
-            <p class="mb-4 hover:text-[#fed700]">
+            <p class="mb-4 hover:text-gray-900 text-gray-500">
                 <a href="#!">Hủy giao dịch</a>
             </p>
-            <p class="mb-4 hover:text-[#fed700]">
+            <p class="mb-4 hover:text-gray-900 text-gray-500">
                 <a href="#!">Chính sách bảo hành</a>
             </p>
-            <p class="mb-4 hover:text-[#fed700]">
+            <p class="mb-4 hover:text-gray-900 text-gray-500">
                 <a href="#!">Chính sách đổi trả</a>
             </p>
-            <p class="mb-4 hover:text-[#fed700]">
+            <p class="mb-4 hover:text-gray-900 text-gray-500">
                 <a href="#!">Bảo mật thông tin</a>
             </p>
-            <p class="hover:text-[#fed700]">
+            <p class="hover:text-gray-900 text-gray-500">
                 <a href="#!">Dịch vụ</a>
             </p>
         </div>
@@ -86,16 +86,16 @@
                 class="mb-4 flex justify-center font-semibold uppercase md:justify-start">
                 Hỗ trợ
             </h6>
-            <p class="mb-4 hover:text-[#fed700]">
+            <p class="mb-4 hover:text-gray-900 text-gray-500">
                 <a href="#!">Tư vấn mua hàng</a>
             </p>
-            <p class="mb-4 hover:text-[#fed700]">
+            <p class="mb-4 hover:text-gray-900 text-gray-500">
                 <a href="#!">Tư vấn sử dụng dịch vụ</a>
             </p>
-            <p class="mb-4 hover:text-[#fed700]">
+            <p class="mb-4 hover:text-gray-900 text-gray-500">
                 <a href="#!">Hướng dẫn đặt hàng</a>
             </p>
-            <p class="hover:text-[#fed700]">
+            <p class="hover:text-gray-900 text-gray-500">
                 <a href="#!">Hướng dẫn thanh toán</a>
             </p>
         </div>

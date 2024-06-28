@@ -249,7 +249,7 @@
                                         @endif
                                     @else
                                         <li>
-                                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"><i class="fa-solid fa-bag-shopping mr-1.5"></i>{{ __('Lịch sử mua hàng') }}</a>
+                                            <a href="{{ route('user.history_bill') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"><i class="fa-solid fa-bag-shopping mr-1.5"></i>{{ __('Lịch sử mua hàng') }}</a>
                                         </li>
                                         <li>
                                             <a class="block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem" href="{{ route('user.logout') }}"
