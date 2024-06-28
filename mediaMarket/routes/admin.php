@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\Auth\RegisterController;
+use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CouponController;
@@ -53,8 +54,15 @@ Route::namespace('admin')->group(function () {
             Route::post('/edit/{id}', [BrandController::class, 'update'])->name("admin.brand.update");
             Route::get('/delete/{id}', [BrandController::class, 'destroy'])->name("admin.brand.destroy");
             Route::post('/search', [BrandController::class, 'search'])->name("admin.brand.search");
-
-
+        });
+        Route::group(['prefix' => 'banner'], function () {
+            Route::get('/', [BannerController::class, 'index'])->name("admin.banner.index");
+            Route::get('/add', [BannerController::class, 'create'])->name("admin.banner.add");
+            Route::post('/add', [BannerController::class, 'store'])->name("admin.banner.store");
+            Route::get('/edit/{id}', [BannerController::class, 'edit'])->name("admin.banner.edit");
+            Route::post('/edit/{id}', [BannerController::class, 'update'])->name("admin.banner.update");
+            Route::get('/delete/{id}', [BannerController::class, 'destroy'])->name("admin.banner.destroy");
+            Route::post('/search', [BannerController::class, 'search'])->name("admin.banner.search");
         });
         Route::group(['prefix' => 'post'], function () {
             Route::get('/', [PostController::class, 'index'])->name("admin.post.index");

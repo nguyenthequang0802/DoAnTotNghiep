@@ -1,15 +1,15 @@
 <header class="block relative" id="section-header">
     <div id="header-top" class="header-top py-1 bg-[#d70018] hidden lg:block">
         <div class="container mx-auto px-[15px]">
-            <div class="flex header-top-container flex justify-between">
+            <div class="flex header-top-container justify-between">
                 <ul class="header-top-left flex">
                     <li class="ps-2 text-white flex items-center pr-[15px] relative item-top">
                         <span class="flex items-center me-1.5"><i class="fa-solid fa-phone"></i></span>
-                        <span>1900 323 322</span>
+                        <span>1900 1111</span>
                     </li>
                     <li class="ps-2 text-white flex items-center pl-[15px] relative">
                         <span class="flex items-center me-1.5"><i class="fa-regular fa-envelope"></i></span>
-                        <span>info@gmail.com</span>
+                        <span>mediamarket2002@gmail.com</span>
                     </li>
                 </ul>
                 <ul class="header-top-right flex">
