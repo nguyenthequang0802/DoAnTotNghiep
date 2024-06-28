@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Banner;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
@@ -15,6 +16,8 @@ class ProductController extends Controller
 //    }
     public function show_product_store($category_slug, Request $request){
         $category = Category::where('slug', '=', $category_slug)->first();
+        $banners = Banner::orderBy('id', 'desc')->where('status', '=', 1)->get();
+
 
         if ($category){
             $descedantCategoryIds = $category->allChildren();
@@ -35,6 +38,7 @@ class ProductController extends Controller
 
         return view('pages.user.store', [
             'category' => $category,
+            'banners' => $banners,
             'products' => $products->paginate(12),
             'brands' => $brands,
             'maxPrice' => $maxPrice,

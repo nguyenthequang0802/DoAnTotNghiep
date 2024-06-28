@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Banner;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Product;
@@ -27,12 +28,14 @@ class HomeController extends Controller
         }
 
         $posts = Post::orderBy('id', 'desc')->take(4)->get();
+        $banners = Banner::orderBy('id', 'desc')->where('status', '=', 1)->get();
 
         return view('pages.user.index', [
             'sale_products'=> $sale_products,
             'phones' => $phones,
             'laptops' => $laptops,
-            'posts' => $posts
+            'posts' => $posts,
+            'banners' => $banners
         ]);
     }
 }
