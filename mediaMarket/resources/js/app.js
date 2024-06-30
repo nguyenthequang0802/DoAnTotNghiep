@@ -71,7 +71,7 @@ window.addEventListener('DOMContentLoaded', () => {
         height: 500,
         menubar: false,
         init_instance_callback: function(editor){
-            editor.setContent('<table border="1" cellpadding="10" style="width: 100%"><tr><th></th><th></th></tr>' +
+            editor.setContent('<table border="1" cellpadding="10" style="width: 100%"><tr><th>Tên</th><th>Thông số</th></tr>' +
                 '<tr><td></td><td></td></tr>' +
                 '<tr><td></td><td></td></tr>' +
                 '<tr><td></td><td></td></tr>' +
@@ -84,5 +84,16 @@ window.addEventListener('DOMContentLoaded', () => {
                 '</table>')
         },
         content_css: false
+    });
+
+    tinymce.init({
+        selector: 'textarea#edit_table',
+        height: 500,
+        toolbar: 'undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | link ',
+
+        content_css: false,
+        menu: false,
+        menubar: false,
+        // plugins: ['table', 'link', 'autolink'],
     });
 });
