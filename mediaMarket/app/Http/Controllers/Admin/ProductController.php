@@ -54,6 +54,10 @@ class ProductController extends Controller
     }
     public function store(Request $request){
         $input = $request->all();
+//        echo '<pre>';
+//        print_r($input);
+//        echo '</pre>';
+//        exit;
         $item = new Product();
         $this->fillData($item, $input, true);
         return redirect()->route('admin.product.index')->with('ok', 'Thêm mới sản phẩm thành công!');
