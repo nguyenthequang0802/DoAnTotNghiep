@@ -271,14 +271,6 @@
                         <p class="text-lg font-bold">Tổng cộng:</p>
                         <p class="text-sm font-bold text-[#be1e2d]">{{ number_format($total_goods - $coupon_value, 0, ',', '.') }} VNĐ</p>
                     </div>
-                    <div class="w-full mt-3 flex justify-center">
-                        <form action="" method="POST">
-                            <button type="button" name="payUrl" class="text-white bg-[#d82d8b] border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-800 dark:bg-white dark:border-gray-700 dark:text-gray-900 dark:hover:bg-gray-200 me-2 mb-2">Thanh toán Momo</button>
-                        </form>
-                    </div>
-                    <div class="w-full mt-3 flex justify-center">
-                        <button type="button" class="text-white bg-gradient-to-br from-purple-600 to-blue-500 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-800 dark:bg-white dark:border-gray-700 dark:text-gray-900 dark:hover:bg-gray-200 me-2 mb-2">Thanh toán Vnpay</button>
-                    </div>
                 </div>
             </div>
         </div>
