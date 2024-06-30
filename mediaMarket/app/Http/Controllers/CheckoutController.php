@@ -44,9 +44,12 @@ class CheckoutController extends Controller
        $shipping->save();
        $shipping_id = $shipping['id'];
 
-       $coupon = Coupon::where('code', '=', $data['order_coupon'])->first();
-       $coupon->limit_quantity = $coupon->limit_quantity - 1;
-       $coupon->save();
+       if ($data['order_coupon'] != 'null') {
+           $coupon = Coupon::where('code', '=', $data['order_coupon'])->first();
+           $coupon->limit_quantity = $coupon->limit_quantity - 1;
+           $coupon->save();
+       }
+
 
        $checkout_code = substr(md5(microtime()),rand(0,26),6);
        if ($data['paymentMethod'] == 'cod'){
