@@ -2,7 +2,7 @@
 @section('content')
     <div class="container antialiased">
         <a class="" href="{{ route('user.index') }}">
-            <p class="mt-4 text-sm font-medium text-[#be1e2d]">&lt; Tiếp tục mua hàng</p>
+            <p class="mt-4 text-sm font-medium text-gray-800 hover:underline">&lt; Tiếp tục mua hàng</p>
         </a>
         <div class="grid grid-cols-3 max-xl:grid-cols-1 items-start justify-start xl:gap-4">
             <div class="col-span-2 ">
@@ -19,7 +19,7 @@
                                     }
                                 }
                             @endphp
-                            <div class="flex justify-start items-center text-xl text-[#be1e2d]">
+                            <div class="flex justify-start items-center text-xl text-gray-800">
                                 <i class="fa-solid fa-cart-shopping"></i>
                             </div>
                             <p class="px-3 text-2xl font-bold">Giỏ hàng ({{ $total_quantity_cart }} sản phẩm)</p>
@@ -79,7 +79,7 @@
                 <div class="xl:hidden">
                     <div class="my-3 flex-col rounded-lg bg-white py-3 px-4">
                         <div class="m-2 flex pt-4 ">
-                            <p class="flex justify-center items-center text-[#be1e2d] text-2xl">
+                            <p class="flex justify-center items-center text-gray-800 text-2xl">
                                 <i class="fa-solid fa-coins"></i>
                             </p>
                             <p class="px-3 text-2xl font-bold">Tạm tính</p>
@@ -126,7 +126,7 @@
                 </div>
                 <div class="my-3 flex-col rounded-lg bg-white pb-3 px-4">
                     <div class="m-2 flex pt-4 ">
-                        <p class="flex justify-center items-center text-[#be1e2d] text-2xl">
+                        <p class="flex justify-center items-center text-gray-800 text-2xl">
                             <i class="fa-solid fa-box "></i>
                         </p>
                         <p class="px-3 text-xl font-bold">Thông tin người nhận hàng</p>
@@ -216,14 +216,14 @@
                             @else
                                 <input type="hidden" name="order_total_price" class="order_total_price" value="0">
                             @endif
-                            <div class="sm:col-span-2">
+                            <div class="col-span-2">
                                 <label for="note" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ghi chú</label>
                                 <textarea id="note" name="note" rows="8" class="shipping_note block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Ghi chú thêm"></textarea>
                             </div>
                         </div>
                         @if(Session::get('cart') == true)
                             <div class="w-full flex justify-end">
-                                <button type="submit" class="send_order text-white border border-[#be1e2d] bg-[#be1e2d] font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 my-2">
+                                <button type="submit" class="send_order text-white border border-[#0a6e5f] bg-[#0a6e5f] font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 my-2">
                                     <span>Xác nhận</span>
                                 </button>
                             </div>
@@ -234,7 +234,7 @@
             <div class="col-span-1 max-xl:hidden">
                 <div class="my-3 flex-col rounded-lg bg-white py-3 px-4">
                     <div class="m-2 flex pt-4 ">
-                        <p class="flex justify-center items-center text-[#be1e2d] text-2xl">
+                        <p class="flex justify-center items-center text-gray-800 text-2xl">
                             <i class="fa-solid fa-coins"></i>
                         </p>
                         <p class="px-3 text-2xl font-bold">Tạm tính</p>

@@ -63,8 +63,8 @@
     <div class="box-sale">
         <div class="box-sale-container w-full py-2.5 rounded-md bg-white my-1.5 lg:my-2.5 max-md:bg-[#f2f2f2]" style="box-shadow: 0 0 3px 0 #dee2e6">
             <div class="header-box px-4 mb-5">
-                <div class="header bg-[#d70018]  inline-block h-7 overflow-hidden after:border-t-[30px] after:border-t-[#be1e2d] after:border-l-[30px] after:border-l-[#d70018] after:ml-[40px]">
-                    <h2 class="title text-white py-1 pr-14 pl-9 ml-14 bg-[#be1e2d] text-[14px] uppercase font-bold">
+                <div class="header bg-[#009981]  inline-block h-7 overflow-hidden after:border-t-[30px] after:border-t-[#00483d] after:border-l-[30px] after:border-l-[#009981] after:ml-[40px]">
+                    <h2 class="title text-white py-1 pr-14 pl-9 ml-14 bg-[#00483d] text-[14px] uppercase font-bold">
                         <a href="">Khuyến mãi hot</a>
                     </h2>
                 </div>
@@ -102,7 +102,7 @@
                                     <input type="hidden" class="cart_product_image_{{ $sale_product->id }}" value="{{ $sale_product->images->first()}}">
                                     <input type="hidden" class="cart_product_price_{{ $sale_product->id }}" value="{{ $sale_product->price }}">
                                     <input type="hidden" class="cart_product_promotion_{{ $sale_product->id }}" value="{{ $sale_product->promotion }}">
-                                    <button type="submit" data-id_product="{{ $sale_product->id }}" class="btn-add_to_cart h-11 w-11 flex justify-center items-center my-2.5 hover:text-white hover:bg-[#be1e2d] text-[#333] bg-white border border-[#be1e2d] focus:outline-none font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+                                    <button type="submit" data-id_product="{{ $sale_product->id }}" class="btn-add_to_cart h-11 w-11 flex justify-center items-center my-2.5 hover:text-white hover:bg-[#00483d] text-[#333] bg-white border border-[#00483d] focus:outline-none font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
                                         <i class="fa-solid fa-cart-plus"></i>
                                     </button>
                                 </form>
@@ -111,17 +111,17 @@
                     </div>
                 @endforeach
             </div>
-            <a href="" class="see-all px-4 mb-3 flex justify-center items-center">
-                <button type="button" class="hover:text-white hover:bg-[#be1e2d] bg-[white] border border-[#be1e2d] focus:outline-none font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Xem thêm</button>
-            </a>
+{{--            <a href="" class="see-all px-4 mb-3 flex justify-center items-center">--}}
+{{--                <button type="button" class="hover:text-white hover:bg-[#be1e2d] bg-[white] border border-[#be1e2d] focus:outline-none font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Xem thêm</button>--}}
+{{--            </a>--}}
         </div>
     </div>
 
     <div class="box-laptop">
         <div class="box-sale-container w-full py-2.5 rounded-md bg-white my-1.5 lg:my-2.5 max-md:bg-[#f2f2f2]" style="box-shadow: 0 0 3px 0 #dee2e6">
             <div class="header-box px-4 mb-5">
-                <div class="header bg-[#d70018]  inline-block h-7 overflow-hidden after:border-t-[30px] after:border-t-[#be1e2d] after:border-l-[30px] after:border-l-[#d70018] after:ml-[40px]">
-                    <h2 class="title text-white py-1 pr-14 pl-9 ml-14 bg-[#be1e2d] text-[14px] uppercase font-bold">
+                <div class="header bg-[#009981]  inline-block h-7 overflow-hidden after:border-t-[30px] after:border-t-[#00483d] after:border-l-[30px] after:border-l-[#009981] after:ml-[40px]">
+                    <h2 class="title text-white py-1 pr-14 pl-9 ml-14 bg-[#00483d] text-[14px] uppercase font-bold">
                         <a href="">Laptop</a>
                     </h2>
                 </div>
@@ -159,7 +159,7 @@
                                     <input type="hidden" class="cart_product_image_{{ $laptop->id }}" value="{{ $laptop->images->first()}}">
                                     <input type="hidden" class="cart_product_price_{{ $laptop->id }}" value="{{ $laptop->price }}">
                                     <input type="hidden" class="cart_product_promotion_{{ $laptop->id }}" value="{{ $laptop->promotion }}">
-                                    <button type="submit" data-id_product="{{ $laptop->id }}" class="btn-add_to_cart h-11 w-11 flex justify-center items-center my-2.5 hover:text-white hover:bg-[#be1e2d] text-[#333] bg-white border border-[#be1e2d] focus:outline-none font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+                                    <button type="submit" data-id_product="{{ $laptop->id }}" class="btn-add_to_cart h-11 w-11 flex justify-center items-center my-2.5 hover:text-white hover:bg-[#00483d] text-[#333] bg-white border border-[#00483d] focus:outline-none font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
                                         <i class="fa-solid fa-cart-plus"></i>
                                     </button>
                                 </form>
@@ -169,7 +169,7 @@
                 @endforeach
             </div>
             <a href="{{ route('user.store', ['laptop']) }}" class="see-all px-4 mb-3 flex justify-center items-center">
-                <button type="button" class="hover:text-white hover:bg-[#be1e2d] bg-[white] border border-[#be1e2d] focus:outline-none font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Xem thêm</button>
+                <button type="button" class="hover:text-white hover:bg-[#0a6e5f] bg-white border border-[#0a6e5f] focus:outline-none font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Xem thêm</button>
             </a>
         </div>
     </div>
@@ -177,8 +177,8 @@
     <div class="box-phone">
         <div class="box-sale-container w-full py-2.5 rounded-md bg-white my-1.5 lg:my-2.5 max-md:bg-[#f2f2f2]" style="box-shadow: 0 0 3px 0 #dee2e6">
             <div class="header-box px-4 mb-5">
-                <div class="header bg-[#d70018]  inline-block h-7 overflow-hidden after:border-t-[30px] after:border-t-[#be1e2d] after:border-l-[30px] after:border-l-[#d70018] after:ml-[40px]">
-                    <h2 class="title text-white py-1 pr-14 pl-9 ml-14 bg-[#be1e2d] text-[14px] uppercase font-bold">
+                <div class="header bg-[#009981]  inline-block h-7 overflow-hidden after:border-t-[30px] after:border-t-[#00483d] after:border-l-[30px] after:border-l-[#009981] after:ml-[40px]">
+                    <h2 class="title text-white py-1 pr-14 pl-9 ml-14 bg-[#00483d] text-[14px] uppercase font-bold">
                         <a href="">Điện thoại</a>
                     </h2>
                 </div>
@@ -216,7 +216,7 @@
                                     <input type="hidden" class="cart_product_image_{{ $phone->id }}" value="{{ $phone->images->first()}}">
                                     <input type="hidden" class="cart_product_price_{{ $phone->id }}" value="{{ $phone->price }}">
                                     <input type="hidden" class="cart_product_promotion_{{ $phone->id }}" value="{{ $phone->promotion }}">
-                                    <button type="submit" data-id_product="{{ $phone->id }}" class="btn-add_to_cart h-11 w-11 flex justify-center items-center my-2.5 hover:text-white hover:bg-[#be1e2d] text-[#333] bg-white border border-[#be1e2d] focus:outline-none font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+                                    <button type="submit" data-id_product="{{ $phone->id }}" class="btn-add_to_cart h-11 w-11 flex justify-center items-center my-2.5 hover:text-white hover:bg-[#00483d] text-[#333] bg-white border border-[#00483d] focus:outline-none font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
                                         <i class="fa-solid fa-cart-plus"></i>
                                     </button>
                                 </form>
@@ -226,7 +226,7 @@
                 @endforeach
             </div>
             <a href="{{ route('user.store', ['dien-thoai']) }}" class="see-all px-4 mb-3 flex justify-center items-center">
-                <button type="button" class="hover:text-white hover:bg-[#be1e2d] bg-[white] border border-[#be1e2d] focus:outline-none font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Xem thêm</button>
+                <button type="button" class="hover:text-white hover:bg-[#0a6e5f] bg-white border border-[#0a6e5f] focus:outline-none font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Xem thêm</button>
             </a>
         </div>
     </div>
@@ -234,9 +234,9 @@
         <div class="box-news">
             <div class="box-news-container w-full py-2.5 rounded-md bg-white my-1.5 lg:my-2.5 max-md:bg-[#f2f2f2]" style="box-shadow: 0 0 3px 0 #dee2e6">
                 <div class="header-box px-4 mb-5">
-                    <div class="header bg-[#d70018]  inline-block h-7 overflow-hidden after:border-t-[30px] after:border-t-[#be1e2d] after:border-l-[30px] after:border-l-[#d70018] after:ml-[40px]">
-                        <h2 class="title text-white py-1 pr-14 pl-9 ml-14 bg-[#be1e2d] text-[14px] uppercase font-bold">
-                            <a href="">Tin mới nhất</a>
+                    <div class="header bg-[#009981]  inline-block h-7 overflow-hidden after:border-t-[30px] after:border-t-[#00483d] after:border-l-[30px] after:border-l-[#009981] after:ml-[40px]">
+                        <h2 class="title text-white py-1 pr-14 pl-9 ml-14 bg-[#00483d] text-[14px] uppercase font-bold">
+                            <a href="">Tin tức mới nhất</a>
                         </h2>
                     </div>
                 </div>
@@ -298,7 +298,7 @@
                     </div>
                 </div>
                 <a href="{{ route('user.post', ['tin-tuc']) }}" class="see-all px-4 mb-3 flex justify-center items-center">
-                    <button type="button" class="hover:text-white hover:bg-[#be1e2d] bg-[white] border border-[#be1e2d] focus:outline-none font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Xem thêm</button>
+                    <button type="button" class="hover:text-white hover:bg-[#0a6e5f] bg-white border border-[#0a6e5f] focus:outline-none font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Xem thêm</button>
                 </a>
             </div>
         </div>

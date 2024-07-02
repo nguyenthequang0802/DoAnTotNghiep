@@ -2,7 +2,7 @@
 @section('content')
     <div class="container antialiased">
         <a class="" href="{{ route('user.index') }}">
-            <p class="mt-4 text-sm font-medium text-[#be1e2d]">&lt; Tiếp tục mua hàng</p>
+            <p class="mt-4 text-sm font-medium text-gray-800 hover:underline">&lt; Tiếp tục mua hàng</p>
         </a>
         <div class="grid grid-cols-3 max-xl:grid-cols-1 items-start justify-start xl:gap-4 mb-12">
             <div class="col-span-2 ">
@@ -19,7 +19,7 @@
                                     }
                                 }
                             @endphp
-                            <div class="flex justify-start items-center text-xl text-[#be1e2d]">
+                            <div class="flex justify-start items-center text-xl text-gray-800">
                                 <i class="fa-solid fa-cart-shopping"></i>
                             </div>
                             <p class="px-3 text-2xl font-bold">Giỏ hàng ({{ $total_quantity_cart }} sản phẩm)</p>
@@ -146,7 +146,7 @@
                             @if(Session::get('cart') == true)
                                 <div class="flex justify-end">
                                     <div class="">
-                                        <button type="submit" class="focus:outline-none w-full text-white bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Cập nhập</button>
+                                        <button type="submit" class="focus:outline-none w-full text-white bg-[#0a6e5f] focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Cập nhập</button>
                                     </div>
                                 </div>
                             @endif
@@ -212,7 +212,7 @@
                                         <input name="coupon_code" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" placeholder="Nhập mã khuyến mãi">
                                     @endif
                                 </div>
-                                <button class="btn-promo flex items-center justify-center rounded border-0 bg-[#be1e2d]">
+                                <button class="btn-promo flex items-center justify-center rounded border-0 bg-[#00483d]">
                                     <p class="text-sm font-medium text-white">Áp dụng</p>
                                 </button>
                             </form>
@@ -232,7 +232,7 @@
                         @if(Session::get('cart') == true)
                             <div class="w-full">
                                 <a href="{{ route('user.check-out') }}">
-                                    <button type="button" class="focus:outline-none w-full text-white bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Đặt hàng</button>
+                                    <button type="button" class="focus:outline-none w-full text-white bg-[#0a6e5f] focus:ring-4 focus:ring-[#0a6e5f] font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Đặt hàng</button>
                                 </a>
                             </div>
                         @endif
@@ -242,7 +242,7 @@
             <div class="col-span-1 max-xl:hidden">
                 <div class="my-3 flex-col rounded-lg bg-white py-3 px-4">
                     <div class="m-2 flex pt-4 ">
-                        <p class="flex justify-center items-center text-[#be1e2d] text-2xl">
+                        <p class="flex justify-center items-center text-gray-800 text-2xl">
                             <i class="fa-solid fa-coins"></i>
                         </p>
                         <p class="px-3 text-2xl font-bold">Tạm tính</p>
@@ -277,7 +277,7 @@
                                     <input name="coupon_code" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" placeholder="Nhập mã khuyến mãi">
                                 @endif
                             </div>
-                            <button type="submit" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Áp dụng</button>
+                            <button type="submit" class="focus:outline-none text-white bg-[#0a6e5f] hover:bg-[#0a6e5f] focus:ring-4 focus:ring-[#0a6e5f] font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Áp dụng</button>
                         </form>
                         @if(Session::get('coupon') == true)
                             <div class="flex justify-start items-center">
@@ -295,7 +295,7 @@
                     @if(Session::get('cart') == true)
                         <div class="w-full">
                             <a href="{{ route('user.check-out') }}">
-                                <button type="button" class="focus:outline-none w-full text-white bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Đặt hàng</button>
+                                <button type="button" class="focus:outline-none w-full text-white bg-[#0a6e5f] focus:ring-4 focus:ring-[#0a6e5f] font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Đặt hàng</button>
                             </a>
                         </div>
                     @endif

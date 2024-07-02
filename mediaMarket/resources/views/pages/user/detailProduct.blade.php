@@ -579,7 +579,7 @@
                                     @endif
                                 </div>
                                 <button type="button" class="more-content w-full h-16 flex items-center justify-center absolute z-50 bottom-0 left-0" style="background: linear-gradient(180deg, hsla(0, 0%, 100%, 0) -121.09%, #fff 44.45%);">
-                                    <p class="text-[#be1e2d] text-center font-bold text-base">Xem thêm</p>
+                                    <p class="text-gray-800 text-center font-bold text-base">Xem thêm</p>
                                 </button>
                             </div>
                         </div>
@@ -589,7 +589,7 @@
                     <div class="my-2 rounded-lg bg-white p-3">
                         <div>
                             <div class="flex-col relative" style="height: 800px; overflow: hidden">
-                                <div class="mb-3 flex justify-start items-center max-md:pt-2 text-[#be1e2d]">
+                                <div class="mb-3 flex justify-start items-center max-md:pt-2 text-gray-800">
                                     <i class="fa-solid fa-gear" style="height: 21px; width: 21px"></i>
                                     <h2 class="text-xl font-bold mx-2">Thông số kỹ thuật</h2>
                                 </div>
@@ -601,7 +601,7 @@
                                     @endif
                                 </div>
                                 <button class="more-content w-full h-16 flex items-center justify-center absolute z-50 bottom-0 left-0" style="background: linear-gradient(180deg, hsla(0, 0%, 100%, 0) -121.09%, #fff 44.45%);">
-                                    <p class="text-[#be1e2d] text-center font-bold text-base">Xem thêm</p>
+                                    <p class="text-gray-800 text-center font-bold text-base">Xem thêm</p>
                                 </button>
                             </div>
                         </div>
@@ -612,8 +612,8 @@
             <div>
                 <div class="flex-col justify-between items-center my-2 py-4 px-3 md:bg-white rounded-lg max-md:my-1 max-md:py-3 max-md:rounded-2xl">
                     <div class="header-box px-4 mb-5">
-                        <div class="header bg-[#d70018]  inline-block h-7 overflow-hidden after:border-t-[30px] after:border-t-[#be1e2d] after:border-l-[30px] after:border-l-[#d70018] after:ml-[40px]">
-                            <h2 class="title text-white py-1 pr-14 pl-9 ml-14 bg-[#be1e2d] text-[14px] uppercase font-bold">
+                        <div class="header bg-[#009981]  inline-block h-7 overflow-hidden after:border-t-[30px] after:border-t-[#00483d] after:border-l-[30px] after:border-l-[#009981] after:ml-[40px]">
+                            <h2 class="title text-white py-1 pr-14 pl-9 ml-14 bg-[#00483d] text-[14px] uppercase font-bold">
                                 <a href="">Sản phẩm liên quan</a>
                             </h2>
                         </div>

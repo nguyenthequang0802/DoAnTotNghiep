@@ -43,7 +43,7 @@
         </main>
         <!-- Footer container -->
         <div class="back-top fixed right-0 bottom-3" id="back-top">
-            <button type="button" class="text-white bg-[#be1e2d] hover:bg-[#d70018] focus:outline-none font-medium rounded-full text-sm px-5 py-3 text-center me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">
+            <button type="button" class="text-white bg-[#009981] hover:bg-[#00483d] focus:outline-none font-medium rounded-full text-sm px-5 py-3 text-center me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">
                 <i class="fa-solid fa-arrow-up"></i>
             </button>
         </div>
@@ -221,7 +221,7 @@
                                     </span>
                                 </div>
                                 <div class="search-results_item-info col-span-3">
-                                    <div class="search-results_item-title text-[#0062bd] text-[14px] font-bold mb-[10px] hover:text-[#ffd400]">${products[i].name}</div>
+                                    <div class="search-results_item-title text-gray-900 text-[14px] font-bold mb-[10px] hover:text-[#0a6e5f]">${products[i].name}</div>
                                         <div class="search-results_item-price flex items-center justify-start flex-wrap font-normal text-[#343f49] text-[20px]">
                                             <div class="text-[20px] text-[#dc3545] me-[12px]">${formattedPrice}</div>
                                         </div>
@@ -237,7 +237,7 @@
                                         </span>
                                     </div>
                                     <div class="search-results_item-info col-span-3">
-                                        <div class="search-results_item-title text-[#0062bd] text-[14px] font-bold mb-[10px] hover:text-[#ffd400]">${products[i].name}</div>
+                                        <div class="search-results_item-title text-gray-900 text-[14px] font-bold mb-[10px] hover:text-[#0a6e5f]">${products[i].name}</div>
                                         <div class="search-results_item-price flex items-center justify-start flex-wrap font-normal text-[#343f49] text-[20px]">
                                             <div class="price-sale text-[20px] text-[#dc3545] me-[12px]">${price_discount}</div>
                                             <del class="price-compare text-[12px] text-[#848484]">${formattedPrice}</del>

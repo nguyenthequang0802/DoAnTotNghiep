@@ -142,7 +142,7 @@
                                             <input type="hidden" class="cart_product_image_{{ $product->id }}" value="{{ $product->images->first()}}">
                                             <input type="hidden" class="cart_product_price_{{ $product->id }}" value="{{ $product->price }}">
                                             <input type="hidden" class="cart_product_promotion_{{ $product->id }}" value="{{ $product->promotion }}">
-                                            <button type="submit" data-id_product="{{ $product->id }}" class="btn-add_to_cart h-11 w-11 flex justify-center items-center my-2.5 hover:text-white hover:bg-[#be1e2d] text-[#333] bg-white border border-[#be1e2d] focus:outline-none font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+                                            <button type="submit" data-id_product="{{ $product->id }}" class="btn-add_to_cart h-11 w-11 flex justify-center items-center my-2.5 hover:text-white hover:bg-[#00483d] text-[#333] bg-white border border-[#00483d] focus:outline-none font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
                                                 <i class="fa-solid fa-cart-plus"></i>
                                             </button>
                                         </form>
