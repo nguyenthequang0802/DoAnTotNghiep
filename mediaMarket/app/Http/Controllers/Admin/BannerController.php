@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\BannerRequest;
 use App\Models\Banner;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -23,7 +24,7 @@ class BannerController extends Controller
     public function create(){
         return view('admin.banner.create');
     }
-    public function store(Request $request){
+    public function store(BannerRequest $request){
         $input = $request->all();
         $item = new Banner();
         $this->fillData($item, $input);
@@ -34,7 +35,7 @@ class BannerController extends Controller
         $item = Banner::find($id);
         return view('admin.banner.edit', ['item' => $item]);
     }
-    public function update(Request $request,$id){
+    public function update(BannerRequest $request,$id){
         $input = $request->all();
         $item = Banner::find($id);
         $this->fillData($item, $input);

@@ -11,37 +11,58 @@
                 <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
                     <div class="">
                         <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tên phiếu mua hàng</label>
-                        <input type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Tên phiếu hàng" required="">
+                        <input type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 {{ $errors->has('name') ? ' border border-red-500 placeholder-red-700' : '' }}" placeholder="Tên phiếu hàng">
+                        @if ($errors->has('name'))
+                            <p class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $errors->first('name') }}</p>
+                        @endif
                     </div>
                     <div></div>
                     <div class="w-full">
                         <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ghi chú phiếu mua hàng</label>
 {{--                        <input type="text"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Ghi chú" required>--}}
-                        <textarea name="description" id="description" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"></textarea>
+                        <textarea name="description" id="description" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 {{ $errors->has('description') ? ' border border-red-500 placeholder-red-700' : '' }}"></textarea>
+                        @if ($errors->has('description'))
+                            <p class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $errors->first('description') }}</p>
+                        @endif
                     </div>
                     <div></div>
                     <div class="w-full">
                         <label for="code" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Mã phiếu mua hàng</label>
-                        <input type="text" name="code" id="code" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Mã phiếu hàng" required>
+                        <input type="text" name="code" id="code" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 {{ $errors->has('code') ? ' border border-red-500 placeholder-red-700' : '' }}" placeholder="Mã phiếu hàng">
+                        @if ($errors->has('code'))
+                            <p class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $errors->first('code') }}</p>
+                        @endif
                     </div>
                     <div></div>
                     <div class="w-full">
                         <label for="value" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Giá trị phiếu mua hàng</label>
-                        <input type="text" name="value" id="value" class="price_format bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Ví dụ: 10.000" required="">
+                        <input type="text" name="value" id="value" class="price_format bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 {{ $errors->has('value') ? ' border border-red-500 placeholder-red-700' : '' }}" placeholder="Ví dụ: 10.000">
+                        @if ($errors->has('value'))
+                            <p class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $errors->first('value') }}</p>
+                        @endif
                     </div>
                     <div></div>
                     <div class="w-full">
                         <label for="limit_quantity" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Số lượng giới hạn</label>
-                        <input type="number" name="limit_quantity" id="limit_quantity" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Số lượng giới hạn" required="">
+                        <input type="number" name="limit_quantity" id="limit_quantity" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 {{ $errors->has('limit_quantity') ? ' border border-red-500 placeholder-red-700' : '' }}" placeholder="Số lượng giới hạn">
+                        @if ($errors->has('limit_quantity'))
+                            <p class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $errors->first('limit_quantity') }}</p>
+                        @endif
                     </div>
                     <div></div>
                     <div class="flex items-center">
                         <div class="relative">
-                            <input name="start" type="date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Ngày bắt đầu ">
+                            <input name="start" type="date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 {{ $errors->has('start') ? ' border border-red-500 placeholder-red-700' : '' }}" placeholder="Ngày bắt đầu ">
+                            @if ($errors->has('start'))
+                                <p class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $errors->first('start') }}</p>
+                            @endif
                         </div>
                         <span class="mx-4 text-gray-500">to</span>
                         <div class="relative">
-                            <input name="end" type="date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Ngày kết thúc">
+                            <input name="end" type="date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 {{ $errors->has('end') ? ' border border-red-500 placeholder-red-700' : '' }}" placeholder="Ngày kết thúc">
+                            @if ($errors->has('end'))
+                                <p class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $errors->first('end') }}</p>
+                            @endif
                         </div>
                     </div>
                 </div>

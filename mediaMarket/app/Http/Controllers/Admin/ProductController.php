@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Exports\ProductExport;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProductRequest;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Post;
@@ -52,7 +53,7 @@ class ProductController extends Controller
             'categories'=>$this->getProductCategories(),
         ]);
     }
-    public function store(Request $request){
+    public function store(ProductRequest $request){
         $input = $request->all();
 //        echo '<pre>';
 //        print_r($input);
@@ -70,7 +71,7 @@ class ProductController extends Controller
             'item'=>$item
         ]);
     }
-    public function update(Request $request,$id){
+    public function update(ProductRequest $request,$id){
         $input = $request->all();
         $item = Product::find($id);
         $this->fillData($item, $input, false);

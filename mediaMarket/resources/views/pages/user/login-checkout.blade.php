@@ -52,14 +52,14 @@
                         @csrf
                         <div>
                             <label for="login_email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email:</label>
-                            <input type="email" name="login_email" id="login_email" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-0 focus:border-0 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white {{ $errors->has('email') ? 'bg-red-50 border border-red-500 placeholder-red-700' : '' }}" placeholder="name@company.com" required="">
+                            <input type="email" name="login_email" id="login_email" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-0 focus:border-0 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white {{ $errors->has('email') ? 'border border-red-500 placeholder-red-700' : '' }}" placeholder="name@company.com" required="">
                             @if ($errors->has('email'))
                                 <p class="mt-2 text-sm text-red-600 dark:text-red-500 "><span class="font-medium">{{ $errors->first('email') }}</span></p>
                             @endif
                         </div>
                         <div>
                             <label for="login_password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Mật khẩu:</label>
-                            <input type="password" name="login_password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-0 focus:border-0 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white {{ $errors->has('password') ? 'bg-red-50 border border-red-500 placeholder-red-700' : '' }}" required="">
+                            <input type="password" name="login_password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-0 focus:border-0 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white {{ $errors->has('password') ? 'border border-red-500 placeholder-red-700' : '' }}" required="">
                             @if ($errors->has('password'))
                                 <p class="mt-2 text-sm text-red-600 dark:text-red-500 "><span class="font-medium">{{ $errors->first('password') }}</span></p>
                             @endif
@@ -106,23 +106,38 @@
                         @csrf
                         <div>
                             <label for="register_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Họ tên:</label>
-                            <input type="text" name="register_name" id="register_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nguyễn Văn A" required="">
+                            <input type="text" name="register_name" id="register_name" class="{{ $errors->has('register_name') ? ' border border-red-500 placeholder-red-700' : '' }} bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nguyễn Văn A">
+                            @if ($errors->has('register_name'))
+                                <p class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $errors->first('register_name') }}</p>
+                            @endif
                         </div>
                         <div>
                             <label for="register_email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email:</label>
-                            <input type="email" name="register_email" id="register_email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required="">
+                            <input type="text" name="register_email" id="register_email" class="{{ $errors->has('register_email') ? ' border border-red-500 placeholder-red-700' : '' }} bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com">
+                            @if ($errors->has('register_email'))
+                                <p class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $errors->first('register_email') }}</p>
+                            @endif
                         </div>
                         <div>
                             <label for="register_phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Số điện thoại:</label>
-                            <input type="text" name="register_phone" id="register_phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="093*******" required="">
+                            <input type="text" name="register_phone" id="register_phone" class="{{ $errors->has('register_phone') ? ' border border-red-500 placeholder-red-700' : '' }} bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="093*******">
+                            @if ($errors->has('register_phone'))
+                                <p class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $errors->first('register_phone') }}</p>
+                            @endif
                         </div>
                         <div>
                             <label for="register_password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Mật khẩu:</label>
-                            <input type="password" name="register_password" id="register_password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
+                            <input type="password" name="register_password" id="register_password" placeholder="••••••••" class="{{ $errors->has('register_password') ? ' border border-red-500 placeholder-red-700' : '' }} bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            @if ($errors->has('register_password'))
+                                <p class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $errors->first('register_password') }}</p>
+                            @endif
                         </div>
                         <div>
                             <label for="confirm-password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nhâp lại mật khẩu:</label>
-                            <input type="confirm-password" name="confirm-password" id="confirm-password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
+                            <input type="password" name="confirm-password" id="confirm-password" placeholder="••••••••" class="{{ $errors->has('confirm-password') ? ' border border-red-500 placeholder-red-700' : '' }} bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            @if ($errors->has('confirm-password'))
+                                <p class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $errors->first('confirm-password') }}</p>
+                            @endif
                         </div>
                         <div>
 

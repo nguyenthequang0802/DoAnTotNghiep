@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -35,7 +36,7 @@ class CategoryController extends Controller
     public function create($model_type){
         return view('admin.category.create', ['categories' => $this->getCategories($model_type), 'model_type' => $model_type]);
     }
-    public function store(Request $request, $model_type){
+    public function store(CategoryRequest $request, $model_type){
         $input = $request->all();
         $category = new Category();
         $this->fillData($category, $input, $model_type);
@@ -50,7 +51,7 @@ class CategoryController extends Controller
             'model_type' => $model_type,
         ]);
     }
-    public function update($model_type, $id, Request $request)
+    public function update($model_type, $id, CategoryRequest $request)
     {
         $item = Category::find($id);
         if (!$item) return redirect()->back();

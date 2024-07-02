@@ -13,17 +13,17 @@
                         <div>
                             <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
                             <input type="email" name="email" id="email"
-                                   class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ old('email') }}" placeholder="name@company.com" required="">
-                            @error('email')
-                                <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium"><strong>{{ $message }}</strong></span></p>
-                            @enderror
+                                   class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 {{ $errors->has('email') ? ' border border-red-500 placeholder-red-700' : '' }}" value="{{ old('email') }}" placeholder="name@company.com" required="">
+                            @if ($errors->has('email'))
+                                <p class="mt-2 text-sm text-red-600 dark:text-red-500 "><span class="font-medium">{{ $errors->first('email') }}</span></p>
+                            @endif
                         </div>
                         <div>
                             <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-                            <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
-                            @error('password')
-                            <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium"> <strong>{{ $message }}</strong> </span></p>
-                            @enderror
+                            <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 {{ $errors->has('password') ? ' border border-red-500 placeholder-red-700' : '' }}" required="">
+                            @if ($errors->has('password'))
+                                <p class="mt-2 text-sm text-red-600 dark:text-red-500 "><span class="font-medium">{{ $errors->first('password') }}</span></p>
+                            @endif
                         </div>
                         <div class="flex items-center justify-between">
                             <div class="flex items-start">

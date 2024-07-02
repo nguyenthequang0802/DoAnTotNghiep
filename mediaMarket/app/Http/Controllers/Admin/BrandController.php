@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\BrandRequest;
 use App\Models\Brand;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -28,7 +29,7 @@ class BrandController extends Controller
     public function create(){
         return view('admin.brand.create');
     }
-    public function store(Request $request){
+    public function store(BrandRequest $request){
         $input = $request->all();
         $item = new Brand();
         $this->fillData($item, $input);
@@ -39,7 +40,7 @@ class BrandController extends Controller
         $item = Brand::find($id);
         return view('admin.brand.edit', ['item' => $item]);
     }
-    public function update(Request $request,$id){
+    public function update(BrandRequest $request,$id){
         $input = $request->all();
         $item = Brand::find($id);
         $this->fillData($item, $input);
