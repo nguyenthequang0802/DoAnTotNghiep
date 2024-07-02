@@ -1,5 +1,5 @@
 <header class="block relative" id="section-header">
-    <div id="header-top" class="header-top py-1 bg-[#d70018] hidden lg:block">
+    <div id="header-top" class="header-top py-1 bg-[#0a6e5f] hidden lg:block">
         <div class="container mx-auto px-[15px]">
             <div class="flex header-top-container justify-between">
                 <ul class="header-top-left flex">
@@ -32,7 +32,7 @@
             </div>
         </div>
     </div>
-    <div id="header-bottom" class="header-bottom w-full bg-[#be1e2d] py-[10px] md:py-[20px] lg:py-0 z-50" style="box-shadow: 0 0 8px #c9c9c9bf">
+    <div id="header-bottom" class="header-bottom w-full bg-[#b6bac1] max-lg:bg-[#0a6e5f] py-[10px] md:py-[20px] lg:py-0 z-50" style="box-shadow: 0 0 5px #c9c9c9bf">
         <div class="w-full xl:container xl:mx-auto px-[5px] md:px-[10px] lg:px-[15px]">
             <div class="hidden lg:block">
                 <div class="header-bottom-container min-h-20 grid grid-cols-5">
@@ -41,7 +41,7 @@
                             <div class="logo">
                                 <a href="{{ route('user.index') }}" class="theme-logo flex items-center space-x-2 rtl:space-x-reverse cursor-pointer">
                                     <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
-                                    <h1 class="text-lg xl:text-3xl text-white font-bold">Media Market</h1>
+                                    <h1 class="text-lg xl:text-3xl text-gray-800 font-bold">Media Market</h1>
                                 </a>
                             </div>
                         </div>
@@ -52,8 +52,8 @@
                                 @foreach($global_menus as $menu)
                                     @if(count($menu->subcategory) == 0)
                                         <li>
-                                            <a href="{{ $menu->model_type == 'post' ? route('user.post', $menu->slug) : route('user.store', $menu->slug) }}" class="py-2 px-3 text-white border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0 dark:text-blue-500 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700" aria-current="page">
-                                                <div class="w-full flex justify-center items-center">
+                                            <a href="{{ $menu->model_type == 'post' ? route('user.post', $menu->slug) : route('user.store', $menu->slug) }}" class="py-2 px-3 text-gray-800 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-[#0a6e5f] md:p-0 dark:text-blue-500 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700" aria-current="page">
+                                                <div class="w-full flex justify-center items-center mb-2.5">
                                                     <img height="30" width="30" src="{{ asset($menu->icon_path) }}">
                                                 </div>
                                                 <p class="xl:text-xs text-[8px] text-center">{{ $menu->name }}</p>
@@ -62,8 +62,8 @@
                                     @else
                                         <li>
                                             <a href="{{ $menu->model_type == 'post' ? route('user.post', $menu->slug) : route('user.store', $menu->slug) }}">
-                                                <button data-popover-target="popover-bottom-{{ $menu->id }}" data-popover-placement="bottom" type="button" class="w-full py-2 px-3 font-medium text-white border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">
-                                                    <div class="w-full flex justify-center items-center">
+                                                <button data-popover-target="popover-bottom-{{ $menu->id }}" data-popover-placement="bottom" type="button" class="w-full py-2 px-3 font-medium text-gray-800 border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-[#0a6e5f] md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">
+                                                    <div class="w-full flex justify-center items-center mb-2.5">
                                                         <img height="30" width="30" src="{{ asset($menu->icon_path) }}">
                                                     </div>
                                                     <p class="xl:text-xs text-[8px] text-center">{{ $menu->name }}</p>
@@ -94,18 +94,18 @@
                     </div>
                     <div class="header-action-list col-span-1 flex items-center pl-4">
                         <div class="header-search-icon flex items-center text-white cursor-pointer" style="transition: all .35s ease-in-out">
-                            <button id="dropdownNotificationButton" data-dropdown-toggle="dropdownNotification" class="flex relative inline-flex items-center text-sm font-medium text-center text-white hover:text-white focus:outline-none dark:hover:text-white dark:text-gray-400" type="button">
+                            <button id="dropdownNotificationButton" data-dropdown-toggle="dropdownNotification" class="flex relative inline-flex items-center text-sm font-medium text-center text-gray-800 hover:text-[#0a6e5f] focus:outline-none dark:hover:text-white dark:text-gray-400" type="button">
                                 <i class="fa-solid fa-magnifying-glass text-lg font-bold"></i>
                             </button>
 
                             <!-- Dropdown menu -->
                             <div id="dropdownNotification" class="z-20 hidden w-full max-w-sm bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-800 dark:divide-gray-700" aria-labelledby="dropdownNotificationButton">
                                 <div class="block px-4 py-2 font-medium text-center text-gray-700 rounded-t-lg bg-gray-50 dark:bg-gray-800 dark:text-white">
-                                    <form action="" method="POST" class="form_search flex min-w-[355px] border-[2px] border-solid border-[#ffd400] rounded-[25px] relative">
+                                    <form action="" method="POST" class="form_search flex min-w-[355px] border-[2px] border-solid border-[#0a6e5f] rounded-[25px] relative">
                                         @csrf
-                                        <input type="text" name="search-header" class="border-none w-full h-[38px] rounded-[25px] pe-[65px] focus:ring-[#ffd400]" placeholder="Tìm kiếm..." autocomplete="off">
-                                        <button type="submit" class="btn-search absolute top-[-2px] right-[-3px] bottom-[-2px] flex items-center justify-center w-[60px] p-0 rounded-r-[25px] bg-[#ffd400] border-[2px] border-solid border-[#ffd400]">
-                                            <i class="fa-solid fa-magnifying-glass text-lg font-bold" style="height: 20px; width: 20px;"></i>
+                                        <input type="text" name="search-header" class="border-none w-full h-[38px] rounded-[25px] pe-[65px] focus:ring-[#0a6e5f]" placeholder="Tìm kiếm..." autocomplete="off">
+                                        <button type="submit" class="btn-search absolute top-[-2px] right-[-3px] bottom-[-2px] flex items-center justify-center w-[60px] p-0 rounded-r-[25px] bg-[#0a6e5f] border-[2px] border-solid border-[#0a6e5f]">
+                                            <i class="fa-solid fa-magnifying-glass text-white text-lg font-bold" style="height: 20px; width: 20px;"></i>
                                         </button>
                                     </form>
                                 </div>
@@ -113,10 +113,10 @@
                                     <div class="search-result-list overflow-y-auto overflow-x-hidden">
                                         <div class="search-results_list-inner h-[calc(100%-58px)] pt-5 overflow-x-hidden overflow-y-auto p-t-[20px]">
                                             <div class="search-results_group mb-1.5">
-                                                <div class="search-result_empty p-[20px] text-center text-[#333e48] hover:text-[#ffd400]">Không có sản phầm bạn đang tìm kiếm.</div>
+                                                <div class="search-result_empty p-[20px] text-center text-[#333e48] hover:text-[#0a6e5f]">Không có sản phầm bạn đang tìm kiếm.</div>
                                             </div>
                                         </div>
-                                        <button class="btn-search-view_all w-full px-[14px] py-[10px] text-center cursor-pointer rounded-b-[10px] text-[14px] font-bold text-[#333e48] hover:text-white bg-[#ffd400] hover:bg-[#333e48] border-2 border-solid border-[#ffd400] hover:border-[#333e48]">View All</button>
+                                        <button class="btn-search-view_all w-full px-[14px] py-[10px] text-center cursor-pointer rounded-b-[10px] text-[14px] font-bold text-white hover:text-white bg-[#0a6e5f] hover:bg-[#333e48] border-2 border-solid border-[#0a6e5f] hover:border-[#333e48]">View All</button>
                                     </div>
                                 </div>
                             </div>
@@ -124,7 +124,7 @@
                         <div class="header-action-item header-cart ms-8 flex items-center relative">
                             <div class="flex items-center relative text-white">
                                 <div class="header-action-item_group flex me-[10px] relative">
-                                    <button data-popover-target="popover-click-cart" data-popover-trigger="click" data-popover-placement="bottom" type="button" class="font-medium text-white hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">
+                                    <button data-popover-target="popover-click-cart" data-popover-trigger="click" data-popover-placement="bottom" type="button" class="font-medium text-gray-900 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-[#0a6e5f] md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">
                                         <i class="fa-solid fa-bag-shopping text-xl font-bold"></i>
                                     </button>
                                     @php
@@ -137,11 +137,11 @@
                                             }
                                         }
                                     @endphp
-                                    <div class="number absolute right-[-9px] bottom-[-10px] w-[22px] h-[22px] rounded-full flex items-center justify-center bg-white border border-[#d70018] text-gray-900 text-[12px] font-bold">{{ $total_quantity_cart }}</div>
+                                    <div class="number absolute right-[-9px] bottom-[-10px] w-[22px] h-[22px] rounded-full flex items-center justify-center bg-white border border-gray-800 text-gray-900 text-[12px] font-bold">{{ $total_quantity_cart }}</div>
                                 </div>
                             </div>
 
-                            <div data-popover id="popover-click-cart" role="tooltip" class="absolute top-[100%] right-0 z-10 inline-block invisible w-[335px] min-h-[100px] mt-[10px] items-center justify-center px-[25px] py-[15px] border-t-[2px] border-solid border-t-[#fed700] text-sm bg-white border border-gray-100 rounded-lg shadow-md dark:border-gray-700 md:grid-cols-3 dark:bg-gray-700">
+                            <div data-popover id="popover-click-cart" role="tooltip" class="absolute top-[100%] right-0 z-10 inline-block invisible w-[335px] min-h-[100px] mt-[10px] items-center justify-center px-[25px] py-[15px] text-sm bg-white border border-gray-100 rounded-lg shadow-md dark:border-gray-700 md:grid-cols-3 dark:bg-gray-700">
                                 <div class="w-full block m-0">
                                     <header class="dropdown-cart_title border-b-[1px] border-b-solid border-b-[#dddddd] py-[7px] flex justify-between items-center text-[15px] font-bold">
                                         <span>Giỏ hàng</span>
@@ -176,7 +176,7 @@
                                                         </a>
                                                     </div>
                                                     <div class="cart-line-item_info_content col-span-2">
-                                                        <a class="cart-line-item_title mb-3 text-[#0062bd] text-[14px] font-bold">{{ $item_cart['product_name'] }}</a>
+                                                        <a class="cart-line-item_title mb-3 text-gray-800 text-[14px] font-bold">{{ $item_cart['product_name'] }}</a>
                                                         <div class="cart-line-item_wrapper">
                                                             <span class="cart-line-item_variant mb-1.5">{{ $item_cart['product_color'] }}</span>
                                                             <span class="cart-line-item_qty mb-1.5 block">
@@ -199,8 +199,8 @@
                                             <div class="cart-total_price text-xl font-bold text-[#343f49]">{{ number_format($total_goods, 0, ',', '.') }} VNĐ</div>
                                         </div>
                                         <div class="cart-btn flex items-center justify-between border-t border-solid border-[#dddddd] mt-4">
-                                            <a href="{{ route('user.showCart') }}" class="btn-review-cart mt-4 p-[10px] text-center font-bold text-[#333e48] text-sm bg-[#e6e6e6] border border-solid border-[#e6e6e6] rounded-full hover:bg-[#fed700]" style="width: calc(50% - 7px)">View cart</a>
-                                            <a href="{{ route('user.check-out') }}" class="btn-checkout mt-4 text-center font-bold p-[10px] text-[#333e48] text-sm bg-[#fed700] border border-solid border-[#fed700] rounded-full hover:bg-[#333e48] hover:text-[#ffffff] hover:border-[#333e48]" style="width: calc(50% - 7px)">Check out</a>
+                                            <a href="{{ route('user.showCart') }}" class="btn-review-cart mt-4 p-[10px] text-center font-bold text-[#333e48] text-sm bg-[#e6e6e6] border border-solid border-[#e6e6e6] rounded-full hover:bg-[#0a6e5f] hover:text-white" style="width: calc(50% - 7px)">View cart</a>
+                                            <a href="{{ route('user.check-out') }}" class="btn-checkout mt-4 text-center font-bold p-[10px] text-white text-sm bg-[#0a6e5f] border border-solid border-[#0a6e5f] rounded-full hover:bg-[#333e48] hover:text-[#ffffff] hover:border-[#333e48]" style="width: calc(50% - 7px)">Check out</a>
                                         </div>
                                     </footer>
                                 </div>
@@ -208,24 +208,24 @@
                         </div>
                         <div class="header-info_customer ms-8">
                             <div class="flex">
-                                <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="text-white focus:ring-0 focus:outline-none font-medium rounded-lg text-md text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+                                <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="text-gray-800 focus:ring-0 focus:outline-none font-medium rounded-lg text-md text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
                                     @guest()
                                         <i class="fa-regular fa-user"></i>
                                         <div class="text-left ml-1.5">
-                                            <p class="text-xs xl:text-sm text-white" role="none">
+                                            <p class="text-xs xl:text-sm text-gray-800" role="none">
                                                 Đăng nhập/
                                             </p>
-                                            <p class="text-xs xl:text-sm font-medium text-white truncate" role="none">
+                                            <p class="text-xs xl:text-sm font-medium text-gray-800 truncate" role="none">
                                                 Đăng ký
                                             </p>
                                         </div>
                                     @else
                                         <i class="fa-solid fa-user"></i>
                                         <div class="text-left ml-1.5">
-                                            <p class="text-sm text-white" role="none">
+                                            <p class="text-sm text-gray-800" role="none">
                                                 {{ Auth::user()->name }}
                                             </p>
-                                            <p class="text-sm font-medium text-white truncate" role="none">
+                                            <p class="text-sm font-medium text-gray-800 truncate" role="none">
                                                 {{ Auth::user()->email }}
                                             </p>
                                         </div>
@@ -276,14 +276,14 @@
                     <div class="header-mobile_top flex">
                         <!-- drawer init and show -->
                         <div class="text-center flex items-center m-0 me-5">
-                            <button class="text-gray-200 hover:bg-[#333e48] hover:text-white font-bold rounded-lg text-2xl dark:bg-blue-600" type="button" data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation" aria-controls="drawer-navigation">
+                            <button class="text-white hover:bg-[#333e48] hover:text-[#0a6e5f] font-bold rounded-lg text-2xl dark:bg-blue-600" type="button" data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation" aria-controls="drawer-navigation">
                                 <i class="fa-solid fa-bars h-full w-[16px]"></i>
                             </button>
                         </div>
                         <!-- drawer component -->
                         <div id="drawer-navigation" class="fixed top-0 left-0 z-40 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white w-64 dark:bg-gray-800" tabindex="-1" aria-labelledby="drawer-navigation-label">
-                            <h5 id="drawer-navigation-label" class="text-base font-semibold text-gray-500 uppercase dark:text-gray-400">Menu</h5>
-                            <button type="button" data-drawer-hide="drawer-navigation" aria-controls="drawer-navigation" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 end-2.5 inline-flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white" >
+                            <h5 id="drawer-navigation-label" class="text-base font-semibold text-gray-800 uppercase dark:text-gray-400">Menu</h5>
+                            <button type="button" data-drawer-hide="drawer-navigation" aria-controls="drawer-navigation" class="text-gray-800 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 end-2.5 inline-flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white" >
                                 <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
                                 </svg>
@@ -294,13 +294,13 @@
                                     @foreach($global_menus as $menu)
                                         @if(count($menu->subcategory) == 0)
                                             <li>
-                                                <a href="{{ $menu->model_type == 'post' ? route('user.post', $menu->slug) : route('user.store', $menu->slug) }}" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                                                <a href="{{ $menu->model_type == 'post' ? route('user.post', $menu->slug) : route('user.store', $menu->slug) }}" class="flex items-center p-2 text-gray-800 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                                                     <span class="ms-3">{{ $menu->name }}</span>
                                                 </a>
                                             </li>
                                         @else
                                             <li>
-                                                <button type="button" class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-example" data-collapse-toggle="dropdown-menu-{{ $menu->id }}">
+                                                <button type="button" class="flex items-center w-full p-2 text-base text-gray-800 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-example" data-collapse-toggle="dropdown-menu-{{ $menu->id }}">
                                                     <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">{{ $menu->name }}</span>
                                                     <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
@@ -309,7 +309,7 @@
                                                 <ul id="dropdown-menu-{{ $menu->id }}" class="hidden py-2 space-y-2">
                                                     @foreach($menu->subCategory as $sub_menu)
                                                         <li>
-                                                            <a href="{{ $sub_menu->model_type == 'post' ? route('user.post', $sub_menu->slug) : route('user.store', $sub_menu->slug) }}" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">{{ $sub_menu->name }}</a>
+                                                            <a href="{{ $sub_menu->model_type == 'post' ? route('user.post', $sub_menu->slug) : route('user.store', $sub_menu->slug) }}" class="flex items-center w-full p-2 text-gray-800 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">{{ $sub_menu->name }}</a>
                                                         </li>
                                                     @endforeach
                                                 </ul>
@@ -322,14 +322,14 @@
                         <div class="header-mobile_logo flex items-center">
                             <div class="logo">
                                 <a href="{{ route('user.index') }}" class="theme-logo flex items-center space-x-2 rtl:space-x-reverse cursor-pointer">
-                                    <h1 class="lg:text-3xl text-gray-200 font-bold">Media Market</h1>
+                                    <h1 class="lg:text-3xl text-white font-bold">Media Market</h1>
                                 </a>
                             </div>
                         </div>
                         <div class="header-mobile_icons flex ms-auto">
                             <ul class="icon-list flex">
                                 <li class="icon-item icon-search flex items-center cursor-pointer ms-4">
-                                    <span class="btn-moblie-search_open text-gray-200">
+                                    <span class="btn-moblie-search_open text-white">
                                         <i class="fa-solid fa-magnifying-glass text-lg font-bold" style="height: 20px; width: 20px;"></i>
                                     </span>
                                     <span class="btn-moblie-search_close hidden">
@@ -338,13 +338,13 @@
 
                                 </li>
                                 <li class="icon-item moblie-icon-cart flex items-center cursor-pointer ms-4">
-                                    <a href="{{ route('user.showCart') }}" class="relative text-gray-200">
+                                    <a href="{{ route('user.showCart') }}" class="relative text-white">
                                         <i class="fa-solid fa-bag-shopping text-lg font-bold" style="height: 20px; width: 20px;"></i>
                                         <div class="number absolute right-[-9px] bottom-[-10px] w-[20px] h-[20px] rounded-full flex items-center justify-center bg-white text-gray-900 text-[12px] font-bold">{{ $total_quantity_cart }}</div>
                                     </a>
                                 </li>
-                                <li class="icon-item mobile-icon-user flex items-center cursor-pointer ms-4">
-                                    <button id="dropdownDefaultButton" data-dropdown-toggle="login-check" class="text-gray-200">
+                                <li class="icon-item mobile-icon-user text-white flex items-center cursor-pointer ms-4">
+                                    <button id="dropdownDefaultButton" data-dropdown-toggle="login-check" class="text-white">
                                         @guest()
                                             <i class="fa-regular fa-user text-lg font-bold" style="height: 20px; width: 20px;"></i>
                                         @else
@@ -367,7 +367,7 @@
 
                                             @else
                                                 <li>
-                                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Lịch sử mua hàng</a>
+                                                    <a href="{{ route('user.history_bill') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Lịch sử mua hàng</a>
                                                 </li>
                                                 <li>
                                                     <a class="block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem" href="{{ route('user.logout') }}"
@@ -392,20 +392,20 @@
                     </div>
                     <div class="header-mobile_bottom">
                         <div class="header-mobile-search absolute left-0 top-16 right-0 mt-0 py-2.5 px-0 bg-white z-50 hidden" style="box-shadow: 0 0 8px #c9c9c9bf;">
-                            <form action="" method="POST" class="flex min-w-[355px] border-[2px] border-solid border-[#ffd400] rounded-[25px] relative">
-                                <input type="text" name="search-header" class="border-none w-full h-[38px] rounded-[25px] pe-[65px] focus:ring-[#ffd400]" placeholder="Tìm kiếm..." autocomplete="off">
-                                <button type="submit" class="btn-search absolute top-[-2px] right-[-3px] bottom-[-2px] flex items-center justify-center w-[60px] p-0 rounded-r-[25px] bg-[#ffd400] border-[2px] border-solid border-[#ffd400]">
-                                    <i class="fa-solid fa-magnifying-glass text-lg font-bold" style="height: 20px; width: 20px;"></i>
+                            <form action="" method="POST" class="flex min-w-[355px] border-[2px] border-solid border-[#0a6e5f] rounded-[25px] relative">
+                                <input type="text" name="search-header" class="border-none w-full h-[38px] rounded-[25px] pe-[65px] focus:ring-[#0a6e5f]" placeholder="Tìm kiếm..." autocomplete="off">
+                                <button type="submit" class="btn-search absolute top-[-2px] right-[-3px] bottom-[-2px] flex items-center justify-center w-[60px] p-0 rounded-r-[25px] bg-[#0a6e5f] border-[2px] border-solid border-[#0a6e5f]">
+                                    <i class="fa-solid fa-magnifying-glass text-lg text-white font-bold" style="height: 20px; width: 20px;"></i>
                                 </button>
                             </form>
-                            <div class="search-result absolute w-full left-0 top-[100%] z-10 rounded-b-[10px] shadow-xl border-t-2 border-solid border-t-[#ffd400]">
+                            <div class="search-result absolute w-full left-0 top-[100%] z-10 rounded-b-[10px] shadow-xl border-t-2 border-solid border-t-[#0a6e5f]">
                                 <div class="search-result-list overflow-y-auto overflow-x-hidden">
                                     <div class="search-results_list-inner bg-white h-[calc(100%-58px)] pt-5 overflow-x-hidden overflow-y-auto p-t-[20px]">
                                         <div class="search-results_group mb-1.5">
-                                            <div class="search-result_empty p-[20px] text-center text-[#333e48] hover:text-[#ffd400]">Không có sản phầm bạn đang tìm kiếm.</div>
+                                            <div class="search-result_empty p-[20px] text-center text-[#333e48] hover:text-[#0a6e5f]">Không có sản phầm bạn đang tìm kiếm.</div>
                                         </div>
                                     </div>
-                                    <button class="btn-search-view_all w-full px-[14px] py-[10px] text-center cursor-pointer rounded-b-[10px] text-[14px] font-bold text-[#333e48] hover:text-white bg-[#ffd400] hover:bg-[#d70018] border-2 border-solid border-[#ffd400] hover:border-[#333e48]">View All</button>
+                                    <button class="btn-search-view_all w-full px-[14px] py-[10px] text-center cursor-pointer rounded-b-[10px] text-[14px] font-bold text-white hover:text-white bg-[#0a6e5f] border-2 border-solid border-[#0a6e5f]">View All</button>
                                 </div>
                             </div>
                         </div>

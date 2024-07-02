@@ -75,7 +75,7 @@
                             </div>
                             <a href="#" class="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">Quên mật khẩu?</a>
                         </div>
-                        <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Đăng nhập</button>
+                        <button type="submit" class="w-full text-white bg-[#0a6e5f] font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Đăng nhập</button>
                         <div class="mt-1.5">
                             <a href="">
                                 <button type="button" class="text-white">
@@ -150,7 +150,7 @@
                                 <label for="terms" class="font-light text-gray-500 dark:text-gray-300">Tôi chấp nhận, đồng ý với những <a class="font-medium text-primary-600 hover:underline dark:text-primary-500" href="#">Điều kiện và Điều khoản</a></label>
                             </div>
                         </div>
-                        <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Đăng ký</button>
+                        <button type="submit" class="w-full text-white bg-[#0a6e5f] font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Đăng ký</button>
                         <p class="text-sm font-light text-gray-500 dark:text-gray-400">
                             Bạn đã có tài khoản? <a href="#" class="font-medium text-primary-600 hover:underline dark:text-primary-500">Đăng nhập</a>
                         </p>
