@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CouponRequest;
 use App\Models\Coupon;
 use App\Models\User;
 use Carbon\Carbon;
@@ -18,7 +19,7 @@ class CouponController extends Controller
     public function create(){
         return view('admin.coupon.create');
     }
-    public function store(Request $request){
+    public function store(CouponRequest $request){
         $input = $request->all();
         $coupon = new Coupon();
         $coupon['name'] = $input['name'];
@@ -37,7 +38,7 @@ class CouponController extends Controller
         $item = Coupon::find($id);
         return view('admin.coupon.edit', ['item' => $item]);
     }
-    public function update(Request $request, $id){
+    public function update(CouponRequest $request, $id){
         $input = $request->all();
         $coupon = Coupon::find($id);
         $coupon['name'] = $input['name'];

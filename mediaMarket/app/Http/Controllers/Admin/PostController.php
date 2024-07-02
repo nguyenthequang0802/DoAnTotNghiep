@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PostRequest;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Product;
@@ -50,7 +51,7 @@ class PostController extends Controller
         $products = Product::all();
         return view('admin.post.create', ['categories'=>$categories, 'products' => $products]);
     }
-    public function store(Request $request){
+    public function store(PostRequest $request){
         $input = $request->all();
         $item = new Post();
         $this->fillDataToPost($item, $input, true);
@@ -62,7 +63,7 @@ class PostController extends Controller
         $products = Product::all();
         return view('admin.post.edit', ['item'=>$item, 'categories'=> $categories, 'products' => $products]);
     }
-    public function update(Request $request, $id){
+    public function update(PostRequest $request, $id){
         $input = $request->all();
         $item = Post::find($id);
         $this->fillDataToPost($item, $input, false);
