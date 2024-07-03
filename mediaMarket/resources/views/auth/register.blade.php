@@ -43,7 +43,7 @@
                                 <label for="terms" class="font-light text-gray-500 dark:text-gray-300">I accept the <a class="font-medium text-primary-600 hover:underline dark:text-primary-500" href="#">Terms and Conditions</a></label>
                             </div>
                         </div>
-                        <button type="submit" class="w-full text-white bg-[#be1e2d] focus:ring-4 focus:outline-none focus:ring-[#be1e2d] font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Create an account</button>
+                        <button type="submit" class="w-full text-white bg-[#0a6e5f] focus:ring-4 focus:outline-none focus:ring-[#be1e2d] font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Create an account</button>
                         <p class="text-sm font-light text-gray-500 dark:text-gray-400">
                             Already have an account? <a href="{{ route('admin.login.form') }}" class="font-medium text-primary-600 hover:underline dark:text-primary-500">Login here</a>
                         </p>
