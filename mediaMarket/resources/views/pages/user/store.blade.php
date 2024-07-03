@@ -58,16 +58,11 @@
                         <span class="text-sm text-gray-500 dark:text-gray-400 absolute end-0 -bottom-6">{{ number_format($maxPrice, 0, ',', '.') }}VNĐ</span>
                     </div>
                 </div>
-
-            </div>
-        </div>
-        <div class="box-products col-span-3">
-            <div class="card-listBrands w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mb-8 hidden lg:block">
-                <div class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 rounded-t-lg bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:bg-gray-800" id="defaultTab">
-                    <h2 class="p-4 text-black text-lg font-bold rounded-ss-lg hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-blue-500">Hãng Sản Xuất</h2>
-                </div>
-                <div id="defaultTabContent" class="flex flex-col gap-2">
-                    <div class="p-4 flex bg-white rounded-lg md:p-5 dark:bg-gray-800">
+                <div class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                    <div class="flex gap-2.5 justify-between items-center pb-1 mt-2">
+                        <h3 class="text-black font-bold text-lg">Hãng sản xuất</h3>
+                    </div>
+                    <div class="relative mb-6 grid grid-cols-3 lg:grid-cols-2 max-lg:gap-2.5">
                         @foreach($brands as $brand)
                             <a href="{{ route('user.store', ['category_slug' => $category->slug, ...$query, 'brand' => $brand->slug]) }}">
                                 <button type="button" class="h-[40px] w-[125px] flex justify-center items-center text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
@@ -76,8 +71,11 @@
                             </a>
                         @endforeach
                     </div>
+
                 </div>
             </div>
+        </div>
+        <div class="box-products col-span-3">
 
             <div class="card-listProducts w-full p-4 text-center bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                 <div class="card-body-listProduct">
