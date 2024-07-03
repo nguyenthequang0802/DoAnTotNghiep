@@ -4,11 +4,11 @@
         <div class="px-4">
             <!-- Start coding here -->
             <div class="bg-white min-h-[275px] dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
-                <div class="grid grid-cols-4  items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
-                    <div class="col-span-1">
+                <div class="grid grid-cols-2 lg:grid-cols-4  items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
+                    <div class="max-lg:col-span-2 col-span-1">
                         <h2 class="m-4 text-xl font-bold text-gray-900 dark:text-white">Quản lý sản phẩm</h2>
                     </div>
-                    <div class="col-span-3 flex justify-end gap-2.5">
+                    <div class="col-span-3 max-lg:col-span-2 flex justify-end items-center gap-2.5">
                         <div class="w-2/3">
                             <form class="flex items-center form_search" method="POST">
                                 @csrf
@@ -36,7 +36,7 @@
                         <div>
                             <form action="{{ route('admin.product.export_csv') }}" method="POST">
                                 @csrf
-                                <button type="submit" name="export_csv" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Export file excel</button>
+                                <button type="submit" name="export_csv" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Export</button>
                             </form>
                         </div>
                     </div>

@@ -1,4 +1,4 @@
-<nav class="fixed top-0 z-50 w-full bg-[#be1e2d] border-b border-gray-200">
+<nav class="fixed top-0 z-50 w-full bg-[#0a6e5f] border-b border-gray-200">
     <div class="container mx-auto py-3 lg:px-5 lg:pl-3">
         <div class="flex items-center justify-between">
             <div class="flex items-center justify-start rtl:justify-end">
@@ -10,11 +10,11 @@
                 </button>
                 <a href="{{ route('admin.dashboard') }}" class="flex ms-2 md:me-24">
                     <img src="https://flowbite.com/docs/images/logo.svg" class="h-8 me-3" alt="FlowBite Logo" />
-                    <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap text-white">Quản trị Media Market</span>
+                    <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap text-white">AdminLTE</span>
                 </a>
             </div>
             <div class="flex items-center justify-center max-md:hidden">
-                <form class="min-w-[35rem] mx-auto">
+                <form class="min-w-[18rem] lg:min-w-[35rem] mx-auto">
                     <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
                     <div class="relative">
                         <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
