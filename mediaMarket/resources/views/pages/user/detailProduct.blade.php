@@ -14,36 +14,6 @@
                                         <img src="{{ asset($image->path_image) }}" />
                                     </swiper-slide>
                                 @endforeach
-{{--                                <swiper-slide>--}}
-{{--                                    <img src="https://swiperjs.com/demos/images/nature-1.jpg" />--}}
-{{--                                </swiper-slide>--}}
-{{--                                <swiper-slide>--}}
-{{--                                    <img src="https://swiperjs.com/demos/images/nature-2.jpg" />--}}
-{{--                                </swiper-slide>--}}
-{{--                                <swiper-slide>--}}
-{{--                                    <img src="https://swiperjs.com/demos/images/nature-3.jpg" />--}}
-{{--                                </swiper-slide>--}}
-{{--                                <swiper-slide>--}}
-{{--                                    <img src="https://swiperjs.com/demos/images/nature-4.jpg" />--}}
-{{--                                </swiper-slide>--}}
-{{--                                <swiper-slide>--}}
-{{--                                    <img src="https://swiperjs.com/demos/images/nature-5.jpg" />--}}
-{{--                                </swiper-slide>--}}
-{{--                                <swiper-slide>--}}
-{{--                                    <img src="https://swiperjs.com/demos/images/nature-6.jpg" />--}}
-{{--                                </swiper-slide>--}}
-{{--                                <swiper-slide>--}}
-{{--                                    <img src="https://swiperjs.com/demos/images/nature-7.jpg" />--}}
-{{--                                </swiper-slide>--}}
-{{--                                <swiper-slide>--}}
-{{--                                    <img src="https://swiperjs.com/demos/images/nature-8.jpg" />--}}
-{{--                                </swiper-slide>--}}
-{{--                                <swiper-slide>--}}
-{{--                                    <img src="https://swiperjs.com/demos/images/nature-9.jpg" />--}}
-{{--                                </swiper-slide>--}}
-{{--                                <swiper-slide>--}}
-{{--                                    <img src="https://swiperjs.com/demos/images/nature-10.jpg" />--}}
-{{--                                </swiper-slide>--}}
                             </swiper-container>
                             <swiper-container class="mySwiper2" loop="true" space-between="10" slides-per-view="4" free-mode="true"
                                               watch-slides-progress="true">
@@ -52,36 +22,6 @@
                                         <img src="{{ asset($image->path_image) }}" />
                                     </swiper-slide>
                                 @endforeach
-{{--                                <swiper-slide>--}}
-{{--                                    <img src="https://swiperjs.com/demos/images/nature-1.jpg" />--}}
-{{--                                </swiper-slide>--}}
-{{--                                <swiper-slide>--}}
-{{--                                    <img src="https://swiperjs.com/demos/images/nature-2.jpg" />--}}
-{{--                                </swiper-slide>--}}
-{{--                                <swiper-slide>--}}
-{{--                                    <img src="https://swiperjs.com/demos/images/nature-3.jpg" />--}}
-{{--                                </swiper-slide>--}}
-{{--                                <swiper-slide>--}}
-{{--                                    <img src="https://swiperjs.com/demos/images/nature-4.jpg" />--}}
-{{--                                </swiper-slide>--}}
-{{--                                <swiper-slide>--}}
-{{--                                    <img src="https://swiperjs.com/demos/images/nature-5.jpg" />--}}
-{{--                                </swiper-slide>--}}
-{{--                                <swiper-slide>--}}
-{{--                                    <img src="https://swiperjs.com/demos/images/nature-6.jpg" />--}}
-{{--                                </swiper-slide>--}}
-{{--                                <swiper-slide>--}}
-{{--                                    <img src="https://swiperjs.com/demos/images/nature-7.jpg" />--}}
-{{--                                </swiper-slide>--}}
-{{--                                <swiper-slide>--}}
-{{--                                    <img src="https://swiperjs.com/demos/images/nature-8.jpg" />--}}
-{{--                                </swiper-slide>--}}
-{{--                                <swiper-slide>--}}
-{{--                                    <img src="https://swiperjs.com/demos/images/nature-9.jpg" />--}}
-{{--                                </swiper-slide>--}}
-{{--                                <swiper-slide>--}}
-{{--                                    <img src="https://swiperjs.com/demos/images/nature-10.jpg" />--}}
-{{--                                </swiper-slide>--}}
                             </swiper-container>
                             <style>
                                 swiper-container {
@@ -629,7 +569,11 @@
                                     <div class="thumbnail-item relative w-full">
                                         <div class="w-full h-[250px] max-md:h-auto relative flex items-center justify-center">
                                             <div class="img-product transition duration-200 ease-in-out hover:scale-105 md:h-[200px] md:w-[200px]">
-                                                <img src="https://cdn-v2.didongviet.vn/files/products/2024/3/16/1/1713264914921_20215292_6208434_02.jpg" width="600" height="600">
+                                                @foreach($item_related->images as $key => $image)
+                                                    @if($key == 0)
+                                                        <img src="{{ asset($image->path_image) }}" width="600" height="600">
+                                                    @endif
+                                                @endforeach
                                             </div>
                                         </div>
                                     </div>

@@ -61,7 +61,7 @@ class ProductController extends Controller
             $relatedCategoryIds = [];
         }
 
-        $related_products = Product::whereIn('category_id', $relatedCategoryIds)->where('id', '!=', $product->id)->get();
+        $related_products = Product::whereIn('category_id', $relatedCategoryIds)->where('id', '!=', $product->id)->take(5)->get();
 
         return view('pages.user.detailProduct', ['product' => $product, 'list_colors' => $list_colors, 'related_products'=>$related_products]);
     }
