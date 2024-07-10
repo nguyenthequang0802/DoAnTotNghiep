@@ -118,7 +118,12 @@
                                     <a href="{{ route('user.product_detail', $product->slug) }}" class="thumbnail-item relative w-full">
                                         <div class="w-full h-[250px] max-md:h-auto relative flex items-center justify-center">
                                             <div class="img-product transition duration-200 ease-in-out hover:scale-105 md:h-[200px] md:w-[200px]">
-                                                <img src="https://cdn-v2.didongviet.vn/files/products/2024/3/16/1/1713264914921_20215292_6208434_02.jpg" width="600" height="600">
+                                                @foreach($product->images as $key => $image)
+                                                    @if($key == 0)
+                                                        <img src="{{ asset($image->path_image) }}" width="600" height="600">
+                                                    @endif
+                                                @endforeach
+{{--                                                <img src="https://cdn-v2.didongviet.vn/files/products/2024/3/16/1/1713264914921_20215292_6208434_02.jpg" width="600" height="600">--}}
                                             </div>
                                         </div>
                                     </a>
