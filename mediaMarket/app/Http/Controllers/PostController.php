@@ -26,6 +26,8 @@ class PostController extends Controller
 
     public function show_post_detail($post_slug){
         $content_post = Post::where('slug', '=', $post_slug)->first();
+        $content_post['views'] += 1;
+        $content_post->save();
 
         $category = Category::find($content_post->category_id);
         $parentCategory = $category->parentCategory;
