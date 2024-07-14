@@ -50,6 +50,9 @@ class CheckoutController extends Controller
            $coupon->save();
        }
 
+       $order_total_price = (int)$data['order_total_price'];
+       $order_coupon_value =  (int)$data['order_coupon_value'];
+       $price_bill = $order_total_price - $order_coupon_value;
 
        $checkout_code = substr(md5(microtime()),rand(0,26),6);
        if ($data['paymentMethod'] == 'cod'){
@@ -112,7 +115,7 @@ class CheckoutController extends Controller
                $secretKey = 'at67qH6mk8w5Y1nAyMoYKMWACiEi2bsa';
 
                $orderInfo = "Thanh toán qua MoMo";
-               $amount = '10000';
+               $amount = $price_bill;
                $orderId = $checkout_code;
                $redirectUrl = "http://media.th/cam-on";
                $ipnUrl = "http://media.th/cam-on";
@@ -196,7 +199,7 @@ class CheckoutController extends Controller
            $vnp_TxnRef = $checkout_code; //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
             $vnp_OrderInfo = 'Noi dung thanh toan';
             $vnp_OrderType = 'billpayment';
-            $vnp_Amount = '10000' * 100;
+            $vnp_Amount = $price_bill * 100;
             $vnp_Locale = 'vn';
             $vnp_BankCode = 'NCB';
             $vnp_IpAddr = $_SERVER['REMOTE_ADDR'];
