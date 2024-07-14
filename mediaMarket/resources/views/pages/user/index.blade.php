@@ -80,7 +80,11 @@
                             <a href="{{ route('user.product_detail', $sale_product->slug) }}" class="thumbnail-item relative w-full">
                                 <div class="w-full h-[250px] max-md:h-auto relative flex items-center justify-center">
                                     <div class="img-product transition duration-200 ease-in-out hover:scale-105 md:h-[200px] md:w-[200px]">
-                                        <img src="https://cdn-v2.didongviet.vn/files/products/2024/3/16/1/1713264914921_20215292_6208434_02.jpg" width="600" height="600">
+                                        @foreach($sale_product->images as $key => $image)
+                                            @if($key == 0)
+                                                <img src="{{ asset($image->path_image) }}" width="600" height="600">
+                                            @endif
+                                        @endforeach
                                     </div>
                                 </div>
                             </a>
@@ -89,8 +93,8 @@
                             </a>
                             <div class="price-item flex w-full items-center justify-start px-2 py-2.5">
                                 <a href="{{ route('user.product_detail', $sale_product->slug) }}" class="w-full flex flex-col items-start justify-start">
-                                    <span class="price-sale text-left text-[16px] font-bold text-[#be1e2d]"><p class="price_format inline-block">{{ number_format($sale_product->price - $sale_product->price * $sale_product->promotion / 100) }}</p> VNĐ</span>
-                                    <span class="price text-left line-through text-sm text-[#666666]"><del class="price_format inline-block">{{ number_format($sale_product->price) }}</del> VNĐ</span>
+                                    <span class="price-sale text-left text-[16px] font-bold text-[#be1e2d]"><p class="inline-block">{{ number_format($sale_product->price - $sale_product->price * $sale_product->promotion / 100, 0, ',', '.') }}</p> VNĐ</span>
+                                    <span class="price text-left line-through text-sm text-[#666666]"><del class="inline-block">{{ number_format($sale_product->price, 0, ',', '.') }}</del> VNĐ</span>
                                 </a>
                                 <form>
                                     @csrf
@@ -137,7 +141,11 @@
                             <a href="{{ route('user.product_detail', $laptop->slug) }}" class="thumbnail-item relative w-full">
                                 <div class="w-full h-[250px] max-md:h-auto relative flex items-center justify-center">
                                     <div class="img-product transition duration-200 ease-in-out hover:scale-105 md:h-[200px] md:w-[200px]">
-                                        <img src="https://cdn-v2.didongviet.vn/files/products/2024/3/16/1/1713264914921_20215292_6208434_02.jpg" width="600" height="600">
+                                        @foreach($laptop->images as $key => $image)
+                                            @if($key == 0)
+                                                <img src="{{ asset($image->path_image) }}" width="600" height="600">
+                                            @endif
+                                        @endforeach
                                     </div>
                                 </div>
                             </a>
@@ -146,8 +154,12 @@
                             </a>
                             <div class="price-item flex w-full items-center justify-start px-2 py-2.5">
                                 <a href="{{ route('user.product_detail', $laptop->slug) }}" class="w-full flex flex-col items-start justify-start">
-                                    <span class="price-sale text-left text-[16px] font-bold text-[#be1e2d]"><p class="price_format inline-block">{{ number_format($laptop->price - $laptop->price * $laptop->promotion / 100) }}</p> VNĐ</span>
-                                    <span class="price text-left line-through text-sm text-[#666666]"><del class="price_format inline-block">{{ number_format($laptop->price) }}</del> VNĐ</span>
+                                    @if($laptop->promotion != 0)
+                                        <span class="price-sale text-left text-[16px] font-bold text-[#be1e2d]"><p class="inline-block">{{ number_format($laptop->price - $laptop->price * $laptop->promotion / 100, 0, ',', '.') }}</p> VNĐ</span>
+                                        <span class="price text-left line-through text-sm text-[#666666]"><del class="inline-block">{{ number_format($laptop->price, 0, ',', '.') }}</del> VNĐ</span>
+                                    @else
+                                        <span class="price-sale text-left text-[16px] font-bold text-[#be1e2d]"><p class="inline-block">{{ number_format($laptop->price, 0, ',', '.') }}</p> VNĐ</span>
+                                    @endif
                                 </a>
                                 <form>
                                     @csrf
@@ -194,7 +206,11 @@
                             <a href="{{ route('user.product_detail', $phone->slug) }}" class="thumbnail-item relative w-full">
                                 <div class="w-full h-[250px] max-md:h-auto relative flex items-center justify-center">
                                     <div class="img-product transition duration-200 ease-in-out hover:scale-105 md:h-[200px] md:w-[200px]">
-                                        <img src="https://cdn-v2.didongviet.vn/files/products/2024/3/16/1/1713264914921_20215292_6208434_02.jpg" width="600" height="600">
+                                        @foreach($phone->images as $key => $image)
+                                            @if($key == 0)
+                                                <img src="{{ asset($image->path_image) }}" width="600" height="600">
+                                            @endif
+                                        @endforeach
                                     </div>
                                 </div>
                             </a>
@@ -203,8 +219,12 @@
                             </a>
                             <div class="price-item flex w-full items-center justify-start px-2 py-2.5">
                                 <a href="{{ route('user.product_detail', $phone->slug) }}" class="w-full flex flex-col items-start justify-start">
-                                    <span class="price-sale text-left text-[16px] font-bold text-[#be1e2d]"><p class="price_format inline-block">{{ number_format($phone->price - $phone->price * $phone->promotion / 100) }}</p> VNĐ</span>
-                                    <span class="price text-left line-through text-sm text-[#666666]"><del class="price_format inline-block">{{ number_format($phone->price) }}</del> VNĐ</span>
+                                    @if($phone->promotion != 0)
+                                        <span class="price-sale text-left text-[16px] font-bold text-[#be1e2d]"><p class="inline-block">{{ number_format($phone->price - $phone->price * $phone->promotion / 100, 0, ',', '.') }}</p> VNĐ</span>
+                                        <span class="price text-left line-through text-sm text-[#666666]"><del class="inline-block">{{ number_format($phone->price, 0, ',', '.') }}</del> VNĐ</span>
+                                    @else
+                                        <span class="price-sale text-left text-[16px] font-bold text-[#be1e2d]"><p class="inline-block">{{ number_format($phone->price, 0, ',', '.') }}</p> VNĐ</span>
+                                    @endif
                                 </a>
                                 <form>
                                     @csrf
@@ -285,11 +305,11 @@
                                     <div class="flex gap-2.5 items-center max-xl:text-xs">
                                         <span class="flex gap-1 items-center text-gray-600">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="16" width="16"><path d="M464 256A208 208 0 1 1 48 256a208 208 0 1 1 416 0zM0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"/></svg>
-                                            <p>{{ $first_post->created_at->format('d-m-Y H:i') }}</p>
+                                            <p>{{ $post->created_at->format('d-m-Y H:i') }}</p>
                                         </span>
                                         <span class="flex gap-1 items-center text-gray-600">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" height="16" width="16"><path d="M288 80c-65.2 0-118.8 29.6-159.9 67.7C89.6 183.5 63 226 49.4 256c13.6 30 40.2 72.5 78.6 108.3C169.2 402.4 222.8 432 288 432s118.8-29.6 159.9-67.7C486.4 328.5 513 286 526.6 256c-13.6-30-40.2-72.5-78.6-108.3C406.8 109.6 353.2 80 288 80zM95.4 112.6C142.5 68.8 207.2 32 288 32s145.5 36.8 192.6 80.6c46.8 43.5 78.1 95.4 93 131.1c3.3 7.9 3.3 16.7 0 24.6c-14.9 35.7-46.2 87.7-93 131.1C433.5 443.2 368.8 480 288 480s-145.5-36.8-192.6-80.6C48.6 356 17.3 304 2.5 268.3c-3.3-7.9-3.3-16.7 0-24.6C17.3 208 48.6 156 95.4 112.6zM288 336c44.2 0 80-35.8 80-80s-35.8-80-80-80c-.7 0-1.3 0-2 0c1.3 5.1 2 10.5 2 16c0 35.3-28.7 64-64 64c-5.5 0-10.9-.7-16-2c0 .7 0 1.3 0 2c0 44.2 35.8 80 80 80zm0-208a128 128 0 1 1 0 256 128 128 0 1 1 0-256z"/></svg>
-                                            <p>{{ number_format($first_post->views) }} lượt xem</p>
+                                            <p>{{ number_format($post->views) }} lượt xem</p>
                                         </span>
                                     </div>
                                 </div>
