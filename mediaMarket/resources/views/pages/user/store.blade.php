@@ -11,11 +11,11 @@
                 </div>
                 <!-- Item 2 -->
                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                    <img src="{{ asset('storage/banner/store/store-4.png') }}" class="h-32 lg:h-72 absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                    <img src="{{ asset('storage/banner/store/store-3.jpg') }}" class="h-32 lg:h-72 absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                 </div>
                 <!-- Item 3 -->
                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                    <img src="{{ asset('storage/banner/store/store-9.jpg') }}" class="h-32 lg:h-72 absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                    <img src="{{ asset('storage/banner/store/store-8.png') }}" class="h-32 lg:h-72 absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                 </div>
             </div>
             <!-- Slider controls -->
@@ -132,8 +132,12 @@
                                     </a>
                                     <div class="price-item flex w-full items-center justify-start px-2 py-2.5">
                                         <a href="{{ route('user.product_detail', $product->slug) }}" class="w-full flex flex-col items-start justify-start">
-                                            <span class="price-sale text-left text-[16px] font-bold text-[#be1e2d]"><p class="inline-block">{{ number_format($product->price - $product->price * $product->promotion / 100, 0, ',', '.') }}</p> VNĐ</span>
-                                            <span class="price text-left line-through text-sm text-[#666666]"><del class="inline-block">{{ number_format($product->price, 0, ',', '.') }}</del> VNĐ</span>
+                                            @if($product->promotion != 0)
+                                                <span class="price-sale text-left text-[16px] font-bold text-[#be1e2d]"><p class="inline-block">{{ number_format($product->price - $product->price * $product->promotion / 100, 0, ',', '.') }}</p> VNĐ</span>
+                                                <span class="price text-left line-through text-sm text-[#666666]"><del class="inline-block">{{ number_format($product->price, 0, ',', '.') }}</del> VNĐ</span>
+                                            @else
+                                                <span class="price-sale text-left text-[16px] font-bold text-[#be1e2d]"><p class="inline-block">{{ number_format($product->price, 0, ',', '.') }}</p> VNĐ</span>
+                                            @endif
                                         </a>
                                         <form>
                                             @csrf

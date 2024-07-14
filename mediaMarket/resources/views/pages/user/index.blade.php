@@ -93,8 +93,8 @@
                             </a>
                             <div class="price-item flex w-full items-center justify-start px-2 py-2.5">
                                 <a href="{{ route('user.product_detail', $sale_product->slug) }}" class="w-full flex flex-col items-start justify-start">
-                                    <span class="price-sale text-left text-[16px] font-bold text-[#be1e2d]"><p class="price_format inline-block">{{ number_format($sale_product->price - $sale_product->price * $sale_product->promotion / 100) }}</p> VNĐ</span>
-                                    <span class="price text-left line-through text-sm text-[#666666]"><del class="price_format inline-block">{{ number_format($sale_product->price) }}</del> VNĐ</span>
+                                    <span class="price-sale text-left text-[16px] font-bold text-[#be1e2d]"><p class="inline-block">{{ number_format($sale_product->price - $sale_product->price * $sale_product->promotion / 100, 0, ',', '.') }}</p> VNĐ</span>
+                                    <span class="price text-left line-through text-sm text-[#666666]"><del class="inline-block">{{ number_format($sale_product->price, 0, ',', '.') }}</del> VNĐ</span>
                                 </a>
                                 <form>
                                     @csrf
@@ -154,8 +154,12 @@
                             </a>
                             <div class="price-item flex w-full items-center justify-start px-2 py-2.5">
                                 <a href="{{ route('user.product_detail', $laptop->slug) }}" class="w-full flex flex-col items-start justify-start">
-                                    <span class="price-sale text-left text-[16px] font-bold text-[#be1e2d]"><p class="price_format inline-block">{{ number_format($laptop->price - $laptop->price * $laptop->promotion / 100) }}</p> VNĐ</span>
-                                    <span class="price text-left line-through text-sm text-[#666666]"><del class="price_format inline-block">{{ number_format($laptop->price) }}</del> VNĐ</span>
+                                    @if($laptop->promotion != 0)
+                                        <span class="price-sale text-left text-[16px] font-bold text-[#be1e2d]"><p class="inline-block">{{ number_format($laptop->price - $laptop->price * $laptop->promotion / 100, 0, ',', '.') }}</p> VNĐ</span>
+                                        <span class="price text-left line-through text-sm text-[#666666]"><del class="inline-block">{{ number_format($laptop->price, 0, ',', '.') }}</del> VNĐ</span>
+                                    @else
+                                        <span class="price-sale text-left text-[16px] font-bold text-[#be1e2d]"><p class="inline-block">{{ number_format($laptop->price, 0, ',', '.') }}</p> VNĐ</span>
+                                    @endif
                                 </a>
                                 <form>
                                     @csrf
@@ -215,8 +219,12 @@
                             </a>
                             <div class="price-item flex w-full items-center justify-start px-2 py-2.5">
                                 <a href="{{ route('user.product_detail', $phone->slug) }}" class="w-full flex flex-col items-start justify-start">
-                                    <span class="price-sale text-left text-[16px] font-bold text-[#be1e2d]"><p class="price_format inline-block">{{ number_format($phone->price - $phone->price * $phone->promotion / 100) }}</p> VNĐ</span>
-                                    <span class="price text-left line-through text-sm text-[#666666]"><del class="price_format inline-block">{{ number_format($phone->price) }}</del> VNĐ</span>
+                                    @if($phone->promotion != 0)
+                                        <span class="price-sale text-left text-[16px] font-bold text-[#be1e2d]"><p class="inline-block">{{ number_format($phone->price - $phone->price * $phone->promotion / 100, 0, ',', '.') }}</p> VNĐ</span>
+                                        <span class="price text-left line-through text-sm text-[#666666]"><del class="inline-block">{{ number_format($phone->price, 0, ',', '.') }}</del> VNĐ</span>
+                                    @else
+                                        <span class="price-sale text-left text-[16px] font-bold text-[#be1e2d]"><p class="inline-block">{{ number_format($phone->price, 0, ',', '.') }}</p> VNĐ</span>
+                                    @endif
                                 </a>
                                 <form>
                                     @csrf

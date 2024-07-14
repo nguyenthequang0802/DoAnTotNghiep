@@ -167,24 +167,24 @@
                     <div class="relative w-full flex-col justify-start">
                         <h1 class="name-product text-xl font-bold max-md:text-base mb-2.5">{{ $product->name }}</h1>
 
-                        <div class="flex items-center">
-                            <svg class="w-4 h-4 text-yellow-300 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-                            </svg>
-                            <svg class="w-4 h-4 text-yellow-300 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-                            </svg>
-                            <svg class="w-4 h-4 text-yellow-300 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-                            </svg>
-                            <svg class="w-4 h-4 text-yellow-300 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-                            </svg>
-                            <svg class="w-4 h-4 text-gray-300 me-1 dark:text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-                            </svg>
-                            <p class="ms-1 text-sm font-medium text-gray-500 dark:text-gray-400">1 đánh giá</p>
-                        </div>
+{{--                        <div class="flex items-center">--}}
+{{--                            <svg class="w-4 h-4 text-yellow-300 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">--}}
+{{--                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>--}}
+{{--                            </svg>--}}
+{{--                            <svg class="w-4 h-4 text-yellow-300 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">--}}
+{{--                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>--}}
+{{--                            </svg>--}}
+{{--                            <svg class="w-4 h-4 text-yellow-300 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">--}}
+{{--                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>--}}
+{{--                            </svg>--}}
+{{--                            <svg class="w-4 h-4 text-yellow-300 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">--}}
+{{--                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>--}}
+{{--                            </svg>--}}
+{{--                            <svg class="w-4 h-4 text-gray-300 me-1 dark:text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">--}}
+{{--                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>--}}
+{{--                            </svg>--}}
+{{--                            <p class="ms-1 text-sm font-medium text-gray-500 dark:text-gray-400">1 đánh giá</p>--}}
+{{--                        </div>--}}
 
                         <div class="price-product-mobile flex items-baseline max-md:flex-col md:hidden">
                             @if($product->promotion != 0)
@@ -195,31 +195,31 @@
                             @endif
                         </div>
 
-                        <div class="list-memory my-2 grid grid-cols-4 gap-4 max-md:grid-cols-3 max-md:gap-2">
-                            <a class="" title="">
-                                <div>
-                                    <div class="items-center cursor-pointer border relative flex justify-center rounded-lg border-[#be1e2d] hover:border-[#be1e2d] w-full h-11">
-                                        <p class="font-bold text-[#be1e2d] text-center text-xs">256GB</p>
-                                        <div class="checked-product"></div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a class="" title="">
-                                <div>
-                                    <div class="items-center cursor-pointer border relative flex justify-center rounded-lg  hover:border-[#be1e2d] w-full h-11">
-                                        <p class="text-center text-xs">512GB</p>
+{{--                        <div class="list-memory my-2 grid grid-cols-4 gap-4 max-md:grid-cols-3 max-md:gap-2">--}}
+{{--                            <a class="" title="">--}}
+{{--                                <div>--}}
+{{--                                    <div class="items-center cursor-pointer border relative flex justify-center rounded-lg border-[#be1e2d] hover:border-[#be1e2d] w-full h-11">--}}
+{{--                                        <p class="font-bold text-[#be1e2d] text-center text-xs">256GB</p>--}}
+{{--                                        <div class="checked-product"></div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </a>--}}
+{{--                            <a class="" title="">--}}
+{{--                                <div>--}}
+{{--                                    <div class="items-center cursor-pointer border relative flex justify-center rounded-lg  hover:border-[#be1e2d] w-full h-11">--}}
+{{--                                        <p class="text-center text-xs">512GB</p>--}}
 
-                                    </div>
-                                </div>
-                            </a>
-                            <a class="" title="">
-                                <div>
-                                    <div class="items-center cursor-pointer border relative flex justify-center rounded-lg hover:border-[#be1e2d] w-full h-11">
-                                        <p class="text-center text-xs">1TB</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </a>--}}
+{{--                            <a class="" title="">--}}
+{{--                                <div>--}}
+{{--                                    <div class="items-center cursor-pointer border relative flex justify-center rounded-lg hover:border-[#be1e2d] w-full h-11">--}}
+{{--                                        <p class="text-center text-xs">1TB</p>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </a>--}}
+{{--                        </div>--}}
                         <p class="text-[#808a94] text-sm">Chọn màu để xem giá chi tiết:</p>
                         <div class="list-color my-2 grid grid-cols-4 gap-4 max-md:grid-cols-3 max-md:gap-2">
                             @foreach($list_colors as $item_color)
@@ -262,7 +262,6 @@
                                     <span class="pl-2 text-sm font-normal text-black line-through max-md:pl-0"><del class="price_format inline-block">{{ number_format($product->price) }}</del> VNĐ</span>
                                 @else
                                     <span class="price-sale text-4xl font-bold text-[#be1e2d]"><p class="price_format inline-block">{{ number_format($product->price) }}</p> VNĐ</span>
-
                                 @endif
 
                             </div>
@@ -563,30 +562,39 @@
                             <div class="product-item col-span-1">
                                 <div class="card-item bg-white flex pt-2.5 px-2.5 pb-3.5 border-2 h-full flex-col items-center justify-start rounded border-[#f0f0f0] hover:border-white hover:drop-shadow-xl max-md:border-0 cursor-pointer">
                                     <div class="discourd-item pb-2 h-8 flex w-full items-center justify-start">
-                                        <p class="border-2 m-1 items-center whitespace-nowrap rounded border-[#be1e2d] bg-[#be1e2d] px-2 py-1 text-xs text-white max-md:text-[10px]">Giảm {{$item_related->promotion}}%</p>
-                                        <p class="border-2 m-1 items-center whitespace-nowrap rounded border-[#be1e2d] bg-white px-2 py-1 text-xs text-[#be1e2d] max-md:text-[10px]">Trả góp 0%</p>
+                                        <a href="{{ route('user.product_detail', $item_related->slug) }}">
+                                            <p class="border-2 m-1 items-center whitespace-nowrap rounded border-[#be1e2d] bg-[#be1e2d] px-2 py-1 text-xs text-white max-md:text-[10px]">Giảm {{$item_related->promotion}}%</p>
+                                            <p class="border-2 m-1 items-center whitespace-nowrap rounded border-[#be1e2d] bg-white px-2 py-1 text-xs text-[#be1e2d] max-md:text-[10px]">Trả góp 0%</p>
+                                        </a>
+
                                     </div>
                                     <div class="thumbnail-item relative w-full">
                                         <div class="w-full h-[250px] max-md:h-auto relative flex items-center justify-center">
                                             <div class="img-product transition duration-200 ease-in-out hover:scale-105 md:h-[200px] md:w-[200px]">
-                                                @foreach($item_related->images as $key => $image)
-                                                    @if($key == 0)
-                                                        <img src="{{ asset($image->path_image) }}" width="600" height="600">
-                                                    @endif
-                                                @endforeach
+                                                <a href="{{ route('user.product_detail', $item_related->slug) }}">
+                                                    @foreach($item_related->images as $key => $image)
+                                                        @if($key == 0)
+                                                            <img src="{{ asset($image->path_image) }}" width="600" height="600">
+                                                        @endif
+                                                    @endforeach
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
-                                    <h3 class="name-item w-full px-2 py-2.5 text-left text-sm max-md:text-[13px] font-bold text-black">{{ $item_related->name }}</h3>
+                                    <a href="{{ route('user.product_detail', $item_related->slug) }}">
+                                        <h3 class="name-item w-full px-2 py-2.5 text-left text-sm max-md:text-[13px] font-bold text-black">{{ $item_related->name }}</h3>
+                                    </a>
                                     <div class="price-item flex w-full items-center justify-start px-2 py-2.5">
                                         <div class="w-full flex flex-col items-start justify-start">
-                                            @if($item_related->promotion != 0)
-                                                <span class="price-sale text-left text-[16px] font-bold text-[#be1e2d]"><p class="price_format inline-block">{{ number_format($item_related->price - $item_related->price * $item_related->promotion / 100) }}</p> VNĐ</span>
-                                                <span class="text-sm font-normal text-black line-through max-md:pl-0"><del class="price_format inline-block">{{ number_format($item_related->price) }}</del> VNĐ</span>
-                                            @else
-                                                <span class="price-sale text-left text-[16px] font-bold text-[#be1e2d]"><p class="price_format inline-block">{{ number_format($item_related->price) }}</p> VNĐ</span>
+                                            <a href="{{ route('user.product_detail', $item_related->slug) }}">
+                                                @if($item_related->promotion != 0)
+                                                    <span class="price-sale text-left text-[16px] font-bold text-[#be1e2d]"><p class="price_format inline-block">{{ number_format($item_related->price - $item_related->price * $item_related->promotion / 100) }}</p> VNĐ</span>
+                                                    <span class="text-sm font-normal text-black line-through max-md:pl-0"><del class="price_format inline-block">{{ number_format($item_related->price) }}</del> VNĐ</span>
+                                                @else
+                                                    <span class="price-sale text-left text-[16px] font-bold text-[#be1e2d]"><p class="price_format inline-block">{{ number_format($item_related->price) }}</p> VNĐ</span>
 
-                                            @endif
+                                                @endif
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
