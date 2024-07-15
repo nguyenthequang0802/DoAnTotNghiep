@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\OrderExport;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\OrderDetail;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 use PDF;
 
 class OrderController extends Controller
@@ -126,5 +128,8 @@ class OrderController extends Controller
             });
         }
         return response()->json($results, 200);
+    }
+    public function export_csv(Request $request){
+        return Excel::download(new OrderExport(), 'order.xlsx');
     }
 }

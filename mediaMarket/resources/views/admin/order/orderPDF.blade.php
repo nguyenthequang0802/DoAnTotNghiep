@@ -15,12 +15,12 @@
 </head>
 <body>
     <div style="margin: 16px 0px;">
-        <h2 style="text-align: center; margin-bottom: 8px; text-transform: uppercase">Cửa hàng công nghệ Media Market</h2>
+        <h2 style="text-align: center; margin-bottom: 8px; text-transform: uppercase; font-weight: 700; font-size: 25px">Cửa hàng công nghệ Media Market</h2>
         <div style="text-align: center">
             <span><strong>Địa chỉ:</strong> An Khánh, Hoài Đức, Hà Nội - </span>
             <span><strong>Điện thoại:</strong> 1900 2222</span>
         </div>
-        <div style="text-align: center; margin: 16px 0px">
+        <div style="text-align: center; margin: 16px 0px; font-weight: 700">
             <h3>Hóa đơn bán hàng</h3>
         </div>
         <div class="">
@@ -125,7 +125,7 @@
 
             </div>
             <div class="mb-4" style="margin-bottom: 16px">
-                <span class="inline-block"><strong>Ghi chú:</strong> ABCDDDĐ</span>
+                <span class="inline-block"><strong>Ghi chú:</strong>&nbsp;{{ $order->shipping->shipping_note }}</span>
             </div>
             <div class="text-center" style="text-align: center">
                 <span class="inline-block font-bold text-xl" style="font-weight: 700; font-size: 18px;">Media Market xin cảm ơn quý khách!</span>
