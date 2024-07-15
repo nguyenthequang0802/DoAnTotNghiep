@@ -108,6 +108,7 @@ Route::namespace('admin')->group(function () {
             Route::post('/update-orderitem-qty', [OrderController::class, 'update_order_qty'])->name("admin.order.update_qty");
             Route::get('/print-order/{checkout_code}', [OrderController::class, 'print_order'])->name("admin.order.print_order");
             Route::post('/search', [OrderController::class, 'search'])->name("admin.order.search");
+            Route::post('/export-csv', [OrderController::class, 'export_csv'])->name("admin.order.export_csv");
         });
     });
 });
