@@ -38,7 +38,7 @@
                                 <a href="{{ route('password.request') }}" class="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">Forgot password?</a>
                             @endif
                         </div>
-                        <button type="submit" class="w-full text-white bg-[#0a6e5f] focus:ring-4 focus:outline-none focus:ring-[#be1e2b] font-medium rounded-lg text-sm px-5 py-2.5 text-center">Sign in</button>
+                        <button type="submit" class="w-full text-white bg-[#0a6e5f] focus:ring-4 focus:outline-none focus:ring-[#0a6e5f] font-medium rounded-lg text-sm px-5 py-2.5 text-center">Sign in</button>
 {{--                        <p class="text-sm font-light text-gray-500 dark:text-gray-400">--}}
 {{--                            Don’t have an account yet? <a href="{{ route('admin.register.form') }}" class="font-medium text-primary-600 hover:underline dark:text-primary-500">Sign up</a>--}}
 {{--                        </p>--}}
