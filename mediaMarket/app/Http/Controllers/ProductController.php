@@ -70,20 +70,25 @@ class ProductController extends Controller
 
         if ($input_search != ""){
             $query = "";
-//            for ($i=0; $i<strlen($input_search); $i++){
-//                $query = $query.'%'.$input_search[$i];
-//            }
             $query = '%' . str_replace(' ', '%', $input_search) . '%';
 
-            $results = Product::where('name', 'like', $query.'%')->with('images')->get();
-            $results->transform(function($product) {
-                $firstImage = $product->images->first(); // Get the first image
-                $product->first_image_path = $firstImage ? $firstImage->path_image : null; // Add only the path_image
-                unset($product->images); // Optionally remove the images collection if you don't need it
-                return $product;
+            $products = Product::where('name', 'like', $query.'%')->with('images')->get();
+            $results = $products->map(function($product) {
+                return [
+                    'id' => $product->id,
+                    'name' => $product->name,
+                    'preview_image' => $product->images->isNotEmpty() ? $product->images->first()->path_image : null,
+                    'brand_name' => $product->brand->name,
+                    'color' => $product->color,
+                    'quantity' => $product->quantity,
+                    'status' => $product->status,
+                    'promotion' => $product->promotion,
+                    'price' => $product->price
+                ];
             });
+        }else{
+            $results = [];
         }
-
         return response()->json($results, 200);
     }
 }
