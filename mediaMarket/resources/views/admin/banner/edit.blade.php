@@ -5,7 +5,7 @@
             <a href="{{ route('admin.banner.index') }}" style="color: #3b82f6">
                 <span class="font-normal">< <p class="inline underline">Quay Lại</p></span>
             </a>
-            <h2 class="my-4 text-xl font-bold text-gray-900 dark:text-white">Thêm mới banner</h2>
+            <h2 class="my-4 text-xl font-bold text-gray-900 dark:text-white">Sửa thông tin banner</h2>
             <form action="{{ route('admin.banner.update', $item->id) }}" method="POST">
                 @csrf
                 <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">

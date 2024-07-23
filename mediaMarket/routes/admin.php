@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CouponController;
+use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\OrderController;
@@ -109,6 +110,13 @@ Route::namespace('admin')->group(function () {
             Route::get('/print-order/{checkout_code}', [OrderController::class, 'print_order'])->name("admin.order.print_order");
             Route::post('/search', [OrderController::class, 'search'])->name("admin.order.search");
             Route::post('/export-csv', [OrderController::class, 'export_csv'])->name("admin.order.export_csv");
+        });
+        Route::group(['prefix' => 'customer'], function () {
+            Route::get('/', [CustomerController::class, 'index'])->name("admin.customer.index");
+            Route::get('/edit/{id}', [CustomerController::class, 'edit'])->name("admin.customer.edit");
+            Route::post('/edit/{id}', [CustomerController::class, 'update'])->name("admin.customer.update");
+            Route::get('/delete/{id}', [CustomerController::class, 'destroy'])->name("admin.customer.destroy");
+            Route::post('/search-customer', [CustomerController::class, 'search'])->name("admin.customer.search");
         });
     });
 });
