@@ -3,9 +3,8 @@
     <section class="py-3 sm:py-5">
         <div class="px-4">
             <div class="bg-white  dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden p-4 grid grid-cols-2 lg:grid-cols-4 gap-4 items-center">
-                <button class="flex items-center gap-3 p-6 border border-gray-200 shadow dark:bg-gray-800 dark:border-gray-700 text-gray-800 bg-white hover:bg-gray-100 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-8 py-5">
+                <button class="button-dashboard flex items-center gap-3 p-6 border border-gray-200 shadow dark:bg-gray-800 dark:border-gray-700 text-gray-800 bg-white hover:bg-gray-100 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-8 py-5">
                     <div class="h-10 w-10 rounded-lg bg-orange-200 flex items-center justify-center">
-{{--                        <i class="fa-regular fa-user text-lg text-purple-700"></i>--}}
                         <svg class="w-[32px] h-[32px] text-orange-400 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                             <path stroke="currentColor" stroke-width="2" d="M7 17v1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1a3 3 0 0 0-3-3h-4a3 3 0 0 0-3 3Zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
                         </svg>
@@ -17,7 +16,7 @@
                         <div class="p-2.5"></div>
                     </div>
                 </button>
-                <button class="flex items-center gap-3 p-6 border border-gray-200 shadow text-gray-800 bg-white hover:bg-gray-100 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-8 py-5">
+                <button class="flex items-center gap-3 p-6 border border-gray-200 shadow text-gray-800 bg-white hover:bg-gray-100 focus:ring-4 focus:ring-blue-300  font-medium rounded-lg text-sm px-8 py-5">
                     <div class="h-10 w-10 rounded-lg bg-blue-200 flex items-center justify-center">
                         <svg class="w-[32px] h-[32px] text-blue-500 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 13h3.439a.991.991 0 0 1 .908.6 3.978 3.978 0 0 0 7.306 0 .99.99 0 0 1 .908-.6H20M4 13v6a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-6M4 13l2-9h12l2 9M9 7h6m-7 3h8"/>
@@ -121,4 +120,44 @@
             </div>
         </div>
     </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        {{--$('.button-dashboard').on('click', function (e){--}}
+        {{--    e.preventDefault();--}}
+        {{--    let name = 'test123';--}}
+        {{--    let slug = 'test123';--}}
+        {{--    let description = 'test description';--}}
+        {{--    let brand = '5';--}}
+        {{--    let category = '36';--}}
+        {{--    let color = 'red';--}}
+        {{--    let qty = '3';--}}
+        {{--    let price = '100000';--}}
+        {{--    let promotion = '12';--}}
+        {{--    let status = '1';--}}
+        {{--    let info_product = 'test'--}}
+        {{--    let _token = $('input[name="_token"]').val();--}}
+
+        {{--    $.ajax({--}}
+        {{--        url: '{{ route("admin.product.store") }}',--}}
+        {{--        method: 'POST',--}}
+        {{--        data: {--}}
+        {{--            name: name,--}}
+        {{--            slug: slug,--}}
+        {{--            description: description,--}}
+        {{--            brand: brand,--}}
+        {{--            category: category,--}}
+        {{--            color: color,--}}
+        {{--            qty: qty,--}}
+        {{--            price: price,--}}
+        {{--            promotion: promotion,--}}
+        {{--            status: status,--}}
+        {{--            info_product: info_product,--}}
+        {{--            _token: _token,--}}
+        {{--        },--}}
+        {{--        success: function(response){--}}
+        {{--            alert('Thêm thành công');--}}
+        {{--        }--}}
+        {{--    })--}}
+        {{--})--}}
+    </script>
 @endsection
