@@ -20,7 +20,7 @@
             </a>
         </div>
         <div class="content-mail">
-            <h2 style="text-align: center; color: red">Giảm giá {{ number_format($coupon['value'], 0,',', '.') }}đ cho hóa đơn mua hàng trên 1.000.000 đ</h2>
+            <h2 style="text-align: center; color: red">Giảm giá {{ number_format($coupon['value'], 0,',', '.') }}đ cho các hóa đơn mua hàng</h2>
             <span style="text-align: center;">
                 Nhận dịp <p style="font-size: 15px; font-weight: 600">{{ $coupon['name']}}</p>, tri nhân và cảm ơn quý khách hàng đã sử dụng dịch vụ và mua hàng tại Media Market, Media Market xin gửi tặng quý khách hàng voucher giảm giá.
                 Quý khách sử dụng tài khoản mua hàng vào nhập mã phía dưới đ được giảm giá khi mua hàng.
