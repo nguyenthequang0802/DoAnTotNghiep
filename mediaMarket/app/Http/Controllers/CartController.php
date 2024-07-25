@@ -97,7 +97,14 @@ class CartController extends Controller
         $data = $request->all();
         $today = Carbon::now('Asia/Ho_Chi_Minh')->format('Y-m-d');
         $coupon = Coupon::where('code', '=', $data['coupon_code'])->where('end_date', '>=', $today)->first();
-        if ($coupon){
+
+        $total_goods = 0;
+        foreach (Session::get('cart') as $key => $item_cart){
+            $discountedPrice = $item_cart['product_price'] - ($item_cart['product_price'] * $item_cart['product_promotion'] / 100);
+            $into_money = $item_cart['product_quantity'] * $discountedPrice;
+            $total_goods += $into_money;
+        }
+        if ($coupon && $total_goods > 1000000){
             $count_coupon = $coupon->count();
             if ($count_coupon > 0){
                 $coupon_session = Session::get('coupon');

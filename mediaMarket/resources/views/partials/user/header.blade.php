@@ -116,7 +116,7 @@
                                                 <div class="search-result_empty p-[20px] text-center text-[#333e48] hover:text-[#0a6e5f]">Không có sản phầm bạn đang tìm kiếm.</div>
                                             </div>
                                         </div>
-                                        <button class="btn-search-view_all w-full px-[14px] py-[10px] text-center cursor-pointer rounded-b-[10px] text-[14px] font-bold text-white hover:text-white bg-[#0a6e5f] hover:bg-[#333e48] border-2 border-solid border-[#0a6e5f] hover:border-[#333e48]">View All</button>
+{{--                                        <button class="btn-search-view_all w-full px-[14px] py-[10px] text-center cursor-pointer rounded-b-[10px] text-[14px] font-bold text-white hover:text-white bg-[#0a6e5f] hover:bg-[#333e48] border-2 border-solid border-[#0a6e5f] hover:border-[#333e48]">View All</button>--}}
                                     </div>
                                 </div>
                             </div>
@@ -184,7 +184,7 @@
                                                                 </span>
                                                             <div class="cart-line-item_price flex items-center justify-between">
                                                                 <span class="value_price block text-[#343f49] text-md font-bold">{{ number_format($discountedPrice, 0, ',', '.') }} VNĐ</span>
-                                                                <a href="{{ route('user.delete_cart_product', $item_cart['session_id']) }}" class="btn-remove text-[#086479] text-sm underline transform-none text-start p-0 ms-[5px] font-bold">Remove</a>
+                                                                <a href="{{ route('user.delete_cart_product', $item_cart['session_id']) }}" class="btn-remove text-[#086479] text-sm underline transform-none text-start p-0 ms-[5px] font-bold">Xóa</a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -199,8 +199,8 @@
                                             <div class="cart-total_price text-xl font-bold text-[#343f49]">{{ number_format($total_goods, 0, ',', '.') }} VNĐ</div>
                                         </div>
                                         <div class="cart-btn flex items-center justify-between border-t border-solid border-[#dddddd] mt-4">
-                                            <a href="{{ route('user.showCart') }}" class="btn-review-cart mt-4 p-[10px] text-center font-bold text-[#333e48] text-sm bg-[#e6e6e6] border border-solid border-[#e6e6e6] rounded-full hover:bg-[#0a6e5f] hover:text-white" style="width: calc(50% - 7px)">View cart</a>
-                                            <a href="{{ route('user.check-out') }}" class="btn-checkout mt-4 text-center font-bold p-[10px] text-white text-sm bg-[#0a6e5f] border border-solid border-[#0a6e5f] rounded-full hover:bg-[#333e48] hover:text-[#ffffff] hover:border-[#333e48]" style="width: calc(50% - 7px)">Check out</a>
+                                            <a href="{{ route('user.showCart') }}" class="btn-review-cart mt-4 p-[10px] text-center font-bold text-[#333e48] text-sm bg-[#e6e6e6] border border-solid border-[#e6e6e6] rounded-full hover:bg-[#0a6e5f] hover:text-white" style="width: calc(50% - 7px)">Giỏ hàng</a>
+                                            <a href="{{ route('user.check-out') }}" class="btn-checkout mt-4 text-center font-bold p-[10px] text-white text-sm bg-[#0a6e5f] border border-solid border-[#0a6e5f] rounded-full hover:bg-[#333e48] hover:text-[#ffffff] hover:border-[#333e48]" style="width: calc(50% - 7px)">Đặt hàng</a>
                                         </div>
                                     </footer>
                                 </div>

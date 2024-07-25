@@ -52,7 +52,7 @@ class CheckoutController extends Controller
 
        $order_total_price = (int)$data['order_total_price'];
        $order_coupon_value =  (int)$data['order_coupon_value'];
-       $price_bill = $order_total_price - $order_coupon_value;
+       $price_bill = ($order_total_price + $order_total_price * 10 / 100) - $order_coupon_value;
 
        $checkout_code = substr(md5(microtime()),rand(0,26),6);
        if ($data['paymentMethod'] == 'cod'){
@@ -61,7 +61,7 @@ class CheckoutController extends Controller
            $order['user_id'] = Auth::user()->id;
            $order['shipping_id'] = $shipping_id;
            $order['order_status'] = 0;
-           $order['order_total'] = (int)$data['order_total_price'];
+           $order['order_total'] = $price_bill;
            $order['order_code_coupon'] = $data['order_coupon'];
            $order['order_code_value'] = (int)$data['order_coupon_value'];
            $order['order_payment_method'] = $data['paymentMethod'];
