@@ -182,7 +182,7 @@
                         </div>
                         <div class="flex items-center justify-between py-2">
                             <p class="text-sm">Thuế VAT:</p>
-                            <p class="text-sm font-bold">0%</p>
+                            <p class="text-sm font-bold">10%</p>
                         </div>
                         <div class="flex items-center justify-between py-2">
                             <p class="text-sm">Phí vận chuyển:</p>
@@ -227,7 +227,7 @@
                         <div class="h-px w-full bg-[#bfc4c9] my-3"></div>
                         <div class="flex items-center justify-between py-2">
                             <p class="text-lg font-bold">Tổng cộng:</p>
-                            <p class="text-sm font-bold text-[#be1e2d]">{{ number_format($total_goods - $coupon_value, 0, ',', '.') }} VNĐ</p>
+                            <p class="text-sm font-bold text-[#be1e2d]">{{ number_format(($total_goods + $total_goods * 10 / 100) - $coupon_value, 0, ',', '.') }} VNĐ</p>
                         </div>
                         @if(Session::get('cart') == true)
                             <div class="w-full">
@@ -253,7 +253,7 @@
                     </div>
                     <div class="flex items-center justify-between py-2">
                         <p class="text-sm">Thuế VAT:</p>
-                        <p class="text-sm font-bold">0%</p>
+                        <p class="text-sm font-bold">10%</p>
                     </div>
                     <div class="flex items-center justify-between py-2">
                         <p class="text-sm">Phí vận chuyển:</p>
@@ -290,7 +290,7 @@
                     <div class="h-px w-full bg-[#bfc4c9] my-3"></div>
                     <div class="flex items-center justify-between py-2">
                         <p class="text-lg font-bold">Tổng cộng:</p>
-                        <p class="text-sm font-bold text-[#be1e2d]">{{ number_format($total_goods - $coupon_value, 0, ',', '.') }} VNĐ</p>
+                        <p class="text-sm font-bold text-[#be1e2d]">{{ number_format(($total_goods + $total_goods * 10 / 100) - $coupon_value, 0, ',', '.') }} VNĐ</p>
                     </div>
                     @if(Session::get('cart') == true)
                         <div class="w-full">

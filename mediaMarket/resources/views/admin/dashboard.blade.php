@@ -30,14 +30,17 @@
                 </button>
                 <button class="flex items-center gap-3 p-6 border border-gray-200 shadow text-gray-800 bg-white hover:bg-gray-100 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-8 py-5">
                     <div class="h-10 w-10 rounded-lg bg-green-200 flex items-center justify-center">
+{{--                        <svg class="w-[32px] h-[32px] text-green-500 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">--}}
+{{--                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.583 8.445h.01M10.86 19.71l-6.573-6.63a.993.993 0 0 1 0-1.4l7.329-7.394A.98.98 0 0 1 12.31 4l5.734.007A1.968 1.968 0 0 1 20 5.983v5.5a.992.992 0 0 1-.316.727l-7.44 7.5a.974.974 0 0 1-1.384.001Z"/>--}}
+{{--                        </svg>--}}
                         <svg class="w-[32px] h-[32px] text-green-500 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.583 8.445h.01M10.86 19.71l-6.573-6.63a.993.993 0 0 1 0-1.4l7.329-7.394A.98.98 0 0 1 12.31 4l5.734.007A1.968 1.968 0 0 1 20 5.983v5.5a.992.992 0 0 1-.316.727l-7.44 7.5a.974.974 0 0 1-1.384.001Z"/>
+                            <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M8 7V6a1 1 0 0 1 1-1h11a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-1M3 18v-7a1 1 0 0 1 1-1h11a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1Zm8-3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z"/>
                         </svg>
 
                     </div>
                     <div class="flex flex-col">
-                        <span class="w-full text-lg">Nhãn hiệu</span>
-                        <span class="w-full text-left text-lg">{{number_format($number_brands, 0, ',', '.')}}</span>
+                        <span class="w-full text-left text-lg">Doanh thu</span>
+                        <span class="w-full text-left text-lg">{{number_format($total_income, 0, ',', '.')}} đ</span>
                         <div class="p-2.5"></div>
                     </div>
                 </button>
